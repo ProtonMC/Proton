@@ -1,11 +1,12 @@
 package io.github.hydos.proton.module;
 
-public abstract class Module {
-    public final String name;
-    public final String id;
+import net.minecraft.util.Identifier;
 
-    public Module(String name, String id){
-        this.name = name;
+public abstract class Module {
+
+    public final Identifier id;
+
+    public Module(Identifier id){
         this.id = id;
     }
 
