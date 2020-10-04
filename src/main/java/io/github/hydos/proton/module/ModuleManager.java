@@ -3,9 +3,9 @@ package io.github.hydos.proton.module;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModuleHandler {
+public class ModuleManager {
 
-    public static final ModuleHandler INSTANCE = new ModuleHandler();
+    public static final ModuleManager INSTANCE = new ModuleManager();
 
     private final List<Module> modules = new ArrayList<>();
 

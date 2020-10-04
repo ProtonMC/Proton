@@ -1,7 +1,7 @@
 package io.github.hydos.proton.client;
 
 import io.github.hydos.proton.Proton;
-import io.github.hydos.proton.module.ModuleHandler;
+import io.github.hydos.proton.module.ModuleManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -22,7 +22,7 @@ public class ProtonClient implements ClientModInitializer {
             doWeNeedJingleBells = true;
 
         Proton.LOGGER.log(Level.INFO, "Setting Up Client-Side Modules...");
-        ModuleHandler.INSTANCE.setupClientModules();
+        ModuleManager.INSTANCE.setupClientModules();
         Proton.LOGGER.log(Level.INFO, "Finished Setting Up Client-Side Modules.");
     }
 }

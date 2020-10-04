@@ -1,6 +1,6 @@
 package io.github.hydos.proton;
 
-import io.github.hydos.proton.module.ModuleHandler;
+import io.github.hydos.proton.module.ModuleManager;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -30,7 +30,7 @@ public class Proton implements ModInitializer {
         LOGGER.log(Level.INFO, "Sound Initialisation Done.");
 
         LOGGER.log(Level.INFO, "Setting Up Modules...");
-        ModuleHandler.INSTANCE.setupCommonModules();
+        ModuleManager.INSTANCE.setupCommonModules();
         LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
 
         //TODO events
