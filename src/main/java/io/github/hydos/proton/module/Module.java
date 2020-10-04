@@ -1,6 +1,5 @@
 package io.github.hydos.proton.module;
 
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public abstract class Module {
