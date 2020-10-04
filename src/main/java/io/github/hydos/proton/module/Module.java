@@ -1,13 +1,14 @@
 package io.github.hydos.proton.module;
 
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public abstract class Module {
 
     public final Identifier id;
-    public final String name;
+    public final Text name;
 
-    public Module(String name, Identifier id){
+    public Module(Text name, Identifier id) {
         this.name = name;
         this.id = id;
     }
