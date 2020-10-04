@@ -12,7 +12,7 @@ public class ProtonDedicatedServer implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
         Proton.LOGGER.log(Level.INFO, "Setting Up Server-Side Modules...");
-        ModuleManager.INSTANCE.setupServerModules();
+        ModuleManager.getInstance().setupServerModules();
         Proton.LOGGER.log(Level.INFO, "Finished Setting Up Server-Side Modules.");
     }
 }

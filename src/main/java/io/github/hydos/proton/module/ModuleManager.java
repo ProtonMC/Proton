@@ -1,11 +1,19 @@
 package io.github.hydos.proton.module;
 
+import io.github.hydos.proton.Proton;
+import io.github.lukehutch.fastclasspathscanner.FastClasspathScanner;
+import io.github.lukehutch.fastclasspathscanner.scanner.ScanResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModuleManager {
 
-    public static final ModuleManager INSTANCE = new ModuleManager();
+    private static final ModuleManager INSTANCE = new ModuleManager();
+
+    public static ModuleManager getInstance() {
+        return INSTANCE;
+    }
 
     private final List<Module> modules = new ArrayList<>();
 
@@ -24,6 +32,21 @@ public class ModuleManager {
     public void setupCommonModules() {
         for (Module module : modules) {
             module.commonInit();
+        }
+    }
+
+    public void scanAndRegisterModules() {
+        ScanResult scanner = new FastClasspathScanner().scan();
+        List<String> classes = scanner.getNamesOfSubclassesOf(Module.class);
+
+        for (String classname : classes) {
+            try {
+                Class<?> clazz = Class.forName(classname);
+                Module module = (Module) clazz.getDeclaredConstructor().newInstance();
+                this.addModule(module);
+            } catch (Exception e) {
+                Proton.LOGGER.error("Couldn't register module with name " + classname);
+            }
         }
     }
 
