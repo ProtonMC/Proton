@@ -1,6 +1,7 @@
 package io.github.hydos.proton.module;
 
 import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.config.Configurable;
 import net.minecraft.util.Identifier;
 
 public abstract class Module {

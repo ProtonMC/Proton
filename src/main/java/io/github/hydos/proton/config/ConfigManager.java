@@ -1,8 +1,10 @@
-package io.github.hydos.proton.module;
+package io.github.hydos.proton.config;
 
 import blue.endless.jankson.Jankson;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.api.SyntaxError;
+import io.github.hydos.proton.module.Module;
+import io.github.hydos.proton.module.ModuleManager;
 
 import java.io.BufferedWriter;
 import java.io.File;

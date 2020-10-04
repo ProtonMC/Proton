@@ -1,4 +1,4 @@
-package io.github.hydos.proton.module;
+package io.github.hydos.proton.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

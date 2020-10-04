@@ -1,6 +1,6 @@
 package io.github.hydos.proton;
 
-import io.github.hydos.proton.module.ConfigManager;
+import io.github.hydos.proton.config.ConfigManager;
 import io.github.hydos.proton.module.ModuleManager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
