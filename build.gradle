@@ -22,6 +22,10 @@ group = project.maven_group
 tasks.remapJar.dependsOn(shadowJar)
 (tasks.remapJar.input as FileSystemLocationProperty<? extends FileSystemLocation>).set(shadowJar.archivePath)
 
+repositories {
+	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
+}
+
 shadowJar {
 	relocate 'io.github.classgraph', 'proton.shaded.io.github.classgraph'
 	relocate 'nonapi.io.github.classgraph', 'proton.shaded.nonapi.io.github.classgraph'
@@ -47,11 +51,8 @@ dependencies {
 
 	implementation 'io.github.classgraph:classgraph:4.8.90'
 
-	modApi("me.sargunvohra.mcmods:autoconfig1u:3.2.2") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
-
-	include "me.sargunvohra.mcmods:autoconfig1u:3.2.2"
+	modApi "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
+	include "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
 }
 
 processResources {
