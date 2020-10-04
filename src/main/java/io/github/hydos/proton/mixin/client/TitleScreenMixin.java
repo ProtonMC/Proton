@@ -1,14 +1,15 @@
 package io.github.hydos.proton.mixin.client;
 
+import com.google.common.collect.ImmutableSet;
+import io.github.hydos.proton.client.PButton;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.screen.options.OptionsScreen;
+import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.text.LiteralText;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,11 +24,16 @@ public class TitleScreenMixin extends Screen {
     }
 
     @Inject(method = "init", at = @At("TAIL"))
-    public void addQButton(CallbackInfo ci){
-        this.addButton(new ButtonWidget(89, 156, 20, 20, new LiteralText("q").formatted(Formatting.DARK_AQUA), (buttonWidget) -> {
-            this.client.openScreen(new OptionsScreen(this, this.client.options));
-        }));
-    }
+    public void addPButton(CallbackInfo ci) {
+        ImmutableSet<String> targets = ImmutableSet.of(I18n.translate("menu.online"));
 
+        for (AbstractButtonWidget button : buttons) {
+            if (targets.contains(button.getMessage().getString())) {
+                ButtonWidget p = new PButton(button.x - 24, button.y);
+                this.addButton(p);
+                return;
+            }
+        }
+    }
 
 }
