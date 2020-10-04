@@ -29,6 +29,9 @@
     ],
     "server": [
       "io.github.hydos.proton.server.ProtonDedicatedServer"
+    ],
+    "modmenu": [
+      "io.github.hydos.proton.client.modmenu.ModMenuCompat"
     ]
   },
   "mixins": [
@@ -46,5 +49,9 @@
     "song-sounds": "*",
     "moundertweaks": "*",
     "chat_heads": "*"
+  },
+
+  "recommends": {
+    "modmenu": "*"
   }
 }
