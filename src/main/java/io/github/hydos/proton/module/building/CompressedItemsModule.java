@@ -37,7 +37,7 @@ public class CompressedItemsModule extends Module {
                                                      .breakByHand(false)
                                                      .requiresTool()
                                                      .breakByTool(FabricToolTags.PICKAXES, 2)
-                                                     .strength(3.0F, 1200.0F)
+                                                     .strength(6.2F, 1200.0F)
                                                      .nonOpaque()
                                                      .blockVision(Blocks::never)),
                         new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(64).rarity(Rarity.RARE)
