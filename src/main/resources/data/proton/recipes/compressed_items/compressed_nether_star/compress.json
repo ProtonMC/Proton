@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        },
+        {
+            "item": "minecraft:nether_star"
+        }
+    ],
+    "result": {
+        "item": "proton:compressed_items/compressed_nether_star",
+        "count": 1
+    }
+}

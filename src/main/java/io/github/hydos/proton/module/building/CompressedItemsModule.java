@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Rarity;
@@ -22,7 +23,7 @@ public class CompressedItemsModule extends Module {
 
     @Override
     public void commonInit() {
-        ModuleBlocks.register();
+        if (enabled) ModuleBlocks.register();
     }
 
     public static class ModuleBlocks {
@@ -31,12 +32,14 @@ public class CompressedItemsModule extends Module {
         public static void register() {
             if (compressed_nether_star) {
                 COMPRESSED_NETHER_STAR = ProtonRegisterUtil.block(
-                        "compressed_nether_star",
+                        "compressed_items/compressed_nether_star",
                         new Block(FabricBlockSettings.of(Material.STONE)
                                                      .breakByHand(false)
                                                      .requiresTool()
                                                      .breakByTool(FabricToolTags.PICKAXES, 2)
-                                                     .strength(3.0F, 1200.0F)),
+                                                     .strength(3.0F, 1200.0F)
+                                                     .nonOpaque()
+                                                     .blockVision(Blocks::never)),
                         new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(64).rarity(Rarity.RARE)
                                                                  );
             }
