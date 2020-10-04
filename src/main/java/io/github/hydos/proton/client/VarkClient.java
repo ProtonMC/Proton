@@ -1,6 +1,6 @@
-package io.github.hydos.vark.client;
+package io.github.hydos.proton.client;
 
-import io.github.hydos.vark.module.ModuleHandler;
+import io.github.hydos.proton.module.ModuleHandler;
 import net.fabricmc.api.ClientModInitializer;
 
 import java.time.LocalDateTime;

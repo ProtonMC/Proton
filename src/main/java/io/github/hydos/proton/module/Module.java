@@ -1,4 +1,4 @@
-package io.github.hydos.vark.module;
+package io.github.hydos.proton.module;
 
 public abstract class Module {
 

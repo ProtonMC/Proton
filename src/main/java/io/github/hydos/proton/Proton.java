@@ -1,20 +1,20 @@
-package io.github.hydos.vark;
+package io.github.hydos.proton;
 
-import io.github.hydos.vark.module.ModuleHandler;
+import io.github.hydos.proton.module.ModuleHandler;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Vark implements ModInitializer {
+public class Proton implements ModInitializer {
 
-    public static Vark INSTANCE;
+    public static Proton INSTANCE;
 
-    public static final Logger LOGGER = LogManager.getLogger("Vark");
-    public static final String MOD_ID = "vark";
+    public static final Logger LOGGER = LogManager.getLogger("Proton");
+    public static final String MOD_ID = "proton";
 
     public static final boolean DEBUG = true;
 
-    public Vark() {
+    public Proton() {
         INSTANCE = this;
     }
 

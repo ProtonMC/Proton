@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "vark",
+  "id": "proton",
   "version": "${version}",
 
-  "name": "Vark",
+  "name": "Proton",
   "description": "An rewrite of Quark for fabric",
   "authors": [
     "hydos",
+    "the Simplex team",
     "Vazkii",
     "original devs of quark"
   ],
@@ -16,16 +17,16 @@
   },
 
   "license": "Vazkii Crayon Licence",
-  "icon": "assets/vark/icon.png",
+  "icon": "assets/proton/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.hydos.vark.Vark"
+      "io.github.hydos.proton.Proton"
     ]
   },
   "mixins": [
-    "vark.mixins.json"
+    "proton.json"
   ],
 
   "depends": {

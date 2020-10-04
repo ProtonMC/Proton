@@ -221,7 +221,7 @@
 [18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer net.fabricmc.fabric.impl.tool.attribute.ToolHandlers for mod fabric-tool-attribute-api-v1 (key main)
 [18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer net.fabricmc.fabric.impl.client.indigo.Indigo for mod fabric-renderer-indigo (key client)
 [18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer net.fabricmc.fabric.impl.client.container.ScreenProviderRegistryImpl::init for mod fabric-containers-v0 (key client)
-[18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer io.github.hydos.vark.Vark for mod vark (key main)
+[18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer io.github.hydos.proton.Proton for mod vark (key main)
 [18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer net.fabricmc.fabric.impl.event.interaction.InteractionEventsRouterClient for mod fabric-events-interaction-v0 (key client)
 [18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer net.fabricmc.fabric.impl.event.interaction.InteractionEventsRouter for mod fabric-events-interaction-v0 (key main)
 [18:07:35] [main/DEBUG] (Fabric|Loader) Registering new-style initializer net.fabricmc.fabric.impl.client.rendering.RenderingCallbackInvoker for mod fabric-rendering-v0 (key client)
