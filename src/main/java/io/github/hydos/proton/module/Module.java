@@ -10,11 +10,11 @@ public abstract class Module {
         this.id = id;
     }
 
-    public void clientInit() {}
+    public abstract void clientInit();
 
-    public void serverInit() {}
+    public abstract void serverInit();
 
-    public void commonInit() {}
+    public abstract void commonInit();
 
     public final String getTranslationKey() {
         return "module." + id.getNamespace() + "." + id.getPath();

@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
+	id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
 repositories {
@@ -17,6 +18,13 @@ targetCompatibility = JavaVersion.VERSION_1_8
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
+
+tasks.remapJar.dependsOn(shadowJar)
+(tasks.remapJar.input as FileSystemLocationProperty<? extends FileSystemLocation>).set(shadowJar.archivePath)
+
+shadowJar {
+	relocate 'io.github.lukehutch', 'proton.shaded.io.github.lukehutch'
+}
 
 dependencies {
 	//to change the versions see the gradle.properties file
@@ -35,6 +43,8 @@ dependencies {
 	modApi("io.github.prospector:modmenu:1.14.6+build.31") {
 		exclude module: "fabric-biomes-v1"
 	}
+
+	implementation 'io.github.lukehutch:fast-classpath-scanner:3.1.13'
 
 	modApi("me.sargunvohra.mcmods:autoconfig1u:3.2.2") {
 		exclude(group: "net.fabricmc.fabric-api")
