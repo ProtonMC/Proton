@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Proton implements ModInitializer, PreLaunchEntrypoint {
+public class Proton implements ModInitializer {
 
     public static Proton INSTANCE;
 
@@ -45,12 +45,6 @@ public class Proton implements ModInitializer, PreLaunchEntrypoint {
     }
 
     public void loadTitleScreen(){
-    }
-
-    @Override
-    public void onPreLaunch() {
-        LOGGER.info("Scanning for modules");
-        ModuleManager.getInstance().scanAndRegisterModules();
     }
 
     //TODO: configs

@@ -34,7 +34,7 @@
       "io.github.hydos.proton.client.modmenu.ModMenuCompat"
     ],
     "preLaunch": [
-      "io.github.hydos.proton.Proton"
+      "io.github.hydos.proton.ProtonPreLaunch"
     ]
   },
   "mixins": [
