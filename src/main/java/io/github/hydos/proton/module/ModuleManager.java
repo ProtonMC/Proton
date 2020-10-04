@@ -3,6 +3,7 @@ package io.github.hydos.proton.module;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;
 import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.module.tweaks.VariantAnimalTexturesModule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,4 +59,12 @@ public class ModuleManager {
         return modules;
     }
 
+    public boolean isModuleEnabled(Class<? extends Module> moduleClass) {
+        for(Module module : modules){
+            if(module.getClass() == moduleClass){
+                return module.enabled;
+            }
+        }
+        return false;
+    }
 }

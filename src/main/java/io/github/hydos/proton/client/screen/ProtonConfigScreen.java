@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Formatting;
 
-public class QuarkConfigScreen extends Screen {
+public class ProtonConfigScreen extends Screen {
 
     public TextRenderer clientTextRenderer;
 
-    public QuarkConfigScreen() {
+    public ProtonConfigScreen() {
         super(new LiteralText("Quark Configuration"));
     }
 
