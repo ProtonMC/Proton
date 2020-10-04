@@ -5,6 +5,7 @@ import net.minecraft.util.Identifier;
 public abstract class Module {
 
     protected final Identifier id;
+    public boolean enabled = true;
 
     public Module(Identifier id) {
         this.id = id;
