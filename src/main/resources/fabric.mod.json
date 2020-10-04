@@ -4,16 +4,16 @@
   "version": "${version}",
 
   "name": "Proton",
-  "description": "An rewrite of Quark for fabric",
+  "description": "A rewrite of Quark for fabric.",
   "authors": [
     "hydos",
-    "the Simplex team",
+    "The Simplex team",
     "Vazkii",
-    "original devs of quark"
+    "Original Devs of Quark"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/hydos/Proton"
   },
 
   "license": "Vazkii Crayon Licence",
