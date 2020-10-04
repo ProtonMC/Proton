@@ -44,11 +44,4 @@ public class Proton implements ModInitializer {
     public static Identifier identifier(String name) {
         return new Identifier(MOD_ID, name);
     }
-
-    public void setup(){
-
-    }
-
-    public void loadTitleScreen(){
-    }
 }
