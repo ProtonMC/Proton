@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "io/github/hydos/vark/mixin/TitleScreenMixin": {
+      "init": "Lnet/minecraft/class_442;method_25426()V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "io/github/hydos/vark/mixin/TitleScreenMixin": {
+        "init": "Lnet/minecraft/class_442;method_25426()V"
+      }
+    }
+  }
+}

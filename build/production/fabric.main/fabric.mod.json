@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "vark",
+  "version": "${version}",
+
+  "name": "Vark",
+  "description": "An rewrite of Quark for fabric",
+  "authors": [
+    "hydos",
+    "Vazkii",
+    "original devs of quark"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "Vazkii Crayon Licence",
+  "icon": "assets/vark/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.hydos.vark.Vark"
+    ]
+  },
+  "mixins": [
+    "vark.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
