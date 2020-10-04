@@ -33,8 +33,7 @@ public class ConfigManager {
             config = Jankson.builder().build().load(getConfigFile());
         } catch (SyntaxError syntaxError) {
             // todo: don't save the config when it can't load it due to a syntax error
-            Proton.LOGGER.error("Couldn't load the config.");
-            Proton.LOGGER.error(syntaxError);
+            Proton.LOGGER.error("Couldn't load the config.", syntaxError);
         } catch (Exception ignored) {}
     }
 
@@ -47,8 +46,7 @@ public class ConfigManager {
             writer.write(config.toJson(true, true));
             writer.close();
         } catch (Throwable t) {
-            Proton.LOGGER.error("Couldn't save Proton's config");
-            Proton.LOGGER.error(t);
+            Proton.LOGGER.error("Couldn't save Proton's config", t);
         }
     }
 

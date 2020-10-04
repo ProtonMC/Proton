@@ -1,5 +1,6 @@
 package io.github.hydos.proton.module.tweaks;
 
+import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.module.Configurable;
 import io.github.hydos.proton.module.Module;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -18,7 +19,7 @@ public class CampfiresBoostElytra extends Module {
     public static double maxSpeed = 1;
 
     public CampfiresBoostElytra() {
-        super(new Identifier("proton", "campfires_boost_elytra"));
+        super(Proton.identifier("campfires_boost_elytra"));
     }
 
     @Override
