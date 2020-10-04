@@ -4,7 +4,7 @@ import net.minecraft.util.Identifier;
 
 public abstract class Module {
 
-    public final Identifier id;
+    protected final Identifier id;
 
     public Module(Identifier id) {
         this.id = id;
