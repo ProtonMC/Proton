@@ -25,5 +25,7 @@ bin/
 .project
 
 # fabric
-
 run/
+
+# macOS crap
+._*
