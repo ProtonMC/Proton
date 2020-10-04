@@ -9,6 +9,7 @@ repositories {
 		name = "Fabric"
 		url = "https://maven.fabricmc.net/"
 	}
+	jcenter()
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -44,6 +45,12 @@ dependencies {
 	}
 
 	implementation 'io.github.lukehutch:fast-classpath-scanner:3.1.13'
+
+	modApi("me.sargunvohra.mcmods:autoconfig1u:3.2.2") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	include "me.sargunvohra.mcmods:autoconfig1u:3.2.2"
 }
 
 processResources {
