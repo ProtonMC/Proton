@@ -3,11 +3,10 @@ package io.github.hydos.proton.module;
 import blue.endless.jankson.Jankson;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.api.SyntaxError;
-import io.github.hydos.proton.Proton;
-import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.util.Arrays;
@@ -15,39 +14,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ConfigManager {
-    private final String filename;
-    public JsonObject config = null;
+    private final File file;
+    public JsonObject config = new JsonObject();
 
-    public ConfigManager(String filename) {
-        this.filename = filename;
+    public ConfigManager(File file) {
+        this.file = file;
     }
 
     // config file handling
-    public File getConfigFile() {
-        return new File(FabricLoader.getInstance().getConfigDir().toFile(), filename);
+    public void load() throws IOException, SyntaxError {
+        config = Jankson.builder().build().load(file);
     }
 
-    public void load() {
-        config = new JsonObject();
-        try {
-            config = Jankson.builder().build().load(getConfigFile());
-        } catch (SyntaxError syntaxError) {
-            // todo: don't save the config when it can't load it due to a syntax error
-            Proton.LOGGER.error("Couldn't load the config.", syntaxError);
-        } catch (Exception ignored) {}
-    }
-
-    public void save() {
+    public void save() throws IOException {
         for (Module m : ModuleManager.getInstance().getModules()) {
             config.put(m.getId().toString(), toJson(m));
         }
-        try {
-            BufferedWriter writer = Files.newBufferedWriter(getConfigFile().toPath());
-            writer.write(config.toJson(true, true));
-            writer.close();
-        } catch (Throwable t) {
-            Proton.LOGGER.error("Couldn't save Proton's config", t);
-        }
+        BufferedWriter writer = Files.newBufferedWriter(file.toPath());
+        writer.write(config.toJson(true, true));
+        writer.close();
     }
 
     public void loadObject(Object obj, String id) {
@@ -67,9 +52,7 @@ public class ConfigManager {
             try {
                 f.set(obj,
                         json.getMarshaller().marshall(f.getType(), json.get(f.getName())));
-            } catch (Throwable ignored) {
-                System.out.println(ignored);
-            }
+            } catch (Throwable ignored) {}
         }
     }
 
