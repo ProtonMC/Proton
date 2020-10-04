@@ -14,7 +14,7 @@ public class ProtonRegisterUtil {
      *        Name of item instance to be registered
      * @param item
      *        Item instance to be registered
-     * @return Item instanced registered
+     * @return Item instance registered
      */
     public static <T extends Item> T item(String name, T item) {
         return item(Proton.identifier(name), item);
@@ -40,8 +40,8 @@ public class ProtonRegisterUtil {
      *        Item.Settings of BlockItem of Block instance to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T blocks(String name, T block, Item.Settings settings) {
-        return blocks(name, block, new BlockItem(block, settings));
+    public static <T extends Block> T block(String name, T block, Item.Settings settings) {
+        return block(name, block, new BlockItem(block, settings));
     }
 
     /**
@@ -53,8 +53,8 @@ public class ProtonRegisterUtil {
      *        BlockItem instance of Block to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T blocks(String name, T block, BlockItem item) {
-        T b = blocks(Proton.identifier(name), block);
+    public static <T extends Block> T block(String name, T block, BlockItem item) {
+        T b = block(Proton.identifier(name), block);
         if (item != null) {
             item(name, item);
         }
@@ -68,8 +68,8 @@ public class ProtonRegisterUtil {
      *        Block instance to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T blocks(String name, T block) {
-        return blocks(Proton.identifier(name), block);
+    public static <T extends Block> T block(String name, T block) {
+        return block(Proton.identifier(name), block);
     }
 
     /**
@@ -79,7 +79,7 @@ public class ProtonRegisterUtil {
      *        Block instance to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T blocks(Identifier name, T block) {
+    public static <T extends Block> T block(Identifier name, T block) {
         return Registry.register(Registry.BLOCK, name, block);
     }
 
