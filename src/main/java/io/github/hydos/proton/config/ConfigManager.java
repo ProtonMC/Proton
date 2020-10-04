@@ -3,8 +3,6 @@ package io.github.hydos.proton.config;
 import blue.endless.jankson.Jankson;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.api.SyntaxError;
-import io.github.hydos.proton.module.Module;
-import io.github.hydos.proton.module.ModuleManager;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,26 +21,32 @@ public class ConfigManager {
         this.file = file;
     }
 
+
     // config file handling
     public void load() throws IOException, SyntaxError {
         config = Jankson.builder().build().load(file);
     }
 
-    public void save() throws IOException {
-        for (Module m : ModuleManager.getInstance().getModules()) {
-            config.put(m.getId().toString(), toJson(m));
+    public void save(Saveable[] objects) throws IOException {
+        for (Saveable o : objects) {
+            config.put(o.getSerializedId(), toJson(o));
         }
         BufferedWriter writer = Files.newBufferedWriter(file.toPath());
         writer.write(config.toJson(true, true));
         writer.close();
     }
 
+    public void loadObject(Saveable obj) {
+        loadObject(obj, obj.getSerializedId());
+    }
+
     public void loadObject(Object obj, String id) {
         fromJson(obj, config.getObject(id));
     }
 
+
     // converting objects to JsonObjects and vice versa
-    public static List<Field> getConfigurableFields(Class cl) {
+    public static List<Field> getConfigurableFields(Class<?> cl) {
         return Arrays.stream(cl.getFields())
                 .filter(f -> f.isAnnotationPresent(Configurable.class))
                 .collect(Collectors.toList());

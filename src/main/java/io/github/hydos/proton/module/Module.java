@@ -2,9 +2,10 @@ package io.github.hydos.proton.module;
 
 import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
+import io.github.hydos.proton.config.Saveable;
 import net.minecraft.util.Identifier;
 
-public abstract class Module {
+public abstract class Module implements Saveable {
 
     protected final Identifier id;
 
@@ -15,7 +16,7 @@ public abstract class Module {
 
     public Module(Identifier id) {
         this.id = id;
-        Proton.CONFIG.loadObject(this, id.toString());
+        Proton.CONFIG.loadObject(this);
     }
 
     public void clientInit() {}
@@ -30,5 +31,10 @@ public abstract class Module {
 
     public final Identifier getId() {
         return id;
+    }
+
+    @Override
+    public String getSerializedId() {
+        return id.toString();
     }
 }

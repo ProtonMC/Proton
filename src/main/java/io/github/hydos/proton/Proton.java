@@ -1,6 +1,7 @@
 package io.github.hydos.proton;
 
 import io.github.hydos.proton.config.ConfigManager;
+import io.github.hydos.proton.module.Module;
 import io.github.hydos.proton.module.ModuleManager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -34,7 +35,7 @@ public class Proton implements ModInitializer {
         ModuleManager.getInstance().setupCommonModules();
 
         try {
-            CONFIG.save();
+            CONFIG.save(ModuleManager.getInstance().getModules().toArray(new Module[0]));
         } catch (Throwable t) {
             LOGGER.error("Couldn't save the config", t);
         }
