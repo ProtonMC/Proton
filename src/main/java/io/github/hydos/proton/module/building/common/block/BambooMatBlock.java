@@ -1,4 +1,4 @@
-package io.github.hydos.proton.common.block;
+package io.github.hydos.proton.module.building.common.block;
 
 import io.github.hydos.proton.module.Module;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
