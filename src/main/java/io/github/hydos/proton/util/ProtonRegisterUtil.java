@@ -16,8 +16,8 @@ public class ProtonRegisterUtil {
      *        Item instance to be registered
      * @return Item instanced registered
      */
-    public static <T extends Item> T registerItems(String name, T item) {
-        return registerItems(Proton.identifier(name), item);
+    public static <T extends Item> T item(String name, T item) {
+        return item(Proton.identifier(name), item);
     }
 
     /**
@@ -27,7 +27,7 @@ public class ProtonRegisterUtil {
      *        Item instance to be registered
      * @return Item instance registered
      */
-    public static <T extends Item> T registerItems(Identifier name, T item) {
+    public static <T extends Item> T item(Identifier name, T item) {
         return Registry.register(Registry.ITEM, name, item);
     }
 
@@ -40,8 +40,8 @@ public class ProtonRegisterUtil {
      *        Item.Settings of BlockItem of Block instance to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T registerBlocks(String name, T block, Item.Settings settings) {
-        return registerBlocks(name, block, new BlockItem(block, settings));
+    public static <T extends Block> T blocks(String name, T block, Item.Settings settings) {
+        return blocks(name, block, new BlockItem(block, settings));
     }
 
     /**
@@ -53,10 +53,10 @@ public class ProtonRegisterUtil {
      *        BlockItem instance of Block to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T registerBlocks(String name, T block, BlockItem item) {
-        T b = registerBlocks(Proton.identifier(name), block);
+    public static <T extends Block> T blocks(String name, T block, BlockItem item) {
+        T b = blocks(Proton.identifier(name), block);
         if (item != null) {
-            registerItems(name, item);
+            item(name, item);
         }
         return b;
     }
@@ -68,8 +68,8 @@ public class ProtonRegisterUtil {
      *        Block instance to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T registerBlocks(String name, T block) {
-        return registerBlocks(Proton.identifier(name), block);
+    public static <T extends Block> T blocks(String name, T block) {
+        return blocks(Proton.identifier(name), block);
     }
 
     /**
@@ -79,7 +79,7 @@ public class ProtonRegisterUtil {
      *        Block instance to be registered
      * @return Block instance registered
      */
-    public static <T extends Block> T registerBlocks(Identifier name, T block) {
+    public static <T extends Block> T blocks(Identifier name, T block) {
         return Registry.register(Registry.BLOCK, name, block);
     }
 
