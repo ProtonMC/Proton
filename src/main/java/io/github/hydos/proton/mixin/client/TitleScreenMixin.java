@@ -29,7 +29,7 @@ public class TitleScreenMixin extends Screen {
 
         for (AbstractButtonWidget button : buttons) {
             if (targets.contains(button.getMessage().getString())) {
-                ButtonWidget p = new PButton(button.x - 24, button.y);
+                ButtonWidget p = new PButton(button.x - 24, button.y + 12);
                 this.addButton(p);
                 return;
             }
