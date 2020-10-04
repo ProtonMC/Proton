@@ -7,8 +7,9 @@ import io.github.hydos.proton.Proton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModuleManager {
+import net.minecraft.server.MinecraftServer;
 
+public class ModuleManager {
     private static final ModuleManager INSTANCE = new ModuleManager();
 
     public static ModuleManager getInstance() {
@@ -23,9 +24,9 @@ public class ModuleManager {
         }
     }
 
-    public void setupServerModules() {
+    public void setupServerModules(MinecraftServer server) {
         for (Module module : modules) {
-            module.serverInit();
+            module.serverInit(server);
         }
     }
 

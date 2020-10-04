@@ -8,30 +8,32 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ConfigManager {
-    private final File file;
+    private final Path path;
     public JsonObject config = new JsonObject();
 
-    public ConfigManager(File file) {
-        this.file = file;
+    public ConfigManager(Path path) {
+        this.path = path;
     }
 
 
     // config file handling
     public void load() throws IOException, SyntaxError {
-        config = Jankson.builder().build().load(file);
+        config = Jankson.builder().build().load(Files.newInputStream(path));
     }
 
-    public void save(Saveable[] objects) throws IOException {
+    public void save(List<? extends Saveable> objects) throws IOException {
         for (Saveable o : objects) {
             config.put(o.getSerializedId(), toJson(o));
         }
-        BufferedWriter writer = Files.newBufferedWriter(file.toPath());
+        BufferedWriter writer = Files.newBufferedWriter(path);
         writer.write(config.toJson(true, true));
         writer.close();
     }
@@ -48,6 +50,7 @@ public class ConfigManager {
     // converting objects to JsonObjects and vice versa
     public static List<Field> getConfigurableFields(Class<?> cl) {
         return Arrays.stream(cl.getFields())
+                .filter(f -> !Modifier.isTransient(f.getModifiers()))
                 .filter(f -> f.isAnnotationPresent(Configurable.class))
                 .collect(Collectors.toList());
     }

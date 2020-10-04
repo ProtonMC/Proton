@@ -27,9 +27,6 @@
     "client": [
       "io.github.hydos.proton.client.ProtonClient"
     ],
-    "server": [
-      "io.github.hydos.proton.server.ProtonDedicatedServer"
-    ],
     "modmenu": [
       "io.github.hydos.proton.client.modmenu.ModMenuCompat"
     ],
