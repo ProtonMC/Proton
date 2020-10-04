@@ -8,6 +8,7 @@ repositories {
 		name = "Fabric"
 		url = "https://maven.fabricmc.net/"
 	}
+	jcenter()
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -34,6 +35,12 @@ dependencies {
 	modApi("io.github.prospector:modmenu:1.14.6+build.31") {
 		exclude module: "fabric-biomes-v1"
 	}
+
+	modApi("me.sargunvohra.mcmods:autoconfig1u:3.2.2") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	include "me.sargunvohra.mcmods:autoconfig1u:3.2.2"
 }
 
 processResources {
