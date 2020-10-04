@@ -7,8 +7,8 @@ import io.github.hydos.proton.util.ProtonRegisterUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
-public class GeneralModBlocks extends Module {
-    public GeneralModBlocks() {
+public class BambooMatModule extends Module {
+    public BambooMatModule() {
         super(Proton.identifier("general_mod_blocks"));
     }
 
