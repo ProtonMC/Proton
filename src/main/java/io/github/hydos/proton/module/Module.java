@@ -1,21 +1,29 @@
 package io.github.hydos.proton.module;
 
+import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.config.Configurable;
+import io.github.hydos.proton.config.Saveable;
 import net.minecraft.util.Identifier;
 
-public abstract class Module {
+public abstract class Module implements Saveable {
 
     protected final Identifier id;
+
+    // note: @Configurable fields in normal modules MUST be static
+    //       this is an exception, which CAN'T be static
+    @Configurable
     public boolean enabled = true;
 
     public Module(Identifier id) {
         this.id = id;
+        Proton.CONFIG.loadObject(this);
     }
 
-    public void clientInit() {};
+    public void clientInit() {}
 
-    public void serverInit() {};
+    public void serverInit() {}
 
-    public void commonInit() {};
+    public void commonInit() {}
 
     public final String getTranslationKey() {
         return "module." + id.getNamespace() + "." + id.getPath();
@@ -23,5 +31,10 @@ public abstract class Module {
 
     public final Identifier getId() {
         return id;
+    }
+
+    @Override
+    public String getSerializedId() {
+        return id.toString();
     }
 }

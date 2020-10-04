@@ -10,6 +10,7 @@ repositories {
 		url = "https://maven.fabricmc.net/"
 	}
 	jcenter()
+	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -47,11 +48,8 @@ dependencies {
 
 	implementation 'io.github.classgraph:classgraph:4.8.90'
 
-	modApi("me.sargunvohra.mcmods:autoconfig1u:3.2.2") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
-
-	include "me.sargunvohra.mcmods:autoconfig1u:3.2.2"
+	modApi "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
+	include "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
 }
 
 processResources {

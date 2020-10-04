@@ -1,6 +1,7 @@
 package io.github.hydos.proton.module.tweaks;
 
 import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.Module;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.block.BlockState;
@@ -11,9 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 public class CampfiresBoostElytra extends Module {
-    // todo add to config
-    public double boostStrength = 0.5;
-    public double maxSpeed = 1;
+    @Configurable
+    public static double boostStrength = 0.5;
+    @Configurable
+    public static double maxSpeed = 1;
 
     public CampfiresBoostElytra() {
         super(Proton.identifier("campfires_boost_elytra"));
