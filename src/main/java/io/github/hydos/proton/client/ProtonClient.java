@@ -22,7 +22,7 @@ public class ProtonClient implements ClientModInitializer {
             doWeNeedJingleBells = true;
 
         Proton.LOGGER.log(Level.INFO, "Setting Up Client-Side Modules...");
-        ModuleManager.INSTANCE.setupClientModules();
+        ModuleManager.getInstance().setupClientModules();
         Proton.LOGGER.log(Level.INFO, "Finished Setting Up Client-Side Modules.");
     }
 }

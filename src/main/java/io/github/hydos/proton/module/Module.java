@@ -5,16 +5,17 @@ import net.minecraft.util.Identifier;
 public abstract class Module {
 
     protected final Identifier id;
+    public boolean enabled = true;
 
     public Module(Identifier id) {
         this.id = id;
     }
 
-    public void clientInit() {}
+    public void clientInit() {};
 
-    public void serverInit() {}
+    public void serverInit() {};
 
-    public void commonInit() {}
+    public void commonInit() {};
 
     public final String getTranslationKey() {
         return "module." + id.getNamespace() + "." + id.getPath();

@@ -1,0 +1,54 @@
+package io.github.hydos.proton.module.tweaks;
+
+import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.module.Module;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CampfireBlock;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+
+public class CampfiresBoostElytra extends Module {
+    // todo add to config
+    public double boostStrength = 0.5;
+    public double maxSpeed = 1;
+
+    public CampfiresBoostElytra() {
+        super(Proton.identifier("campfires_boost_elytra"));
+    }
+
+    @Override
+    public void clientInit() {
+        ClientTickEvents.END_WORLD_TICK.register((t) -> {
+            if (!enabled) return;
+            for (AbstractClientPlayerEntity ply : t.getPlayers()) {
+                if (ply.isFallFlying()) {
+                    Vec3d vel = ply.getVelocity();
+
+                    if (vel.y < maxSpeed) {
+                        BlockPos pos = ply.getBlockPos();
+                        BlockState state = null;
+                        int distance = -1;
+                        while (++distance < 20) {
+                            state = t.getBlockState(pos);
+                            if (!state.isAir() || pos.getY() <= 0) break;
+                            pos = pos.down();
+                        }
+
+                        if (state != null &&
+                                state.getBlock() == Blocks.CAMPFIRE &&
+                                state.get(CampfireBlock.LIT) &&
+                                state.get(CampfireBlock.SIGNAL_FIRE)) {
+                            double force = boostStrength;
+                            if (distance > 16)
+                                force -= force * (1.0 - ((distance - 16.0) / 4.0));
+                            ply.addVelocity(0, force, 0);
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
