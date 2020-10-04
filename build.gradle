@@ -23,7 +23,8 @@ tasks.remapJar.dependsOn(shadowJar)
 (tasks.remapJar.input as FileSystemLocationProperty<? extends FileSystemLocation>).set(shadowJar.archivePath)
 
 shadowJar {
-	relocate 'io.github.lukehutch', 'proton.shaded.io.github.lukehutch'
+	relocate 'io.github.classgraph', 'proton.shaded.io.github.classgraph'
+	relocate 'nonapi.io.github.classgraph', 'proton.shaded.nonapi.io.github.classgraph'
 }
 
 dependencies {
@@ -44,7 +45,7 @@ dependencies {
 		exclude module: "fabric-biomes-v1"
 	}
 
-	implementation 'io.github.lukehutch:fast-classpath-scanner:3.1.13'
+	implementation 'io.github.classgraph:classgraph:4.8.90'
 
 	modApi("me.sargunvohra.mcmods:autoconfig1u:3.2.2") {
 		exclude(group: "net.fabricmc.fabric-api")

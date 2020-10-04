@@ -1,8 +1,8 @@
 package io.github.hydos.proton.module;
 
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ScanResult;
 import io.github.hydos.proton.Proton;
-import io.github.lukehutch.fastclasspathscanner.FastClasspathScanner;
-import io.github.lukehutch.fastclasspathscanner.scanner.ScanResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +36,8 @@ public class ModuleManager {
     }
 
     public void scanAndRegisterModules() {
-        ScanResult scanner = new FastClasspathScanner().scan();
-        List<String> classes = scanner.getNamesOfSubclassesOf(Module.class);
+        ScanResult scanResult = new ClassGraph().enableClassInfo().scan();
+        List<String> classes = scanResult.getSubclasses(Module.class.getCanonicalName()).getNames();
 
         for (String classname : classes) {
             try {

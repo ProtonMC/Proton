@@ -1,10 +1,11 @@
 package io.github.hydos.proton.module;
 
 import io.github.hydos.proton.Proton;
+import net.minecraft.util.Identifier;
 
 public class TempTestModule extends Module {
     public TempTestModule() {
-        super("temp", "tempid");
+        super(new Identifier("temp", "tempid"));
     }
 
     @Override
