@@ -15,4 +15,12 @@ public abstract class Module {
     public void serverInit() {}
 
     public void commonInit() {}
+
+    public final String getTranslationKey() {
+        return "module." + id.getNamespace() + "." + id.getPath();
+    }
+
+    public final Identifier getId() {
+        return id;
+    }
 }
