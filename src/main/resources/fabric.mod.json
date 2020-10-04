@@ -23,6 +23,9 @@
   "entrypoints": {
     "main": [
       "io.github.hydos.proton.Proton"
+    ],
+    "client": [
+      "io.github.hydos.proton.client.ProtonClient"
     ]
   },
   "mixins": [

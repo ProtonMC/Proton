@@ -2,11 +2,14 @@ package io.github.hydos.proton.client;
 
 import io.github.hydos.proton.module.ModuleHandler;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import java.time.LocalDateTime;
 import java.time.Month;
 
-public class VarkClient implements ClientModInitializer {
+@Environment(EnvType.CLIENT)
+public class ProtonClient implements ClientModInitializer {
 
     public static boolean doWeNeedJingleBells = false;
 

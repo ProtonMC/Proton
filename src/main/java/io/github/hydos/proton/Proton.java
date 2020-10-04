@@ -2,6 +2,7 @@ package io.github.hydos.proton;
 
 import io.github.hydos.proton.module.ModuleHandler;
 import net.fabricmc.api.ModInitializer;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,11 +21,17 @@ public class Proton implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        //TODO recipies
+        LOGGER.log(Level.INFO, "Initialising Recipes...");
+        //TODO recipes
+        LOGGER.log(Level.INFO, "Recipe Initialisation Done.");
 
+        LOGGER.log(Level.INFO, "Initialising Sounds...");
         //TODO sounds
+        LOGGER.log(Level.INFO, "Sound Initialisation Done.");
 
+        LOGGER.log(Level.INFO, "Setting Up Modules...");
         ModuleHandler.INSTANCE.setupCommonModules();
+        LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
 
         //TODO events
 

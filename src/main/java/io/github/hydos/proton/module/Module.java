@@ -10,14 +10,9 @@ public abstract class Module {
         this.id = id;
     }
 
-    public void clientInit() {
-    }
+    public void clientInit() {}
 
-    public void serverInit() {
+    public void serverInit() {}
 
-    }
-
-    public void commonInit() {
-
-    }
+    public void commonInit() {}
 }
