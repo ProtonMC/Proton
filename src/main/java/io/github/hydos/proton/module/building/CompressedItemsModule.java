@@ -27,6 +27,7 @@ public class CompressedItemsModule extends Module {
     public static class ModuleBlocks {
         public static Block COMPRESSED_NETHER_STAR;
         public static Block BLUER_ICE;
+        public static Block DARK_BLUE_ICE;
 
         public static void register() {
             COMPRESSED_NETHER_STAR = ProtonRegisterUtil.block("compressed_nether_star",
@@ -40,13 +41,18 @@ public class CompressedItemsModule extends Module {
                                                                                            .nonOpaque()
                                                                                            .blockVision(Blocks::never)),
                                                               new FabricItemSettings().group(ItemGroup.DECORATIONS)
-                                                                                      .maxCount(64)
                                                                                       .rarity(Rarity.RARE)
                                                              );
 
             BLUER_ICE = ProtonRegisterUtil.block("bluer_ice",
                                                  new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
                                                                               .slipperiness(0.9998F)),
+                                                 new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
+                                                );
+
+            DARK_BLUE_ICE = ProtonRegisterUtil.block("dark_blue_ice",
+                                                 new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
+                                                                              .slipperiness(1.3F)),
                                                  new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                 );
         }

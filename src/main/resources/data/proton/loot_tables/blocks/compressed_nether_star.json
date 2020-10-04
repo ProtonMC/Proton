@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "proton:compressed_items/compressed_nether_star"
+                    "name": "proton:compressed_nether_star"
                 }
             ],
             "conditions": [
