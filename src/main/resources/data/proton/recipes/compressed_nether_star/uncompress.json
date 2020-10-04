@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "proton:compressed_items/compressed_nether_star"
+            "item": "proton:compressed_nether_star"
         }
     ],
     "result": {

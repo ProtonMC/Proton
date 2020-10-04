@@ -4,7 +4,7 @@
   "package": "io.github.hydos.proton.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "building.compressed_items.CompressedItems_ItemEntityMixin"
+    "building.compressed_items.ItemEntityMixin"
   ],
   "client": [
     "client.TitleScreenMixin"
