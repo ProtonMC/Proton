@@ -10,6 +10,7 @@ repositories {
 		url = "https://maven.fabricmc.net/"
 	}
 	jcenter()
+	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -21,10 +22,6 @@ group = project.maven_group
 
 tasks.remapJar.dependsOn(shadowJar)
 (tasks.remapJar.input as FileSystemLocationProperty<? extends FileSystemLocation>).set(shadowJar.archivePath)
-
-repositories {
-	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
-}
 
 shadowJar {
 	relocate 'io.github.classgraph', 'proton.shaded.io.github.classgraph'
