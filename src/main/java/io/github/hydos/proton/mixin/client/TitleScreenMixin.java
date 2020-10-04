@@ -1,7 +1,7 @@
 package io.github.hydos.proton.mixin.client;
 
 import com.google.common.collect.ImmutableSet;
-import io.github.hydos.proton.client.PButton;
+import io.github.hydos.proton.client.screen.button.PButton;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
@@ -35,5 +35,4 @@ public class TitleScreenMixin extends Screen {
             }
         }
     }
-
 }
