@@ -15,6 +15,8 @@ public class Proton implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("Proton");
     public static final String MOD_ID = "proton";
 
+    public static final ConfigManager CONFIG = new ConfigManager("proton.json5");
+
     public static final boolean DEBUG = true;
 
     public Proton() {
@@ -26,7 +28,7 @@ public class Proton implements ModInitializer {
         LOGGER.log(Level.INFO, "Setting up modules...");
         ModuleManager.getInstance().setupCommonModules();
 
-        ConfigManager.saveConfig();
+        CONFIG.save();
     }
 
     public static Identifier identifier(String name) {

@@ -22,5 +22,9 @@ public class TempTestModule extends Module {
     @Override
     public void commonInit() {
         Proton.LOGGER.info("Hello from Test Module common init!");
+        if (enabled)
+            Proton.LOGGER.info("im enable");
+        else
+            Proton.LOGGER.info("im disable");
     }
 }

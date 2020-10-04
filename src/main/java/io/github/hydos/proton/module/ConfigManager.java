@@ -15,15 +15,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ConfigManager {
-    private static final String FILENAME = "proton.json5";
-    public static JsonObject config = null;
+    private final String filename;
+    public JsonObject config = null;
 
-    // config file handling
-    public static File getConfigFile() {
-        return new File(FabricLoader.getInstance().getConfigDir().toFile(), FILENAME);
+    public ConfigManager(String filename) {
+        this.filename = filename;
     }
 
-    public static void loadConfig() {
+    // config file handling
+    public File getConfigFile() {
+        return new File(FabricLoader.getInstance().getConfigDir().toFile(), filename);
+    }
+
+    public void load() {
         config = new JsonObject();
         try {
             config = Jankson.builder().build().load(getConfigFile());
@@ -34,7 +38,7 @@ public class ConfigManager {
         } catch (Exception ignored) {}
     }
 
-    public static void saveConfig() {
+    public void save() {
         for (Module m : ModuleManager.getInstance().getModules()) {
             config.put(m.getId().toString(), toJson(m));
         }
@@ -46,6 +50,10 @@ public class ConfigManager {
             Proton.LOGGER.error("Couldn't save Proton's config");
             Proton.LOGGER.error(t);
         }
+    }
+
+    public void loadObject(Object obj, String id) {
+        fromJson(obj, config.getObject(id));
     }
 
     // converting objects to JsonObjects and vice versa
@@ -61,7 +69,9 @@ public class ConfigManager {
             try {
                 f.set(obj,
                         json.getMarshaller().marshall(f.getType(), json.get(f.getName())));
-            } catch (Throwable ignored) {}
+            } catch (Throwable ignored) {
+                System.out.println(ignored);
+            }
         }
     }
 
