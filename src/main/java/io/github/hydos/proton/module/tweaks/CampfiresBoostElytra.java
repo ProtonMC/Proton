@@ -1,12 +1,12 @@
 package io.github.hydos.proton.module.tweaks;
 
+import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.module.Module;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CampfireBlock;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
@@ -16,7 +16,7 @@ public class CampfiresBoostElytra extends Module {
     public double maxSpeed = 1;
 
     public CampfiresBoostElytra() {
-        super(new Identifier("proton", "campfires_boost_elytra"));
+        super(Proton.identifier("campfires_boost_elytra"));
     }
 
     @Override
