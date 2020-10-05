@@ -3,6 +3,7 @@ package io.github.hydos.proton.module.building;
 import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.Module;
+import io.github.hydos.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.hydos.proton.util.ProtonRegisterUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -31,6 +32,7 @@ public class CompressedItemsModule extends Module {
     public void commonInit() {
         if (!enabled) return;
         ModuleBlocks.register();
+        ModuleItems.register();
     }
 
     public static class ModuleBlocks {
@@ -48,8 +50,7 @@ public class CompressedItemsModule extends Module {
                                                  .breakByTool(FabricToolTags.PICKAXES, 2)
                                                  .strength(6.2F, 1200.0F)
                                                  .nonOpaque()
-                                                 .blockVision(Blocks::never)),
-                    new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE)
+                                                 .blockVision(Blocks::never))
                                                              );
 
             BLUER_ICE = ProtonRegisterUtil.block(
@@ -74,6 +75,14 @@ public class CompressedItemsModule extends Module {
                                                  .breakByTool(FabricToolTags.PICKAXES, 2)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                                );
+        }
+    }
+
+    public static class ModuleItems {
+        public static CompressedNetherStarItem COMPRESSED_NETHER_STAR;
+
+        public static void register() {
+            COMPRESSED_NETHER_STAR = ProtonRegisterUtil.item("compressed_nether_star", new CompressedNetherStarItem());
         }
     }
 }

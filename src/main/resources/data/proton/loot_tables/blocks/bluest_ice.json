@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "proton:dark_blue_ice"
+                    "name": "proton:bluest_ice"
                 }
             ],
             "conditions": [
