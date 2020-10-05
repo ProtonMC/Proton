@@ -9,6 +9,9 @@ import java.util.List;
 
 import net.minecraft.server.MinecraftServer;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
 public class ModuleManager {
     private static final ModuleManager INSTANCE = new ModuleManager();
 
@@ -18,6 +21,7 @@ public class ModuleManager {
 
     private final List<Module> modules = new ArrayList<>();
 
+    @Environment(EnvType.CLIENT)
     public void setupClientModules() {
         for (Module module : modules) {
             module.clientInit();
@@ -58,5 +62,4 @@ public class ModuleManager {
     public List<Module> getModules() {
         return modules;
     }
-
 }
