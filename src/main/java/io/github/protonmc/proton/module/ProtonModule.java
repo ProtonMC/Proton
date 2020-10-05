@@ -11,35 +11,35 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 public abstract class ProtonModule implements Saveable {
-	protected final Identifier id;
+    protected final Identifier id;
 
-	// note: @Configurable fields in normal modules MUST be static
-	//	   this is an exception, which CAN'T be static
-	@Configurable
-	public boolean enabled = true;
+    // note: @Configurable fields in normal modules MUST be static
+    //       this is an exception, which CAN'T be static
+    @Configurable
+    public boolean enabled = true;
 
-	public ProtonModule(Identifier id) {
-		this.id = id;
-		Proton.CONFIG.loadObject(this);
-	}
+    public ProtonModule(Identifier id) {
+        this.id = id;
+        Proton.CONFIG.loadObject(this);
+    }
 
-	@Environment(EnvType.CLIENT)
-	public void clientInit() {};
+    @Environment(EnvType.CLIENT)
+    public void clientInit() {};
 
-	public void serverInit(MinecraftServer server) {};
+    public void serverInit(MinecraftServer server) {};
 
-	public void commonInit() {}
+    public void commonInit() {}
 
-	public final String getTranslationKey() {
-		return "module." + id.getNamespace() + "." + id.getPath();
-	}
+    public final String getTranslationKey() {
+        return "module." + id.getNamespace() + "." + id.getPath();
+    }
 
-	public final Identifier getId() {
-		return id;
-	}
+    public final Identifier getId() {
+        return id;
+    }
 
-	@Override
-	public String getSerializedId() {
-		return id.toString();
-	}
+    @Override
+    public String getSerializedId() {
+        return id.toString();
+    }
 }

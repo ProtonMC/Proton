@@ -8,14 +8,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
 public class BambooMatModule extends ProtonModule {
-	public BambooMatModule() {
-		super(Proton.identifier("bamboo_mat"));
-	}
+    public BambooMatModule() {
+        super(Proton.identifier("bamboo_mat"));
+    }
 
-	@Override
-	public void commonInit() {
-		if (!this.enabled) { return; }
+    @Override
+    public void commonInit() {
+        if (!this.enabled) { return; }
 
-		ProtonRegisterUtil.block("bamboo_mat", new BambooMatBlock(this), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-	}
+        ProtonRegisterUtil.block("bamboo_mat", new BambooMatBlock(this), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    }
 }

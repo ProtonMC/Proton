@@ -12,14 +12,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ThatchBlock extends Block {
-	public ThatchBlock() {
-		super(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).sounds(BlockSoundGroup.CROP)
-				.hardness(0.5F).resistance(0.5F)
-				.breakByTool(FabricToolTags.HOES).materialColor(MaterialColor.YELLOW));
-	}
+    public ThatchBlock() {
+        super(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).sounds(BlockSoundGroup.CROP)
+                .hardness(0.5F).resistance(0.5F)
+                .breakByTool(FabricToolTags.HOES).materialColor(MaterialColor.YELLOW));
+    }
 
-	@Override
-	public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
-		entity.handleFallDamage(distance, (float) ThatchModule.fallDamageMultiplier);
-	}
+    @Override
+    public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
+        entity.handleFallDamage(distance, (float) ThatchModule.fallDamageMultiplier);
+    }
 }

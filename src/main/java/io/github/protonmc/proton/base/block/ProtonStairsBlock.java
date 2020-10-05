@@ -12,14 +12,14 @@ import net.minecraft.util.registry.Registry;
 
 public class ProtonStairsBlock extends StairsBlock {
 
-	public final Block parent;
+    public final Block parent;
 
-	public ProtonStairsBlock(Block parent) {
-		super(parent.getDefaultState(), VariantHandler.realStateCopy(parent));
+    public ProtonStairsBlock(Block parent) {
+        super(parent.getDefaultState(), VariantHandler.realStateCopy(parent));
 
-		this.parent = parent;
-		ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), this);
-		ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-	}
+        this.parent = parent;
+        ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), this);
+        ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+    }
 
 }

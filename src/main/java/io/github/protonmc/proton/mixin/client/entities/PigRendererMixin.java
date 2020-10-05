@@ -16,11 +16,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PigEntityRenderer.class)
 public class PigRendererMixin {
 
-	@Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
-	public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir){
-		if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
-			cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(pigEntity, VariantAnimalTexturesModule.VariantTextureType.PIG, VariantAnimalTexturesModule.enablePig));
-		}
-	}
+    @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir){
+        if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
+            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(pigEntity, VariantAnimalTexturesModule.VariantTextureType.PIG, VariantAnimalTexturesModule.enablePig));
+        }
+    }
 
 }

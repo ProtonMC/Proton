@@ -1,5 +1,5 @@
 {
-	"variants": {
-		"": { "model": "proton:block/magma_bricks" }
-	}
+    "variants": {
+        "": { "model": "proton:block/magma_bricks" }
+    }
 }

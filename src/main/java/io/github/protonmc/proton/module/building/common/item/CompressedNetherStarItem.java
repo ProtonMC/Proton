@@ -8,13 +8,13 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Rarity;
 
 public class CompressedNetherStarItem extends BlockItem {
-	public CompressedNetherStarItem() {
-		super(CompressedItemsModule.ModuleBlocks.COMPRESSED_NETHER_STAR, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
-	}
+    public CompressedNetherStarItem() {
+        super(CompressedItemsModule.ModuleBlocks.COMPRESSED_NETHER_STAR, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
+    }
 
-	@Override
-	public boolean damage(DamageSource source) {
-		if (source.isExplosive()) return false;
-		return super.damage(source);
-	}
+    @Override
+    public boolean damage(DamageSource source) {
+        if (source.isExplosive()) return false;
+        return super.damage(source);
+    }
 }

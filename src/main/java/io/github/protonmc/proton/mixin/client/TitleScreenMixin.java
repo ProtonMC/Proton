@@ -19,20 +19,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
 
-	protected TitleScreenMixin(Text title) {
-		super(title);
-	}
+    protected TitleScreenMixin(Text title) {
+        super(title);
+    }
 
-	@Inject(method = "init", at = @At("TAIL"))
-	public void addPButton(CallbackInfo ci) {
-		ImmutableSet<String> targets = ImmutableSet.of(I18n.translate("menu.online"));
+    @Inject(method = "init", at = @At("TAIL"))
+    public void addPButton(CallbackInfo ci) {
+        ImmutableSet<String> targets = ImmutableSet.of(I18n.translate("menu.online"));
 
-		for (AbstractButtonWidget button : buttons) {
-			if (targets.contains(button.getMessage().getString())) {
-				ButtonWidget p = new PButton(button.x - 24, button.y + 12);
-				this.addButton(p);
-				return;
-			}
-		}
-	}
+        for (AbstractButtonWidget button : buttons) {
+            if (targets.contains(button.getMessage().getString())) {
+                ButtonWidget p = new PButton(button.x - 24, button.y + 12);
+                this.addButton(p);
+                return;
+            }
+        }
+    }
 }

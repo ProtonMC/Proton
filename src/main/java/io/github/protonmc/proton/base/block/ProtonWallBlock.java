@@ -12,14 +12,14 @@ import net.minecraft.util.registry.Registry;
 
 public class ProtonWallBlock extends WallBlock {
 
-	public final Block parent;
+    public final Block parent;
 
-	public ProtonWallBlock(Block parent) {
-		super(VariantHandler.realStateCopy(parent));
+    public ProtonWallBlock(Block parent) {
+        super(VariantHandler.realStateCopy(parent));
 
-		this.parent = parent;
-		ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_wall"), this);
-		ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_wall"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-	}
+        this.parent = parent;
+        ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_wall"), this);
+        ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_wall"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+    }
 
 }

@@ -16,51 +16,51 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(RabbitEntityRenderer.class)
 public class RabbitRendererMixin {
 
-	@Shadow @Final private static Identifier TOAST_TEXTURE;
+    @Shadow @Final private static Identifier TOAST_TEXTURE;
 
-	@Shadow @Final private static Identifier BROWN_TEXTURE;
+    @Shadow @Final private static Identifier BROWN_TEXTURE;
 
-	@Shadow @Final private static Identifier WHITE_TEXTURE;
+    @Shadow @Final private static Identifier WHITE_TEXTURE;
 
-	@Shadow @Final private static Identifier BLACK_TEXTURE;
+    @Shadow @Final private static Identifier BLACK_TEXTURE;
 
-	@Shadow @Final private static Identifier WHITE_SPOTTED_TEXTURE;
+    @Shadow @Final private static Identifier WHITE_SPOTTED_TEXTURE;
 
-	@Shadow @Final private static Identifier GOLD_TEXTURE;
+    @Shadow @Final private static Identifier GOLD_TEXTURE;
 
-	@Shadow @Final private static Identifier SALT_TEXTURE;
+    @Shadow @Final private static Identifier SALT_TEXTURE;
 
-	@Shadow @Final private static Identifier CAERBANNOG_TEXTURE;
+    @Shadow @Final private static Identifier CAERBANNOG_TEXTURE;
 
-	@Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
-	public void getTypeTexture(RabbitEntity rabbitEntity, CallbackInfoReturnable<Identifier> cir){
-		if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
-			cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(rabbitEntity, VariantAnimalTexturesModule.VariantTextureType.RABBIT, () -> getOldTexture(rabbitEntity)));
-		}
-	}
+    @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    public void getTypeTexture(RabbitEntity rabbitEntity, CallbackInfoReturnable<Identifier> cir){
+        if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
+            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(rabbitEntity, VariantAnimalTexturesModule.VariantTextureType.RABBIT, () -> getOldTexture(rabbitEntity)));
+        }
+    }
 
-	public Identifier getOldTexture(RabbitEntity rabbitEntity) {
-		String string = Formatting.strip(rabbitEntity.getName().getString());
-		if (string != null && "Toast".equals(string)) {
-			return TOAST_TEXTURE;
-		} else {
-			switch(rabbitEntity.getRabbitType()) {
-				case 0:
-				default:
-					return BROWN_TEXTURE;
-				case 1:
-					return WHITE_TEXTURE;
-				case 2:
-					return BLACK_TEXTURE;
-				case 3:
-					return WHITE_SPOTTED_TEXTURE;
-				case 4:
-					return GOLD_TEXTURE;
-				case 5:
-					return SALT_TEXTURE;
-				case 99:
-					return CAERBANNOG_TEXTURE;
-			}
-		}
-	}
+    public Identifier getOldTexture(RabbitEntity rabbitEntity) {
+        String string = Formatting.strip(rabbitEntity.getName().getString());
+        if (string != null && "Toast".equals(string)) {
+            return TOAST_TEXTURE;
+        } else {
+            switch(rabbitEntity.getRabbitType()) {
+                case 0:
+                default:
+                    return BROWN_TEXTURE;
+                case 1:
+                    return WHITE_TEXTURE;
+                case 2:
+                    return BLACK_TEXTURE;
+                case 3:
+                    return WHITE_SPOTTED_TEXTURE;
+                case 4:
+                    return GOLD_TEXTURE;
+                case 5:
+                    return SALT_TEXTURE;
+                case 99:
+                    return CAERBANNOG_TEXTURE;
+            }
+        }
+    }
 }
