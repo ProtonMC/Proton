@@ -38,9 +38,7 @@ public class VariantHandler {
     }
 
     public static AbstractBlock.Settings realStateCopy(Block parent) {
-        AbstractBlock.Settings settings = AbstractBlock.Settings.copy(parent);
-
-        return settings;
+        return AbstractBlock.Settings.copy(parent);
     }
 
 }
