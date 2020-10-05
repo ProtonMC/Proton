@@ -6,7 +6,6 @@ import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.Module;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 
 import java.util.*;
@@ -29,9 +28,7 @@ public class VariantAnimalTexturesModule extends Module {
     @Configurable
     public static boolean enableShinyLlama = true;
     @Configurable
-    public static boolean enableLGBTBees = true;
-    @Configurable
-    public static boolean everyBeeIsLGBT = false;
+    public static double prideBeeChance = .1;
 
     @Configurable
     public static int shinyAnimalChance = 2048;
