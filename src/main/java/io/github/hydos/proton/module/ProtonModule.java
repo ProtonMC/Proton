@@ -1,9 +1,9 @@
 package io.github.hydos.proton.module;
 
 import io.github.hydos.proton.Proton;
-import io.github.hydos.proton.config.Configurable;
-import io.github.hydos.proton.config.Saveable;
 
+import io.github.protonmc.tiny_config.Configurable;
+import io.github.protonmc.tiny_config.Saveable;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 

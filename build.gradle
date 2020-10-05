@@ -6,6 +6,10 @@ plugins {
 
 repositories {
 	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
+	maven {
+		name = "Jitpack"
+		url = "https://jitpack.io/"
+	}
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +53,9 @@ dependencies {
 
 	modApi "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
 	include "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
+
+	implementation("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
+	include("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
 }
 
 processResources {

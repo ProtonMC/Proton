@@ -1,10 +1,10 @@
 package io.github.hydos.proton.module.building;
 
 import io.github.hydos.proton.Proton;
-import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.ProtonModule;
 import io.github.hydos.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.hydos.proton.util.ProtonRegisterUtil;
+import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -62,7 +62,8 @@ public class CompressedItemsModule extends ProtonModule {
                     "bluest_ice",
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
                                                  .slipperiness(bluest_ice_slipperiness)
-                                                 .breakByTool(FabricToolTags.PICKAXES).lightLevel(bluest_ice_luminance)),
+                                                 .breakByTool(FabricToolTags.PICKAXES)
+                                                 .lightLevel(bluest_ice_luminance)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                  );
 
