@@ -12,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.ItemGroup;
+import org.apache.logging.log4j.Level;
 
 public class CompressedItemsModule extends ProtonModule {
     @Configurable
@@ -30,6 +31,7 @@ public class CompressedItemsModule extends ProtonModule {
     @Override
     public void commonInit() {
         if (!enabled) return;
+        Proton.LOGGER.log(Level.INFO, "Initializing Compressed Item module!");
         ModuleBlocks.register();
         ModuleItems.register();
     }
