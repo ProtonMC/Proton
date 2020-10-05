@@ -36,8 +36,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
 	public void getCreeperColor(T livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
         if (ModuleManager.getInstance().isModuleEnabled(AngryCreepersModule.class)) {
             if (livingEntity instanceof CreeperEntity) {
-                CreeperEntity creeperEntity = ((CreeperEntity) livingEntity);
-                creeperColor = 1.0F - (creeperEntity.getClientFuseTime(g) / 1.0714285F);
+                creeperColor = 1.0F - (((CreeperEntity) livingEntity).getClientFuseTime(g) / 1.0714285F);
             } else {
                 creeperColor = 1.0F;
             }
