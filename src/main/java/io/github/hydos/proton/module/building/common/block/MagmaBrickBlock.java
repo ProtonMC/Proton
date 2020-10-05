@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
-// todo: allow mobs that are immune to fire to spawn on magma bricks
 /**
  * @author TehcJS
  */
@@ -14,6 +13,7 @@ public class MagmaBrickBlock extends Block {
 				.emissiveLighting((s, v, p) -> true)
 				.hardness(1.5F)
 				.resistance(10F)
-				.luminance((state) -> 3));
+				.luminance((state) -> 3)
+				.allowsSpawning((state, view, pos, type) -> type.isFireImmune()));
 	}
 }
