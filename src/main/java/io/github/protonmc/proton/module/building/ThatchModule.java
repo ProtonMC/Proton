@@ -1,0 +1,34 @@
+package io.github.protonmc.proton.module.building;
+
+import io.github.protonmc.proton.Proton;
+import io.github.protonmc.tiny_config.Configurable;
+import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.module.building.common.block.ThatchBlock;
+import io.github.protonmc.proton.util.ProtonRegisterUtil;
+import io.github.protonmc.proton.util.VariantHandler;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+
+public class ThatchModule extends ProtonModule {
+    @Configurable
+    public static double fallDamageMultiplier = 0.5;
+
+    public static ThatchBlock thatchBlock;
+
+    public ThatchModule() {
+        super(Proton.identifier("thatch"));
+    }
+
+    @Override
+    public void commonInit() {
+        if (!this.enabled) { return; }
+
+        thatchBlock = new ThatchBlock();
+        ProtonRegisterUtil.block("thatch", thatchBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+        FlammableBlockRegistry.getDefaultInstance().add(thatchBlock, 300, 20);
+        CompostingChanceRegistry.INSTANCE.add(thatchBlock, 0.65F); // Make it compostable
+        VariantHandler.addSlabAndStairs(thatchBlock);
+    }
+}
