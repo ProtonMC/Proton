@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "proton:dark_blue_ice"
+            "item": "proton:bluest_ice"
         }
     ],
     "result": {
