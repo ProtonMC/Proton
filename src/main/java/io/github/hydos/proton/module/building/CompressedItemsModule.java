@@ -30,31 +30,29 @@ public class CompressedItemsModule extends Module {
         public static Block DARK_BLUE_ICE;
 
         public static void register() {
-            COMPRESSED_NETHER_STAR = ProtonRegisterUtil.block("compressed_nether_star",
-                                                              new Block(FabricBlockSettings.of(Material.STONE)
-                                                                                           .breakByHand(false)
-                                                                                           .requiresTool()
-                                                                                           .breakByTool(FabricToolTags.PICKAXES,
-                                                                                                        2
-                                                                                                       )
-                                                                                           .strength(6.2F, 1200.0F)
-                                                                                           .nonOpaque()
-                                                                                           .blockVision(Blocks::never)),
-                                                              new FabricItemSettings().group(ItemGroup.DECORATIONS)
-                                                                                      .rarity(Rarity.RARE)
+            COMPRESSED_NETHER_STAR = ProtonRegisterUtil.block(
+                    "compressed_nether_star",
+                    new Block(FabricBlockSettings.of(Material.STONE)
+                                                 .breakByHand(false)
+                                                 .requiresTool()
+                                                 .breakByTool(FabricToolTags.PICKAXES, 2)
+                                                 .strength(6.2F, 1200.0F)
+                                                 .nonOpaque()
+                                                 .blockVision(Blocks::never)),
+                    new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE)
                                                              );
 
-            BLUER_ICE = ProtonRegisterUtil.block("bluer_ice",
-                                                 new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                                              .slipperiness(0.9998F)),
-                                                 new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
+            BLUER_ICE = ProtonRegisterUtil.block(
+                    "bluer_ice",
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(0.9998F)),
+                    new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                 );
 
-            DARK_BLUE_ICE = ProtonRegisterUtil.block("dark_blue_ice",
-                                                 new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                                              .slipperiness(1.234F)),
-                                                 new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                );
+            DARK_BLUE_ICE = ProtonRegisterUtil.block(
+                    "dark_blue_ice",
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(1.234F)),
+                    new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
+                                                    );
         }
     }
 }

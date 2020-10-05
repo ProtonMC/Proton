@@ -3,10 +3,14 @@ package io.github.hydos.proton.module;
 import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.config.Saveable;
+
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 
-public abstract class Module implements Saveable {
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
+public class Module implements Saveable {
     protected final Identifier id;
 
     // note: @Configurable fields in normal modules MUST be static
@@ -19,9 +23,10 @@ public abstract class Module implements Saveable {
         Proton.CONFIG.loadObject(this);
     }
 
-    public void clientInit() {}
+    @Environment(EnvType.CLIENT)
+    public void clientInit() {};
 
-    public void serverInit() {}
+    public void serverInit(MinecraftServer server) {};
 
     public void commonInit() {}
 

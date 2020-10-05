@@ -3,12 +3,17 @@ package io.github.hydos.proton.module;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;
 import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.module.tweaks.VariantAnimalTexturesModule;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModuleManager {
+import net.minecraft.server.MinecraftServer;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
+public class ModuleManager {
     private static final ModuleManager INSTANCE = new ModuleManager();
 
     public static ModuleManager getInstance() {
@@ -17,15 +22,16 @@ public class ModuleManager {
 
     private final List<Module> modules = new ArrayList<>();
 
+    @Environment(EnvType.CLIENT)
     public void setupClientModules() {
         for (Module module : modules) {
             module.clientInit();
         }
     }
 
-    public void setupServerModules() {
+    public void setupServerModules(MinecraftServer server) {
         for (Module module : modules) {
-            module.serverInit();
+            module.serverInit(server);
         }
     }
 
@@ -57,5 +63,13 @@ public class ModuleManager {
     public List<Module> getModules() {
         return modules;
     }
-
+  
+    public boolean isModuleEnabled(Class<? extends Module> moduleClass) {
+        for(Module module : modules){
+            if(module.getClass() == moduleClass){
+                return module.enabled;
+            }
+        }
+        return false;
+    }
 }

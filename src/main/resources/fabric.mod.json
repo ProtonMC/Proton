@@ -16,7 +16,7 @@
     "sources": "https://github.com/hydos/Proton"
   },
 
-  "license": "Vazkii Crayon Licence",
+  "license": "Attribution-NonCommercial-ShareAlike 3.0 Unported",
   "icon": "assets/proton/icon.png",
 
   "environment": "*",
@@ -26,9 +26,6 @@
     ],
     "client": [
       "io.github.hydos.proton.client.ProtonClient"
-    ],
-    "server": [
-      "io.github.hydos.proton.server.ProtonDedicatedServer"
     ],
     "modmenu": [
       "io.github.hydos.proton.client.modmenu.ModMenuCompat"

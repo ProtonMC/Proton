@@ -4,6 +4,9 @@ import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.module.Module;
 import net.minecraft.util.Identifier;
 
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.Identifier;
+
 public class TempTestModule extends Module {
     public TempTestModule() {
         super(new Identifier("temp", "tempid"));
@@ -15,7 +18,7 @@ public class TempTestModule extends Module {
     }
 
     @Override
-    public void serverInit() {
+    public void serverInit(MinecraftServer server) {
         Proton.LOGGER.info("Hello from Test Module server init!");
     }
 
