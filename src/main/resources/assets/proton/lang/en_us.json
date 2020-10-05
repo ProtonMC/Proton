@@ -10,6 +10,11 @@
     "block.proton.thatch_slab": "Thatch Slab",
     "block.proton.thatch_stairs": "Thatch Stairs",
 
+    "block.proton.magma_bricks": "Magma Bricks",
+    "block.proton.magma_bricks_slab": "Magma Bricks Slab",
+    "block.proton.magma_bricks_stairs": "Magma Bricks Stairs",
+    "block.proton.magma_bricks_wall": "Magma Bricks Wall",
+
     "modulecategory.proton.automation": "Automation",
     "modulecategory.proton.building": "Building",
     "modulecategory.proton.management": "Management",
