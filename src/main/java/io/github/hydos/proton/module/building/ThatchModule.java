@@ -8,7 +8,6 @@ import io.github.hydos.proton.util.ProtonRegisterUtil;
 import io.github.hydos.proton.util.VariantHandler;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
