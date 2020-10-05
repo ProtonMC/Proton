@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
 public class ProtonConfigScreen extends Screen {
@@ -34,8 +35,8 @@ public class ProtonConfigScreen extends Screen {
                 int x = left + (bWidth + pad) * (i % 2);
                 int y = vStart + (i / 2) * vpad;
 
-                addButton(new IconButton(x, y, bWidth - 20, 20, new LiteralText(category.name), new ItemStack(category.item), button -> {
-                    System.out.println("I need to implement the clicking action for " + category.name);
+                addButton(new IconButton(x, y, bWidth - 20, 20, new TranslatableText(category.getTranslationKey()), new ItemStack(category.item), button -> {
+                    System.out.println("I need to implement the clicking action for " + category.id);
                 }));
 //                addButton(new CheckboxButton(x + bWidth - 20, y, IngameConfigHandler.INSTANCE.getCategoryEnabledObject(category)));
                 i++;

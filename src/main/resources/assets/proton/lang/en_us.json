@@ -2,5 +2,16 @@
     "block.proton.compressed_nether_star": "Compressed Nether Star",
     "block.proton.bluer_ice": "Bluer Ice",
     "block.proton.bluest_ice": "Bluest Ice",
-    "block.proton.compressed_diamond_block": "Compressed Diamond Block"
+    "block.proton.compressed_diamond_block": "Compressed Diamond Block",
+
+    "modulecategory.proton.automation": "Automation",
+    "modulecategory.proton.building": "Building",
+    "modulecategory.proton.management": "Management",
+    "modulecategory.proton.tools": "Tools",
+    "modulecategory.proton.tweaks": "Tweaks",
+    "modulecategory.proton.world": "World",
+    "modulecategory.proton.mobs": "Mobs",
+    "modulecategory.proton.client": "Client",
+    "modulecategory.proton.oddities": "Oddities",
+    "modulecategory.proton.experimental": "Experimental"
 }
