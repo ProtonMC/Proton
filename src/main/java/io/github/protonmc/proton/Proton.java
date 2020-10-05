@@ -15,37 +15,37 @@ import net.fabricmc.loader.api.FabricLoader;
 
 public class Proton implements ModInitializer {
 
-    public static Proton INSTANCE;
+	public static Proton INSTANCE;
 
-    public static final Logger LOGGER = LogManager.getLogger("Proton");
-    public static final String MOD_ID = "proton";
+	public static final Logger LOGGER = LogManager.getLogger("Proton");
+	public static final String MOD_ID = "proton";
 
-    public static final ConfigManager CONFIG = new ConfigManager(
-            FabricLoader.getInstance().getConfigDir().resolve("proton.json5")
-    );
+	public static final ConfigManager CONFIG = new ConfigManager(
+			FabricLoader.getInstance().getConfigDir().resolve("proton.json5")
+	);
 
-    public static final boolean DEBUG = true;
+	public static final boolean DEBUG = true;
 
-    public Proton() {
-        INSTANCE = this;
-    }
+	public Proton() {
+		INSTANCE = this;
+	}
 
-    @Override
-    public void onInitialize() {
-        LOGGER.log(Level.INFO, "Setting up modules...");
-        ModuleManager.getInstance().setupCommonModules();
-        LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
+	@Override
+	public void onInitialize() {
+		LOGGER.log(Level.INFO, "Setting up modules...");
+		ModuleManager.getInstance().setupCommonModules();
+		LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
 
-        ServerLifecycleEvents.SERVER_STARTING.register(new ProtonServer());
+		ServerLifecycleEvents.SERVER_STARTING.register(new ProtonServer());
 
-        try {
-            CONFIG.save(ModuleManager.getInstance().getModules());
-        } catch (Throwable t) {
-            LOGGER.error("Couldn't save the config", t);
-        }
-    }
+		try {
+			CONFIG.save(ModuleManager.getInstance().getModules());
+		} catch (Throwable t) {
+			LOGGER.error("Couldn't save the config", t);
+		}
+	}
 
-    public static Identifier identifier(String path) {
-        return new Identifier(MOD_ID, path);
-    }
+	public static Identifier identifier(String path) {
+		return new Identifier(MOD_ID, path);
+	}
 }

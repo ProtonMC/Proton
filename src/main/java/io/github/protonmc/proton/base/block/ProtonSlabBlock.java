@@ -12,14 +12,14 @@ import net.minecraft.util.registry.Registry;
 
 public class ProtonSlabBlock extends SlabBlock {
 
-    public final Block parent;
+	public final Block parent;
 
-    public ProtonSlabBlock(Block parent) {
-        super(VariantHandler.realStateCopy(parent));
+	public ProtonSlabBlock(Block parent) {
+		super(VariantHandler.realStateCopy(parent));
 
-        this.parent = parent;
-        ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), this);
-        ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-    }
+		this.parent = parent;
+		ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), this);
+		ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+	}
 
 }

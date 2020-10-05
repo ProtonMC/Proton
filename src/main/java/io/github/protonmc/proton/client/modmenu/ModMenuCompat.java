@@ -9,13 +9,13 @@ import net.fabricmc.api.Environment;
 
 @Environment(EnvType.CLIENT)
 public class ModMenuCompat implements ModMenuApi {
-    @Override
-    public String getModId() {
-        return Proton.MOD_ID;
-    }
+	@Override
+	public String getModId() {
+		return Proton.MOD_ID;
+	}
 
-    @Override
-    public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> new ProtonConfigScreen();
-    }
+	@Override
+	public ConfigScreenFactory<?> getModConfigScreenFactory() {
+		return parent -> new ProtonConfigScreen();
+	}
 }

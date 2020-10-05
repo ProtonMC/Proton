@@ -25,29 +25,29 @@ import net.minecraft.entity.mob.CreeperEntity;
 @Environment(EnvType.CLIENT)
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements FeatureRendererContext<T, M> {
-    public LivingEntityRendererMixin(EntityRenderDispatcher dispatcher) {
+	public LivingEntityRendererMixin(EntityRenderDispatcher dispatcher) {
 		super(dispatcher);
-    }
-    
-    @Unique
-    private float creeperColor = 1.0F;
+	}
 
-    @Inject(method = "render", at = @At("HEAD"))
+	@Unique
+	private float creeperColor = 1.0F;
+
+	@Inject(method = "render", at = @At("HEAD"))
 	public void getCreeperColor(T livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
-        if (ModuleManager.getInstance().isModuleEnabled(AngryCreepersModule.class)) {
-            if (livingEntity instanceof CreeperEntity) {
-                creeperColor = 1.0F - (((CreeperEntity) livingEntity).getClientFuseTime(g) / 1.0714285F);
-            } else {
-                creeperColor = 1.0F;
-            }
-        } else {
-            creeperColor = 1.0F;
-        }
-    }
+		if (ModuleManager.getInstance().isModuleEnabled(AngryCreepersModule.class)) {
+			if (livingEntity instanceof CreeperEntity) {
+				creeperColor = 1.0F - (((CreeperEntity) livingEntity).getClientFuseTime(g) / 1.0714285F);
+			} else {
+				creeperColor = 1.0F;
+			}
+		} else {
+			creeperColor = 1.0F;
+		}
+	}
 
-    @ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/model/EntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;IIFFFF)V"))
-    private void modifyCreeperColor(Args args) {
-        args.set(5, creeperColor);
-        args.set(6, creeperColor);
-    }
+	@ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/model/EntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;IIFFFF)V"))
+	private void modifyCreeperColor(Args args) {
+		args.set(5, creeperColor);
+		args.set(6, creeperColor);
+	}
 }
