@@ -50,7 +50,7 @@ public class CompressedItemsModule extends Module {
 
             DARK_BLUE_ICE = ProtonRegisterUtil.block(
                     "dark_blue_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(1.234F)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(1.0F)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                     );
         }
