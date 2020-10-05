@@ -24,6 +24,8 @@ public class TurfModule extends ProtonModule {
 
     @Override
     public void commonInit() {
+        if(!this.enabled) { return; }
+
         turfBlock = new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK));
         ProtonRegisterUtil.block("turf", turfBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
         VariantHandler.addSlabAndStairs(turfBlock);
@@ -31,6 +33,8 @@ public class TurfModule extends ProtonModule {
 
     @Override
     public void clientInit() {
+        if(!this.enabled) { return; }
+
         Block turf_slab = Registry.BLOCK.get(new Identifier(Registry.BLOCK.getId(turfBlock).toString() + "_slab"));
         Block turf_stairs = Registry.BLOCK.get(new Identifier(Registry.BLOCK.getId(turfBlock).toString() + "_stairs"));
 
