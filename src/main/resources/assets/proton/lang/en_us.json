@@ -4,6 +4,12 @@
     "block.proton.bluest_ice": "Bluest Ice",
     "block.proton.compressed_diamond_block": "Compressed Diamond Block",
 
+    "block.proton.bamboo_mat": "Bamboo Mat",
+
+    "block.proton.thatch": "Thatch",
+    "block.proton.thatch_slab": "Thatch Slab",
+    "block.proton.thatch_stairs": "Thatch Stairs",
+
     "modulecategory.proton.automation": "Automation",
     "modulecategory.proton.building": "Building",
     "modulecategory.proton.management": "Management",
