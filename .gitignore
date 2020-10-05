@@ -28,4 +28,4 @@ bin/
 run/
 
 # macOS crap
-._*
+.*_*
