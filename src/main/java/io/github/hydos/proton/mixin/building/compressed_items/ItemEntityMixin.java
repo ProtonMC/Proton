@@ -15,7 +15,7 @@ public abstract class ItemEntityMixin {
     @Shadow public abstract ItemStack getStack();
 
     @Inject(method = "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z", at = @At("RETURN"), cancellable = true)
-    private void dontDestroyCompressedNetherStars(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void noDestroyCompressedNetherStars(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (!getStack().isEmpty() && getStack().getItem() == CompressedItemsModule.ModuleBlocks.COMPRESSED_NETHER_STAR.asItem() && source.isExplosive()) {
             cir.setReturnValue(false);
         }
