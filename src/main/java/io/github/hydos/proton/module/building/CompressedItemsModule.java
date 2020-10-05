@@ -2,7 +2,7 @@ package io.github.hydos.proton.module.building;
 
 import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
-import io.github.hydos.proton.module.Module;
+import io.github.hydos.proton.module.ProtonModule;
 import io.github.hydos.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.hydos.proton.util.ProtonRegisterUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -12,9 +12,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Rarity;
 
-public class CompressedItemsModule extends Module {
+public class CompressedItemsModule extends ProtonModule {
     @Configurable
     public static float bluer_ice_slipperiness = 0.9998F;
 
