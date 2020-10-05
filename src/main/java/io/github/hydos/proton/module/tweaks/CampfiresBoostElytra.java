@@ -1,8 +1,8 @@
 package io.github.hydos.proton.module.tweaks;
 
 import io.github.hydos.proton.Proton;
-import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.ProtonModule;
+import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

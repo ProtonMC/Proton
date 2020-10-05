@@ -1,7 +1,7 @@
 package io.github.hydos.proton.module.building;
 
 import io.github.hydos.proton.Proton;
-import io.github.hydos.proton.config.Configurable;
+import io.github.protonmc.tiny_config.Configurable;
 import io.github.hydos.proton.module.ProtonModule;
 import io.github.hydos.proton.module.building.common.block.ThatchBlock;
 import io.github.hydos.proton.util.ProtonRegisterUtil;

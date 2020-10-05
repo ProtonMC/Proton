@@ -3,7 +3,7 @@ package io.github.hydos.proton.module.client;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;
 import io.github.hydos.proton.Proton;
-import io.github.hydos.proton.config.Configurable;
+import io.github.protonmc.tiny_config.Configurable;
 import io.github.hydos.proton.module.ProtonModule;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
