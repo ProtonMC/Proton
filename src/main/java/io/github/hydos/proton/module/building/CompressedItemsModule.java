@@ -18,7 +18,10 @@ public class CompressedItemsModule extends Module {
     public static float bluer_ice_slipperiness = 0.9998F;
 
     @Configurable
-    public static float dark_blue_ice_slipperiness = 1.0F;
+    public static float bluest_ice_slipperiness = 1.0F;
+
+    @Configurable
+    public static int bluest_ice_luminance = 3;
 
     public CompressedItemsModule() {
         super(Proton.identifier("compressed_items"));
@@ -58,8 +61,8 @@ public class CompressedItemsModule extends Module {
             BLUEST_ICE = ProtonRegisterUtil.block(
                     "bluest_ice",
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                 .slipperiness(dark_blue_ice_slipperiness)
-                                                 .breakByTool(FabricToolTags.PICKAXES)),
+                                                 .slipperiness(bluest_ice_slipperiness)
+                                                 .breakByTool(FabricToolTags.PICKAXES).lightLevel(bluest_ice_luminance)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                  );
 
