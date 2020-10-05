@@ -5,7 +5,6 @@ import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.api.SyntaxError;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -29,7 +28,7 @@ public class ConfigManager {
         config = Jankson.builder().build().load(Files.newInputStream(path));
     }
 
-    public void save(List<? extends Saveable> objects) throws IOException {
+    public void save(Iterable<? extends Saveable> objects) throws IOException {
         for (Saveable o : objects) {
             config.put(o.getSerializedId(), toJson(o));
         }
