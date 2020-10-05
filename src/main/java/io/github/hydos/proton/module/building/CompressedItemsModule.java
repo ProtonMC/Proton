@@ -34,6 +34,7 @@ public class CompressedItemsModule extends Module {
         public static Block COMPRESSED_NETHER_STAR;
         public static Block BLUER_ICE;
         public static Block DARK_BLUE_ICE;
+        public static Block COMPRESSED_DIAMOND_BLOCK;
 
         public static void register() {
             COMPRESSED_NETHER_STAR = ProtonRegisterUtil.block(
@@ -59,6 +60,12 @@ public class CompressedItemsModule extends Module {
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(dark_blue_ice_slipperiness)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                     );
+
+            COMPRESSED_DIAMOND_BLOCK = ProtonRegisterUtil.block(
+                    "compressed_diamond_block",
+                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK).strength(8.0F, 9.0F)),
+                    new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
+                                                               );
         }
     }
 }
