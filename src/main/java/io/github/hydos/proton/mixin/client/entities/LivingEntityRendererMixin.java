@@ -1,4 +1,4 @@
-package io.github.hydos.proton.mixin.client;
+package io.github.hydos.proton.mixin.client.entities;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

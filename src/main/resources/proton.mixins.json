@@ -9,9 +9,9 @@
     "client.entities.RabbitRendererMixin"
   ],
   "client": [
-    "client.LivingEntityRendererMixin",
     "client.TitleScreenMixin",
     "client.entities.CowRendererMixin",
+    "client.entities.LivingEntityRendererMixin",
     "client.entities.PigRendererMixin"
   ],
   "injectors": {
