@@ -51,19 +51,24 @@ public class CompressedItemsModule extends Module {
 
             BLUER_ICE = ProtonRegisterUtil.block(
                     "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(bluer_ice_slipperiness)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(bluer_ice_slipperiness).breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                 );
 
             DARK_BLUE_ICE = ProtonRegisterUtil.block(
                     "dark_blue_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(dark_blue_ice_slipperiness)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
+                                                 .slipperiness(dark_blue_ice_slipperiness)
+                                                 .breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                     );
 
             COMPRESSED_DIAMOND_BLOCK = ProtonRegisterUtil.block(
                     "compressed_diamond_block",
-                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK).strength(8.0F, 9.0F)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK)
+                                                 .strength(8.0F, 9.0F)
+                                                 .requiresTool()
+                                                 .breakByTool(FabricToolTags.PICKAXES, 2)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                                );
         }
