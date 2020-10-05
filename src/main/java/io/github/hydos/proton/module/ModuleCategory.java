@@ -27,7 +27,7 @@ public enum ModuleCategory {
 
     public boolean enabled;
 
-    private final List<Module> ownedModules = new ArrayList<>();
+    private final List<ProtonModule> ownedProtonModules = new ArrayList<>();
 
     ModuleCategory(Identifier id, boolean showInGui, Item item) {
         this.id = id;
@@ -36,15 +36,15 @@ public enum ModuleCategory {
         this.enabled = true;
     }
 
-    public void addModule(Module module) {
-        ownedModules.add(module);
+    public void addModule(ProtonModule protonModule) {
+        ownedProtonModules.add(protonModule);
     }
 
     public String getTranslationKey() {
         return "modulecategory." + id.getNamespace() + "." + id.getPath();
     }
 
-    public List<Module> getOwnedModules() {
-        return ownedModules;
+    public List<ProtonModule> getOwnedModules() {
+        return ownedProtonModules;
     }
 }

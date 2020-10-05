@@ -4,14 +4,14 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;
 import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
-import io.github.hydos.proton.module.Module;
+import io.github.hydos.proton.module.ProtonModule;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 
 import java.util.*;
 import java.util.function.Supplier;
 
-public class VariantAnimalTexturesModule extends Module {
+public class VariantAnimalTexturesModule extends ProtonModule {
 
     private static final int COW_COUNT = 4;
     private static final int PIG_COUNT = 3;

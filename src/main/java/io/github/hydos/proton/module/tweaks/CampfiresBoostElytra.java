@@ -2,7 +2,7 @@ package io.github.hydos.proton.module.tweaks;
 
 import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
-import io.github.hydos.proton.module.Module;
+import io.github.hydos.proton.module.ProtonModule;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,7 +11,7 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
-public class CampfiresBoostElytra extends Module {
+public class CampfiresBoostElytra extends ProtonModule {
     @Configurable
     public static double boostStrength = 0.5;
     @Configurable

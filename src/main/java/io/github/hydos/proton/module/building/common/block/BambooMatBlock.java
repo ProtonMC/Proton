@@ -1,6 +1,6 @@
 package io.github.hydos.proton.module.building.common.block;
 
-import io.github.hydos.proton.module.Module;
+import io.github.hydos.proton.module.ProtonModule;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.Block;
@@ -19,9 +19,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 public class BambooMatBlock extends Block {
     public static final EnumProperty<Direction> FACING = Properties.HOPPER_FACING;
 
-    public BambooMatBlock(Module module) {
+    public BambooMatBlock(ProtonModule protonModule) {
         super(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).hardness(0.5F));
-//        super("bamboo_mat", module, ItemGroup.BUILDING_BLOCKS,
+//        super("bamboo_mat", protonModule, ItemGroup.BUILDING_BLOCKS,
 //                Block.Properties.create(Material.WOOD, MaterialColor.YELLOW)
 //                        .hardnessAndResistance(0.5F)
 //                        .sound(SoundType.WOOD));

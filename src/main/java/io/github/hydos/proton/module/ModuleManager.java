@@ -19,54 +19,54 @@ public class ModuleManager {
         return INSTANCE;
     }
 
-    private final List<Module> modules = new ArrayList<>();
+    private final List<ProtonModule> protonModules = new ArrayList<>();
 
     @Environment(EnvType.CLIENT)
     public void setupClientModules() {
-        for (Module module : modules) {
-            module.clientInit();
+        for (ProtonModule protonModule : protonModules) {
+            protonModule.clientInit();
         }
     }
 
     public void setupServerModules(MinecraftServer server) {
-        for (Module module : modules) {
-            module.serverInit(server);
+        for (ProtonModule protonModule : protonModules) {
+            protonModule.serverInit(server);
         }
     }
 
     public void setupCommonModules() {
-        for (Module module : modules) {
-            module.commonInit();
+        for (ProtonModule protonModule : protonModules) {
+            protonModule.commonInit();
         }
     }
 
     public void scanAndRegisterModules() {
         ScanResult scanResult = new ClassGraph().enableClassInfo().scan();
-        List<String> classes = scanResult.getSubclasses(Module.class.getCanonicalName()).getNames();
+        List<String> classes = scanResult.getSubclasses(ProtonModule.class.getCanonicalName()).getNames();
 
         for (String classname : classes) {
             try {
                 Class<?> clazz = Class.forName(classname);
-                Module module = (Module) clazz.getDeclaredConstructor().newInstance();
-                this.addModule(module);
+                ProtonModule protonModule = (ProtonModule) clazz.getDeclaredConstructor().newInstance();
+                this.addModule(protonModule);
             } catch (Exception e) {
                 Proton.LOGGER.error("Couldn't register module with name " + classname);
             }
         }
     }
 
-    public void addModule(Module module) {
-        modules.add(module);
+    public void addModule(ProtonModule protonModule) {
+        protonModules.add(protonModule);
     }
 
-    public List<Module> getModules() {
-        return modules;
+    public List<ProtonModule> getModules() {
+        return protonModules;
     }
   
-    public boolean isModuleEnabled(Class<? extends Module> moduleClass) {
-        for(Module module : modules){
-            if(module.getClass() == moduleClass){
-                return module.enabled;
+    public boolean isModuleEnabled(Class<? extends ProtonModule> moduleClass) {
+        for(ProtonModule protonModule : protonModules){
+            if(protonModule.getClass() == moduleClass){
+                return protonModule.enabled;
             }
         }
         return false;

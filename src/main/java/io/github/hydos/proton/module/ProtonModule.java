@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
-public abstract class Module implements Saveable {
+public abstract class ProtonModule implements Saveable {
     protected final Identifier id;
 
     // note: @Configurable fields in normal modules MUST be static
@@ -18,7 +18,7 @@ public abstract class Module implements Saveable {
     @Configurable
     public boolean enabled = true;
 
-    public Module(Identifier id) {
+    public ProtonModule(Identifier id) {
         this.id = id;
         Proton.CONFIG.loadObject(this);
     }
