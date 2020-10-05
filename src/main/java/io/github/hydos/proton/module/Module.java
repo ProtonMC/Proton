@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
-public abstract class Module implements Saveable {
+public class Module implements Saveable {
     protected final Identifier id;
 
     // note: @Configurable fields in normal modules MUST be static
@@ -24,9 +24,9 @@ public abstract class Module implements Saveable {
     }
 
     @Environment(EnvType.CLIENT)
-    public abstract void clientInit();
+    public void clientInit() {};
 
-    public abstract void serverInit(MinecraftServer server);
+    public void serverInit(MinecraftServer server) {};
 
     public void commonInit() {}
 
