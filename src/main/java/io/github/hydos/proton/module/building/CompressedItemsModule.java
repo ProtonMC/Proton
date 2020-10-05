@@ -1,6 +1,7 @@
 package io.github.hydos.proton.module.building;
 
 import io.github.hydos.proton.Proton;
+import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.Module;
 import io.github.hydos.proton.util.ProtonRegisterUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -13,6 +14,11 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Rarity;
 
 public class CompressedItemsModule extends Module {
+    @Configurable
+    public static float bluer_ice_slipperiness = 0.9998F;
+
+    @Configurable
+    public static float dark_blue_ice_slipperiness = 1.0F;
 
     public CompressedItemsModule() {
         super(Proton.identifier("compressed_items"));
@@ -44,13 +50,13 @@ public class CompressedItemsModule extends Module {
 
             BLUER_ICE = ProtonRegisterUtil.block(
                     "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(0.9998F)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(bluer_ice_slipperiness)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                 );
 
             DARK_BLUE_ICE = ProtonRegisterUtil.block(
                     "dark_blue_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(1.0F)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(dark_blue_ice_slipperiness)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                     );
         }
