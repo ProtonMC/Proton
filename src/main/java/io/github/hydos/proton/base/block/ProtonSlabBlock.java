@@ -24,7 +24,6 @@ public class ProtonSlabBlock extends SlabBlock {
         super(VariantHandler.realStateCopy(parent));
 
         this.parent = parent;
-        System.out.println(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab").toString());
         ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), this);
         ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
