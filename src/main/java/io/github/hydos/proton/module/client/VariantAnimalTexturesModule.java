@@ -1,4 +1,4 @@
-package io.github.hydos.proton.module.tweaks;
+package io.github.hydos.proton.module.client;
 
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;

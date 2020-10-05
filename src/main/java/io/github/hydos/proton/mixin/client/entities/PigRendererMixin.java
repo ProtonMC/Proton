@@ -1,12 +1,10 @@
 package io.github.hydos.proton.mixin.client.entities;
 
 import io.github.hydos.proton.module.ModuleManager;
-import io.github.hydos.proton.module.tweaks.VariantAnimalTexturesModule;
+import io.github.hydos.proton.module.client.VariantAnimalTexturesModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.CowEntityRenderer;
 import net.minecraft.client.render.entity.PigEntityRenderer;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;

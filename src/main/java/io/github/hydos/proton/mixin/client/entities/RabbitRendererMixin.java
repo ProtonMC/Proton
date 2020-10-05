@@ -1,7 +1,7 @@
 package io.github.hydos.proton.mixin.client.entities;
 
 import io.github.hydos.proton.module.ModuleManager;
-import io.github.hydos.proton.module.tweaks.VariantAnimalTexturesModule;
+import io.github.hydos.proton.module.client.VariantAnimalTexturesModule;
 import net.minecraft.client.render.entity.RabbitEntityRenderer;
 import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.util.Formatting;
