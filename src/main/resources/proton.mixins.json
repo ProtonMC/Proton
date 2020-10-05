@@ -11,6 +11,7 @@
   "client": [
     "client.TitleScreenMixin",
     "client.entities.CowRendererMixin",
+    "client.entities.LivingEntityRendererMixin",
     "client.entities.PigRendererMixin"
   ],
   "injectors": {
