@@ -4,9 +4,14 @@
   "package": "io.github.hydos.proton.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "client.entities.ChickenRendererMixin",
+    "client.entities.LlamaRendererMixin",
+    "client.entities.RabbitRendererMixin"
   ],
   "client": [
-    "client.TitleScreenMixin"
+    "client.TitleScreenMixin",
+    "client.entities.CowRendererMixin",
+    "client.entities.PigRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

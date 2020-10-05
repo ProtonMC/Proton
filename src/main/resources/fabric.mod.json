@@ -16,7 +16,7 @@
     "sources": "https://github.com/hydos/Proton"
   },
 
-  "license": "Vazkii Crayon Licence",
+  "license": "Attribution-NonCommercial-ShareAlike 3.0 Unported",
   "icon": "assets/proton/icon.png",
 
   "environment": "*",
