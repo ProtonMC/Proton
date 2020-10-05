@@ -1,25 +1,27 @@
 package io.github.hydos.proton.module;
 
+import io.github.hydos.proton.Proton;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public enum ModuleCategory {
 
-    AUTOMATION("automation", true, Items.REDSTONE),
-    BUILDING("building", true, Items.BRICKS),
-    MANAGEMENT("management", true, Items.CHEST),
-    TOOLS("tools", true, Items.IRON_PICKAXE),
-    TWEAKS("tweaks", true, Items.NAUTILUS_SHELL),
-    WORLD("world", true, Items.GRASS_BLOCK),
-    MOBS("mobs", true, Items.PIG_SPAWN_EGG),
-    CLIENT("client", true, Items.ENDER_EYE),
-    ODDITIES("oddities", true, Items.CHORUS_FRUIT),
-    EXPERIMENTAL("experimental", true, Items.TNT);
+    AUTOMATION(Proton.identifier("automation"), true, Items.REDSTONE),
+    BUILDING(Proton.identifier("building"), true, Items.BRICKS),
+    MANAGEMENT(Proton.identifier("management"), true, Items.CHEST),
+    TOOLS(Proton.identifier("tools"), true, Items.IRON_PICKAXE),
+    TWEAKS(Proton.identifier("tweaks"), true, Items.NAUTILUS_SHELL),
+    WORLD(Proton.identifier("world"), true, Items.GRASS_BLOCK),
+    MOBS(Proton.identifier("mobs"), true, Items.PIG_SPAWN_EGG),
+    CLIENT(Proton.identifier("client"), true, Items.ENDER_EYE),
+    ODDITIES(Proton.identifier("oddities"), true, Items.CHORUS_FRUIT),
+    EXPERIMENTAL(Proton.identifier("experimental"), true, Items.TNT);
 
-    public final String name;
+    public final Identifier id;
     public final boolean showInGui;
     public final Item item;
 
@@ -27,8 +29,8 @@ public enum ModuleCategory {
 
     private final List<Module> ownedModules = new ArrayList<>();
 
-    ModuleCategory(String name, boolean showInGui, Item item) {
-        this.name = name;
+    ModuleCategory(Identifier id, boolean showInGui, Item item) {
+        this.id = id;
         this.showInGui = showInGui;
         this.item = item;
         this.enabled = true;
@@ -36,6 +38,10 @@ public enum ModuleCategory {
 
     public void addModule(Module module) {
         ownedModules.add(module);
+    }
+
+    public String getTranslationKey() {
+        return "modulecategory." + id.getNamespace() + "." + id.getPath();
     }
 
     public List<Module> getOwnedModules() {

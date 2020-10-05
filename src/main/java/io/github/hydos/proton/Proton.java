@@ -46,7 +46,7 @@ public class Proton implements ModInitializer {
         }
     }
 
-    public static Identifier identifier(String name) {
-        return new Identifier(MOD_ID, name);
+    public static Identifier identifier(String path) {
+        return new Identifier(MOD_ID, path);
     }
 }
