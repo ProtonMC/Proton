@@ -1,12 +1,11 @@
 package io.github.hydos.proton.module.building.common.block;
 
 import io.github.hydos.proton.module.Module;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
@@ -14,10 +13,10 @@ import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import org.jetbrains.annotations.Nullable;
+
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 public class BambooMatBlock extends Block {
-
     public static final EnumProperty<Direction> FACING = Properties.HOPPER_FACING;
 
     public BambooMatBlock(Module module) {
@@ -52,6 +51,8 @@ public class BambooMatBlock extends Block {
 
         return getDefaultState().with(FACING, dir);
     }
+
+
 
 //    @Override
 //    public BlockState getStateForPlacement(BlockItemUseContext ctx) {
