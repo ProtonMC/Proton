@@ -26,9 +26,6 @@ public class ProtonSlabBlock extends SlabBlock {
         this.parent = parent;
         ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), this);
         ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-
-        // TODO: uhh
-        //RenderLayerHandler.setInherited(this, parent.getBlock());
     }
 
 }

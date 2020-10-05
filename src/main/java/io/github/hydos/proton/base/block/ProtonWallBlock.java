@@ -20,9 +20,6 @@ public class ProtonWallBlock extends WallBlock {
         this.parent = parent;
         ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_wall"), this);
         ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_wall"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-
-        // TODO: uhh
-        //RenderLayerHandler.setInherited(this, parent.getBlock());
     }
 
 }

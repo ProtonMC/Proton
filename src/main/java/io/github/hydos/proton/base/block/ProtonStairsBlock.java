@@ -20,9 +20,6 @@ public class ProtonStairsBlock extends StairsBlock {
         this.parent = parent;
         ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), this);
         ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-
-        // TODO: uhh
-        //RenderLayerHandler.setInherited(this, parent.getBlock());
     }
 
 }
