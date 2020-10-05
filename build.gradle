@@ -23,6 +23,10 @@ shadowJar {
 	relocate 'nonapi.io.github.classgraph', 'proton.shaded.nonapi.io.github.classgraph'
 }
 
+minecraft {
+	accessWidener "src/main/resources/proton.accessWidener"
+}
+
 dependencies {
 	//to change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"

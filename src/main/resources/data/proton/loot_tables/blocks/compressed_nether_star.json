@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "proton:compressed_nether_star"
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        },
+        {
+            "item": "proton:bluer_ice"
+        }
+    ],
+    "result": {
+        "item": "proton:bluest_ice",
+        "count": 1
+    }
+}
