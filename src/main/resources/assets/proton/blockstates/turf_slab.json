@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "type=bottom": [
+      { "model": "proton:block/turf_slab" },
+      { "model": "proton:block/turf_slab", "y": 90 },
+      { "model": "proton:block/turf_slab", "y": 180 },
+      { "model": "proton:block/turf_slab", "y": 270 }
+    ],
+    "type=top": [
+      { "model": "proton:block/turf_slab_top" },
+      { "model": "proton:block/turf_slab_top", "y": 90 },
+      { "model": "proton:block/turf_slab_top", "y": 180 },
+      { "model": "proton:block/turf_slab_top", "y": 270 }
+    ],
+    "type=double": [
+      { "model": "proton:block/turf" },
+      { "model": "proton:block/turf", "y": 90 },
+      { "model": "proton:block/turf", "y": 180 },
+      { "model": "proton:block/turf", "y": 270 }
+    ]
+  }
+}
