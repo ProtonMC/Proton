@@ -6,7 +6,6 @@ import io.github.hydos.proton.Proton;
 import io.github.hydos.proton.config.Configurable;
 import io.github.hydos.proton.module.Module;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 
 import java.util.*;

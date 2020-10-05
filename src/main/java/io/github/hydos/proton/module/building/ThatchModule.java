@@ -7,7 +7,6 @@ import io.github.hydos.proton.module.building.common.block.ThatchBlock;
 import io.github.hydos.proton.util.ProtonRegisterUtil;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
