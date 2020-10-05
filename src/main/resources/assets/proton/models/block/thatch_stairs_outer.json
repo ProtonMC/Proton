@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "proton:block/thatch",
+    "top": "proton:block/thatch",
+    "side": "proton:block/thatch"
+  }
+}
