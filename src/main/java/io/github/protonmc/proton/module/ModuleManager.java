@@ -3,14 +3,13 @@ package io.github.protonmc.proton.module;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;
 import io.github.protonmc.proton.Proton;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.server.MinecraftServer;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.server.MinecraftServer;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ModuleManager {
     private static final ModuleManager INSTANCE = new ModuleManager();
@@ -19,23 +18,23 @@ public class ModuleManager {
         return INSTANCE;
     }
 
-    private final List<ProtonModule> protonModules = new ArrayList<>();
+    private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
 
     @Environment(EnvType.CLIENT)
     public void setupClientModules() {
-        for (ProtonModule protonModule : protonModules) {
+        for (ProtonModule protonModule : modules.values()) {
             protonModule.clientInit();
         }
     }
 
     public void setupServerModules(MinecraftServer server) {
-        for (ProtonModule protonModule : protonModules) {
+        for (ProtonModule protonModule : modules.values()) {
             protonModule.serverInit(server);
         }
     }
 
     public void setupCommonModules() {
-        for (ProtonModule protonModule : protonModules) {
+        for (ProtonModule protonModule : modules.values()) {
             protonModule.commonInit();
         }
     }
@@ -56,19 +55,16 @@ public class ModuleManager {
     }
 
     public void addModule(ProtonModule protonModule) {
-        protonModules.add(protonModule);
+        modules.put(protonModule.getClass(), protonModule);
     }
 
-    public List<ProtonModule> getModules() {
-        return protonModules;
+    public Iterable<ProtonModule> getModules() {
+        return modules.values();
     }
   
     public boolean isModuleEnabled(Class<? extends ProtonModule> moduleClass) {
-        for(ProtonModule protonModule : protonModules){
-            if(protonModule.getClass() == moduleClass){
-                return protonModule.enabled;
-            }
-        }
+        ProtonModule module = modules.get(moduleClass);
+        if (module != null) return module.enabled;
         return false;
     }
 }
