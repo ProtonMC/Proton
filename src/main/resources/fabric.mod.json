@@ -22,16 +22,16 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.hydos.proton.Proton"
+      "io.github.protonmc.proton.Proton"
     ],
     "client": [
-      "io.github.hydos.proton.client.ProtonClient"
+      "io.github.protonmc.proton.client.ProtonClient"
     ],
     "modmenu": [
-      "io.github.hydos.proton.client.modmenu.ModMenuCompat"
+      "io.github.protonmc.proton.client.modmenu.ModMenuCompat"
     ],
     "preLaunch": [
-      "io.github.hydos.proton.ProtonPreLaunch"
+      "io.github.protonmc.proton.ProtonPreLaunch"
     ]
   },
   "mixins": [
