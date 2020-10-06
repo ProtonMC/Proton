@@ -1,9 +1,9 @@
 package io.github.protonmc.proton.client.modmenu;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.client.screen.ProtonConfigScreen;
 import io.github.prospector.modmenu.api.ConfigScreenFactory;
 import io.github.prospector.modmenu.api.ModMenuApi;
+import io.github.protonmc.proton.client.screen.ConfigScreenProvider;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -16,6 +16,6 @@ public class ModMenuCompat implements ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> new ProtonConfigScreen();
+        return ConfigScreenProvider::getScreen;
     }
 }

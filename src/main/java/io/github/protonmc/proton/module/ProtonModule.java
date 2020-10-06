@@ -31,7 +31,7 @@ public abstract class ProtonModule implements Saveable {
     public void commonInit() {}
 
     public final String getTranslationKey() {
-        return "module." + id.getNamespace() + "." + id.getPath();
+        return "proton.module." + id.getNamespace() + "." + id.getPath();
     }
 
     public final Identifier getId() {

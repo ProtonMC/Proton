@@ -41,7 +41,7 @@ public enum ModuleCategory {
     }
 
     public String getTranslationKey() {
-        return "modulecategory." + id.getNamespace() + "." + id.getPath();
+        return "proton.config.category." + id.getPath();
     }
 
     public List<ProtonModule> getOwnedModules() {

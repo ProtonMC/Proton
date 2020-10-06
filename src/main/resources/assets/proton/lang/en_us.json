@@ -15,14 +15,14 @@
     "block.proton.magma_bricks_stairs": "Magma Bricks Stairs",
     "block.proton.magma_bricks_wall": "Magma Bricks Wall",
 
-    "modulecategory.proton.automation": "Automation",
-    "modulecategory.proton.building": "Building",
-    "modulecategory.proton.management": "Management",
-    "modulecategory.proton.tools": "Tools",
-    "modulecategory.proton.tweaks": "Tweaks",
-    "modulecategory.proton.world": "World",
-    "modulecategory.proton.mobs": "Mobs",
-    "modulecategory.proton.client": "Client",
-    "modulecategory.proton.oddities": "Oddities",
-    "modulecategory.proton.experimental": "Experimental"
+    "proton.config.category.automation": "Automation",
+    "proton.config.category.building": "Building",
+    "proton.config.category.management": "Management",
+    "proton.config.category.tools": "Tools",
+    "proton.config.category.tweaks": "Tweaks",
+    "proton.config.category.world": "World",
+    "proton.config.category.mobs": "Mobs",
+    "proton.config.category.client": "Client",
+    "proton.config.category.oddities": "Oddities",
+    "proton.config.category.experimental": "Experimental"
 }

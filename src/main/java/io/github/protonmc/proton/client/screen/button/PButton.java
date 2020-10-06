@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.client.screen.button;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.protonmc.proton.client.screen.ProtonConfigScreen;
+import io.github.protonmc.proton.client.screen.ConfigScreenProvider;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
@@ -38,6 +38,6 @@ public class PButton extends ButtonWidget {
 
     public static void click(ButtonWidget _buttonWidget) {
         MinecraftClient client = MinecraftClient.getInstance();
-        client.openScreen(new ProtonConfigScreen());
+        client.openScreen(ConfigScreenProvider.getScreen(client.currentScreen));
     }
 }
