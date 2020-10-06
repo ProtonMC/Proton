@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.util;
+package io.github.protonmc.proton.base.handler;
 
 import io.github.protonmc.proton.Proton;
 import net.minecraft.block.Block;
@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class ProtonRegisterUtil {
+public class ProtonRegisterHandler {
 
     /**
      * @param name

@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.util;
+package io.github.protonmc.proton.base.handler;
 
 import io.github.protonmc.proton.base.block.ProtonSlabBlock;
 import io.github.protonmc.proton.base.block.ProtonStairsBlock;
