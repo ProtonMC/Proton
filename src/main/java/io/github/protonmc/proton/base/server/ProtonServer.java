@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.server;
+package io.github.protonmc.proton.base.server;
 
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.module.ModuleManager;

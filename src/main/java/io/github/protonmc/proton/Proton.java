@@ -1,7 +1,7 @@
 package io.github.protonmc.proton;
 
 import io.github.protonmc.proton.module.ModuleManager;
-import io.github.protonmc.proton.server.ProtonServer;
+import io.github.protonmc.proton.base.server.ProtonServer;
 import io.github.protonmc.tiny_config.ConfigManager;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
