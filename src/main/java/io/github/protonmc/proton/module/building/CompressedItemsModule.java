@@ -16,10 +16,10 @@ import org.apache.logging.log4j.Level;
 
 public class CompressedItemsModule extends ProtonModule {
     @Configurable
-    public static float bluer_ice_slipperiness = 0.9998F;
+    public static double bluer_ice_slipperiness = 0.9998;
 
     @Configurable
-    public static float bluest_ice_slipperiness = 1.0F;
+    public static double bluest_ice_slipperiness = 1.0;
 
     @Configurable
     public static int bluest_ice_luminance = 3;
@@ -56,14 +56,14 @@ public class CompressedItemsModule extends ProtonModule {
 
             BLUER_ICE = ProtonRegisterHandler.block(
                     "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(bluer_ice_slipperiness).breakByTool(FabricToolTags.PICKAXES)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness((float)bluer_ice_slipperiness).breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                 );
 
             BLUEST_ICE = ProtonRegisterHandler.block(
                     "bluest_ice",
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                 .slipperiness(bluest_ice_slipperiness)
+                                                 .slipperiness((float)bluest_ice_slipperiness)
                                                  .breakByTool(FabricToolTags.PICKAXES)
                                                  .lightLevel(bluest_ice_luminance)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)

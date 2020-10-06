@@ -47,11 +47,18 @@ public class ConfigScreenProvider {
                 fieldBuilder = builder.startDoubleField(text, (double)f.get(o))
                         .setDefaultValue((double)DEFAULT_VALUES.get(f))
                         .setSaveConsumer(saveConsumer(f, o));
+            } else if (f.getType().isAssignableFrom(int.class)) {
+                fieldBuilder = builder.startIntField(text, (int)f.get(o))
+                        .setDefaultValue((int)DEFAULT_VALUES.get(f))
+                        .setSaveConsumer(saveConsumer(f, o));
+            } else  {
+                Proton.LOGGER.error(o.getClass().getName() + "." + f.getName() + " has unsupported type " + f.getType());
+                return null;
             }
             assert fieldBuilder != null;
             return fieldBuilder.build();
         } catch (Throwable t) {
-            Proton.LOGGER.error("Couldn't create a config entry");
+            Proton.LOGGER.error("Couldn't create a config entry for " + o.getClass().getName() + "." + f.getName());
             t.printStackTrace();
         }
         return null;
