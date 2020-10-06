@@ -1,5 +1,6 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
+import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.module.ModuleManager;
 import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import net.minecraft.client.render.entity.RabbitEntityRenderer;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RabbitEntityRenderer.class)
+@FromModule(VariantAnimalTexturesModule.class)
 public class RabbitRendererMixin {
 
     @Shadow @Final private static Identifier TOAST_TEXTURE;

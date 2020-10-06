@@ -1,5 +1,7 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
+import io.github.protonmc.proton.base.annotation.FromModule;
+import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,6 +26,7 @@ import net.minecraft.entity.mob.CreeperEntity;
 
 @Environment(EnvType.CLIENT)
 @Mixin(LivingEntityRenderer.class)
+@FromModule(AngryCreepersModule.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements FeatureRendererContext<T, M> {
     public LivingEntityRendererMixin(EntityRenderDispatcher dispatcher) {
 		super(dispatcher);

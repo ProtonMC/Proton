@@ -1,5 +1,6 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
+import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.module.ModuleManager;
 import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import net.minecraft.client.render.entity.LlamaEntityRenderer;
@@ -18,6 +19,7 @@ public class LlamaRendererMixin {
     @Shadow @Final private static Identifier[] TEXTURES;
 
     @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    @FromModule(VariantAnimalTexturesModule.class)
     public void getTypeTexture(LlamaEntity llamaEntity, CallbackInfoReturnable<Identifier> cir){
         if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
             cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(llamaEntity, VariantAnimalTexturesModule.VariantTextureType.RABBIT, () -> getOldTexture(llamaEntity)));
