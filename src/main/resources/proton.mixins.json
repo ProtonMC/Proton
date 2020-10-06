@@ -6,7 +6,8 @@
   "mixins": [
     "client.entities.ChickenRendererMixin",
     "client.entities.LlamaRendererMixin",
-    "client.entities.RabbitRendererMixin"
+    "client.entities.RabbitRendererMixin",
+    "world.DefaultBiomeFeaturesMixin"
   ],
   "client": [
     "client.TitleScreenMixin",
