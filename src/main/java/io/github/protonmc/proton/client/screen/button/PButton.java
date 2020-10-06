@@ -32,7 +32,7 @@ public class PButton extends ButtonWidget {
         this.drawTexture(matrices, this.x, this.y, 0, 46 + i * 20, this.width / 2, this.height);
         this.drawTexture(matrices, this.x + this.width / 2, this.y, 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
         this.renderBg(matrices, client, mouseX, mouseY);
-        int color = gay ? Color.HSBtoRGB((tick+=delta / 200F), 1F, 1F) : 0x48DDBC;
+        int color = gay ? Color.HSBtoRGB((tick+=delta / 200F), 1F, 1F) : 0x9400d3;
         drawCenteredText(matrices, client.textRenderer, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, color | MathHelper.ceil(this.alpha * 255.0F) << 24);
     }
 
