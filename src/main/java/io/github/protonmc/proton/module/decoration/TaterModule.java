@@ -3,15 +3,16 @@ package io.github.protonmc.proton.module.decoration;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.module.annotations.DisabledByDefault;
 import io.github.protonmc.proton.module.decoration.common.block.FatPotatoBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
-// fixme: broken
 /**
  * @author TehcJS
  * @author mounderfod
  */
+@DisabledByDefault
 public class TaterModule extends ProtonModule {
     public static FatPotatoBlock fatPotatoBlock;
 
