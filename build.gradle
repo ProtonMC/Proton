@@ -56,6 +56,11 @@ dependencies {
 
 	implementation("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
 	include("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
+
+	modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 }
 
 processResources {

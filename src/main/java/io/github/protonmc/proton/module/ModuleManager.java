@@ -48,6 +48,8 @@ public class ModuleManager {
                 Class<?> clazz = Class.forName(classname);
                 ProtonModule protonModule = (ProtonModule) clazz.getDeclaredConstructor().newInstance();
                 this.addModule(protonModule);
+                String[] packageParts = clazz.getPackage().getName().split("\\.");
+                ModuleCategory.valueOf(packageParts[packageParts.length-1].toUpperCase()).addModule(protonModule);
             } catch (Exception e) {
                 Proton.LOGGER.error("Couldn't register module with name " + classname);
             }

@@ -3,15 +3,13 @@ package io.github.protonmc.proton;
 import io.github.protonmc.proton.module.ModuleManager;
 import io.github.protonmc.proton.base.server.ProtonServer;
 import io.github.protonmc.tiny_config.ConfigManager;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import net.minecraft.util.Identifier;
-
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.Identifier;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Proton implements ModInitializer {
 

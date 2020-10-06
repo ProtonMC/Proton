@@ -1,14 +1,16 @@
 package io.github.protonmc.proton.module;
 
 import io.github.protonmc.proton.Proton;
-
+import io.github.protonmc.proton.client.screen.ConfigScreenProvider;
+import io.github.protonmc.tiny_config.ConfigManager;
 import io.github.protonmc.tiny_config.Configurable;
 import io.github.protonmc.tiny_config.Saveable;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import java.lang.reflect.Field;
 
 public abstract class ProtonModule implements Saveable {
     protected final Identifier id;
@@ -20,6 +22,11 @@ public abstract class ProtonModule implements Saveable {
 
     public ProtonModule(Identifier id) {
         this.id = id;
+        for (Field f : ConfigManager.getConfigurableFields(getClass())) {
+            try {
+                ConfigScreenProvider.DEFAULT_VALUES.put(f, f.get(this));
+            } catch (Throwable ignored) {}
+        }
         Proton.CONFIG.loadObject(this);
     }
 
@@ -31,7 +38,7 @@ public abstract class ProtonModule implements Saveable {
     public void commonInit() {}
 
     public final String getTranslationKey() {
-        return "module." + id.getNamespace() + "." + id.getPath();
+        return "proton.module." + id.getNamespace() + "." + id.getPath();
     }
 
     public final Identifier getId() {
