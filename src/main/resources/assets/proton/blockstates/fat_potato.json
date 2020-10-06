@@ -1,8 +1,8 @@
 {
   "variants": {
-    "facing=north": { "model": "proton:block/fat_potato" },
-    "facing=east": { "model": "proton:block/fat_potato", "y": 90 },
-    "facing=south": { "model": "proton:block/fat_potato", "y": 180 },
-    "facing=west": { "model": "proton:block/fat_potato", "y": 270 }
+    "facing=south": { "model": "proton:block/fat_potato" },
+    "facing=west": { "model": "proton:block/fat_potato", "y": 90 },
+    "facing=north": { "model": "proton:block/fat_potato", "y": 180 },
+    "facing=east": { "model": "proton:block/fat_potato", "y": 270 }
   }
 }
