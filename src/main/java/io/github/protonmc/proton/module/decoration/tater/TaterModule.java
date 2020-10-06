@@ -16,6 +16,7 @@ public class TaterModule extends ProtonModule {
 
     public TaterModule() {
         super(Proton.identifier("tater"));
+        this.enabled = false;
     }
 
     @Override
