@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.module.decoration.tater;
+package io.github.protonmc.proton.module.decoration.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
