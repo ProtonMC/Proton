@@ -8,6 +8,7 @@ import java.util.List;
 
 public enum ModuleCategory {
 
+    UNASSIGNED(Proton.identifier("unassigned")), // used as the default
     AUTOMATION(Proton.identifier("automation")),
     BUILDING(Proton.identifier("building")),
     MANAGEMENT(Proton.identifier("management")),
