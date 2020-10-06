@@ -1,8 +1,6 @@
 package io.github.protonmc.proton.module;
 
 import io.github.protonmc.proton.Proton;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -10,29 +8,27 @@ import java.util.List;
 
 public enum ModuleCategory {
 
-    AUTOMATION(Proton.identifier("automation"), true, Items.REDSTONE),
-    BUILDING(Proton.identifier("building"), true, Items.BRICKS),
-    MANAGEMENT(Proton.identifier("management"), true, Items.CHEST),
-    TOOLS(Proton.identifier("tools"), true, Items.IRON_PICKAXE),
-    TWEAKS(Proton.identifier("tweaks"), true, Items.NAUTILUS_SHELL),
-    WORLD(Proton.identifier("world"), true, Items.GRASS_BLOCK),
-    MOBS(Proton.identifier("mobs"), true, Items.PIG_SPAWN_EGG),
-    CLIENT(Proton.identifier("client"), true, Items.ENDER_EYE),
-    ODDITIES(Proton.identifier("oddities"), true, Items.CHORUS_FRUIT),
-    EXPERIMENTAL(Proton.identifier("experimental"), true, Items.TNT);
+    AUTOMATION(Proton.identifier("automation")),
+    BUILDING(Proton.identifier("building")),
+    MANAGEMENT(Proton.identifier("management")),
+    TOOLS(Proton.identifier("tools")),
+    TWEAKS(Proton.identifier("tweaks")),
+    WORLD(Proton.identifier("world")),
+    MOBS(Proton.identifier("mobs")),
+    CLIENT(Proton.identifier("client")),
+    ODDITIES(Proton.identifier("oddities")),
+    EXPERIMENTAL(Proton.identifier("experimental"));
 
     public final Identifier id;
     public final boolean showInGui;
-    public final Item item;
 
     public boolean enabled;
 
     private final List<ProtonModule> ownedProtonModules = new ArrayList<>();
 
-    ModuleCategory(Identifier id, boolean showInGui, Item item) {
+    ModuleCategory(Identifier id) {
         this.id = id;
-        this.showInGui = showInGui;
-        this.item = item;
+        this.showInGui = true;
         this.enabled = true;
     }
 
@@ -42,6 +38,10 @@ public enum ModuleCategory {
 
     public String getTranslationKey() {
         return "proton.config.category." + id.getPath();
+    }
+
+    public boolean isEmpty() {
+        return ownedProtonModules.isEmpty();
     }
 
     public List<ProtonModule> getOwnedModules() {

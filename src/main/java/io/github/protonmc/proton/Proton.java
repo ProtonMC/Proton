@@ -1,8 +1,6 @@
 package io.github.protonmc.proton;
 
-import io.github.protonmc.proton.module.ModuleCategory;
 import io.github.protonmc.proton.module.ModuleManager;
-import io.github.protonmc.proton.module.ProtonModule;
 import io.github.protonmc.proton.server.ProtonServer;
 import io.github.protonmc.tiny_config.ConfigManager;
 import net.fabricmc.api.ModInitializer;
@@ -32,9 +30,6 @@ public class Proton implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        for (ProtonModule m : ModuleManager.getInstance().getModules())
-            ModuleCategory.ODDITIES.addModule(m); // TODO this is temporary
-
         LOGGER.log(Level.INFO, "Setting up modules...");
         ModuleManager.getInstance().setupCommonModules();
         LOGGER.log(Level.INFO, "Finished Setting Up Modules.");

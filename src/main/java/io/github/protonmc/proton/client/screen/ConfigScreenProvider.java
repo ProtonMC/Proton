@@ -72,6 +72,7 @@ public class ConfigScreenProvider {
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
         for (ModuleCategory moduleCategory : ModuleCategory.values()) {
+            if (moduleCategory.isEmpty()) continue;
             if (moduleCategory.showInGui) {
                 ConfigCategory configCategory = builder.getOrCreateCategory(new TranslatableText(moduleCategory.getTranslationKey()));
                 for (ProtonModule module : moduleCategory.getOwnedModules()) {
