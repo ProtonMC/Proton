@@ -8,28 +8,27 @@ import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
-import me.shedaniel.clothconfig2.impl.builders.FieldBuilder;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
 import java.lang.reflect.Field;
 
 public class ConfigScreenProvider {
-    protected static AbstractConfigListEntry<?> createEntry(ConfigEntryBuilder builder, Field f, Object o) {
+    protected static AbstractConfigListEntry<?> createEntry(ConfigEntryBuilder builder, Field f, ProtonModule o) { // todo add saveConsumers, handle default values
         try {
-            FieldBuilder<?, ?> fieldBuilder = null;
-            Text text = new LiteralText("todo");
-            if (f.getType().isAssignableFrom(Boolean.class)) {
-                fieldBuilder = builder.startBooleanToggle(text, f.getBoolean(o));
+            Text text = new TranslatableText(o.getTranslationKey() + "." + f.getName());
+            if (f.getType() == boolean.class) {
+                return builder.startBooleanToggle(text, f.getBoolean(o))
+                    .build();
+            } else if (f.getType().isAssignableFrom(double.class)) {
+                return builder.startDoubleField(text, (double)f.get(o)).build();
             }
-            return fieldBuilder.build(); // intentional npe
         } catch (Throwable t) {
             Proton.LOGGER.error(t);
-            return null;
         }
+        return null;
     }
 
     public static Screen getScreen(Screen parent) {
@@ -48,9 +47,9 @@ public class ConfigScreenProvider {
                 for (ProtonModule module : moduleCategory.getOwnedModules()) {
                     SubCategoryBuilder subCategoryBuilder = entryBuilder.startSubCategory(new TranslatableText(module.getTranslationKey()));
                     for (Field f : ConfigManager.getConfigurableFields(module.getClass())) {
-                        if (f.getType().isAssignableFrom(Boolean.class)) {
-                            subCategoryBuilder.add(createEntry(entryBuilder, f, module));
-                        }
+                        AbstractConfigListEntry<?> entry = createEntry(entryBuilder, f, module);
+                        if (entry != null)
+                            subCategoryBuilder.add(entry);
                     }
                     configCategory.addEntry(subCategoryBuilder.build());
                 }
