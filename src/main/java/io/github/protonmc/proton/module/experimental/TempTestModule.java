@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.module.bloat;
+package io.github.protonmc.proton.module.experimental;
 
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.module.ProtonModule;

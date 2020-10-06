@@ -52,7 +52,7 @@ public class ModuleManager {
                 try {
                     ModuleCategory.valueOf(packageParts[packageParts.length - 1].toUpperCase()).addModule(protonModule);
                 } catch (IllegalArgumentException e) {
-                    Modul
+                    ModuleCategory.UNASSIGNED.addModule(protonModule);
                 }
             } catch (Exception e) {
                 Proton.LOGGER.error("Couldn't register module with name " + classname);
