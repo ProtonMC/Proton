@@ -2,8 +2,8 @@ package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.module.ProtonModule;
-import io.github.protonmc.proton.util.ProtonRegisterUtil;
-import io.github.protonmc.proton.util.VariantHandler;
+import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
+import io.github.protonmc.proton.base.handler.VariantHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -27,7 +27,7 @@ public class TurfModule extends ProtonModule {
         if (!this.enabled) { return; }
 
         turfBlock = new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK));
-        ProtonRegisterUtil.block("turf", turfBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+        ProtonRegisterHandler.block("turf", turfBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
         VariantHandler.addSlabAndStairs(turfBlock);
     }
 

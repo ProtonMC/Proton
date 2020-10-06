@@ -3,7 +3,7 @@ package io.github.protonmc.proton.module.building;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
-import io.github.protonmc.proton.util.ProtonRegisterUtil;
+import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -43,7 +43,7 @@ public class CompressedItemsModule extends ProtonModule {
         public static Block COMPRESSED_DIAMOND_BLOCK;
 
         public static void register() {
-            COMPRESSED_NETHER_STAR = ProtonRegisterUtil.block(
+            COMPRESSED_NETHER_STAR = ProtonRegisterHandler.block(
                     "compressed_nether_star",
                     new Block(FabricBlockSettings.of(Material.STONE)
                                                  .breakByHand(false)
@@ -54,13 +54,13 @@ public class CompressedItemsModule extends ProtonModule {
                                                  .blockVision(Blocks::never))
                                                              );
 
-            BLUER_ICE = ProtonRegisterUtil.block(
+            BLUER_ICE = ProtonRegisterHandler.block(
                     "bluer_ice",
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness(bluer_ice_slipperiness).breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                 );
 
-            BLUEST_ICE = ProtonRegisterUtil.block(
+            BLUEST_ICE = ProtonRegisterHandler.block(
                     "bluest_ice",
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
                                                  .slipperiness(bluest_ice_slipperiness)
@@ -69,7 +69,7 @@ public class CompressedItemsModule extends ProtonModule {
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                  );
 
-            COMPRESSED_DIAMOND_BLOCK = ProtonRegisterUtil.block(
+            COMPRESSED_DIAMOND_BLOCK = ProtonRegisterHandler.block(
                     "compressed_diamond_block",
                     new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK)
                                                  .strength(8.0F, 9.0F)
@@ -84,7 +84,7 @@ public class CompressedItemsModule extends ProtonModule {
         public static CompressedNetherStarItem COMPRESSED_NETHER_STAR;
 
         public static void register() {
-            COMPRESSED_NETHER_STAR = ProtonRegisterUtil.item("compressed_nether_star", new CompressedNetherStarItem());
+            COMPRESSED_NETHER_STAR = ProtonRegisterHandler.item("compressed_nether_star", new CompressedNetherStarItem());
         }
     }
 }

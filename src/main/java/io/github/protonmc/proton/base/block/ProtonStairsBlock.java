@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.base.block;
 
-import io.github.protonmc.proton.util.ProtonRegisterUtil;
-import io.github.protonmc.proton.util.VariantHandler;
+import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
+import io.github.protonmc.proton.base.handler.VariantHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.item.BlockItem;
@@ -18,8 +18,8 @@ public class ProtonStairsBlock extends StairsBlock {
         super(parent.getDefaultState(), VariantHandler.realStateCopy(parent));
 
         this.parent = parent;
-        ProtonRegisterUtil.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), this);
-        ProtonRegisterUtil.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        ProtonRegisterHandler.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), this);
+        ProtonRegisterHandler.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     }
 
 }
