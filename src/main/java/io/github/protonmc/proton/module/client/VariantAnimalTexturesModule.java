@@ -84,7 +84,7 @@ public class VariantAnimalTexturesModule extends ProtonModule {
         int choice = Math.abs((int) (most % styles.size()));
         return styles.get(choice);
     }
-    
+
     public VariantAnimalTexturesModule() {
         super(new Identifier(Proton.MOD_ID, "variantanimaltextures"));
     }

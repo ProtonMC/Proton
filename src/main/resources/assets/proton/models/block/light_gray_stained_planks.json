@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "proton:block/magma_bricks"
+        "all": "proton:block/light_gray_stained_planks"
     }
 }

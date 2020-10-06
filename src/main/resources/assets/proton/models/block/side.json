@@ -1,0 +1,20 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "#side"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 0, 0 ], "texture": "#bottom", "cullface": "down" },
+        "up":    { "uv": [ 0, 0, 0, 0 ], "texture": "#top",    "cullface": "up" },
+        "north": { "uv": [ 0, 0, 0, 0 ], "texture": "#side",   "cullface": "north" },
+        "south": { "uv": [ 0, 0, 0, 0 ], "texture": "#front"  },
+        "west":  { "texture": "#side",   "cullface": "west" },
+        "east":  { "texture": "#side",   "cullface": "east" }
+      }
+    }
+  ]
+}
