@@ -15,6 +15,11 @@
     "block.proton.magma_bricks_stairs": "Magma Bricks Stairs",
     "block.proton.magma_bricks_wall": "Magma Bricks Wall",
 
+    "block.proton.fat_potato": "Fat Potato",
+    "block.proton.fat_potato_slab": "Fat Potato Slab",
+    "block.proton.fat_potato_stairs": "Fat Potato Stairs",
+    "block.proton.fat_potato_wall": "Fat Potato Wall",
+
     "proton.config.category.automation": "Automation",
     "proton.config.category.building": "Building",
     "proton.config.category.management": "Management",
@@ -26,8 +31,9 @@
     "proton.config.category.oddities": "Oddities",
     "proton.config.category.experimental": "Experimental",
     "proton.config.category.decoration": "Decoration",
-    "proton.module.proton.tater": "Taters! :> (Tiny Potato)",
 
+    "proton.module.proton.tater": "Taters! :> (Tiny Potato)",
+    "proton.module.proton.tater.enabled": "Enabled",
     "proton.module.proton.variantanimaltextures.enableShinyLlama": "Enable Shiny Llama",
     "proton.module.proton.compressed_items.enabled": "Enabled",
     "proton.module.proton.campfires_boost_elytra.enabled": "Enabled",
