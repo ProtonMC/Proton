@@ -1,0 +1,9 @@
+{
+  "parent": "proton:block/side",
+  "textures": {
+    "side": "proton:block/fat_potato_side",
+    "top": "proton:block/fat_potato_top",
+    "bottom": "proton:block/fat_potato_top",
+    "front": "proton:block/fat_potato_front"
+  }
+}
