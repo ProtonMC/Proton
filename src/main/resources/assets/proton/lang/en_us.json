@@ -25,6 +25,8 @@
     "proton.config.category.client": "Client",
     "proton.config.category.oddities": "Oddities",
     "proton.config.category.experimental": "Experimental",
+    "proton.config.category.decoration": "Decoration",
+    "proton.module.proton.tater": "Taters! :> (Tiny Potato)",
 
     "proton.module.proton.variantanimaltextures.enableShinyLlama": "Enable Shiny Llama",
     "proton.module.proton.compressed_items.enabled": "Enabled",
