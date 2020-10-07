@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PigEntityRenderer.class)
 public class PigRendererMixin {
 
-    @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getTexture(Lnet/minecraft/entity/passive/PigEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir){
         if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
