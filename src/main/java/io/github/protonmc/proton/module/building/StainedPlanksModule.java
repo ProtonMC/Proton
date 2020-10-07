@@ -2,12 +2,15 @@ package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
+import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
+
+import java.lang.reflect.Field;
 
 public class StainedPlanksModule extends ProtonModule {
     public StainedPlanksModule() {
@@ -19,6 +22,13 @@ public class StainedPlanksModule extends ProtonModule {
         if (!this.enabled) { return; }
 
         ModuleBlocks.register();
+    }
+
+    @Override
+    public void registerResources(ResourceHandler resourceHandler) {
+        // i'm sorry
+        for (Field f : ModuleBlocks.class.getFields())
+            resourceHandler.generateSimpleBlock(f.getName().toLowerCase());
     }
 
     public static class ModuleBlocks {
