@@ -4,7 +4,7 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.tiny_config.Configurable;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 

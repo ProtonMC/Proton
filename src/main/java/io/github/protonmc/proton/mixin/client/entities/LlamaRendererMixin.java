@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ModuleManager;
 import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import net.minecraft.client.render.entity.LlamaEntityRenderer;
 import net.minecraft.entity.passive.LlamaEntity;

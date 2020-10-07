@@ -1,8 +1,8 @@
 package io.github.protonmc.proton.module.world;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ModuleManager;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.tiny_config.Configurable;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.BuiltinRegistries;

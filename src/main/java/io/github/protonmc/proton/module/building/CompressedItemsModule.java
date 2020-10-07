@@ -2,7 +2,7 @@ package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

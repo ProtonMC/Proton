@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.module.client;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 
 public class AngryCreepersModule extends ProtonModule {
     public AngryCreepersModule() {

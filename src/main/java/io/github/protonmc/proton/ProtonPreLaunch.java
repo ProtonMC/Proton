@@ -1,6 +1,6 @@
 package io.github.protonmc.proton;
 
-import io.github.protonmc.proton.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ModuleManager;
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
 import org.apache.logging.log4j.Level;
 

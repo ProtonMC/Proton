@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.module.experimental;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import net.minecraft.util.Identifier;
 
 import net.minecraft.server.MinecraftServer;

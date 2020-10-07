@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.module.annotations;
+package io.github.protonmc.proton.base.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -25,10 +25,10 @@
       "io.github.protonmc.proton.Proton"
     ],
     "client": [
-      "io.github.protonmc.proton.client.ProtonClient"
+      "io.github.protonmc.proton.base.client.ProtonClient"
     ],
     "modmenu": [
-      "io.github.protonmc.proton.client.modmenu.ModMenuCompat"
+      "io.github.protonmc.proton.base.client.modmenu.ModMenuCompat"
     ],
     "preLaunch": [
       "io.github.protonmc.proton.ProtonPreLaunch"

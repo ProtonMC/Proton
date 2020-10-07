@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.module;
+package io.github.protonmc.proton.base.module;
 
 import io.github.protonmc.proton.Proton;
 import net.minecraft.util.Identifier;

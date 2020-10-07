@@ -1,6 +1,6 @@
 package io.github.protonmc.proton.module.building.common.block;
 
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.Block;

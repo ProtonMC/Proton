@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.module;
+package io.github.protonmc.proton.base.module;
 
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;

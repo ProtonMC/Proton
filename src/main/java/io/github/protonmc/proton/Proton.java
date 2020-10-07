@@ -1,6 +1,6 @@
 package io.github.protonmc.proton;
 
-import io.github.protonmc.proton.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ModuleManager;
 import io.github.protonmc.proton.base.server.ProtonServer;
 import io.github.protonmc.tiny_config.ConfigManager;
 import net.fabricmc.api.ModInitializer;

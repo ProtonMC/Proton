@@ -1,4 +1,4 @@
-package io.github.protonmc.proton.client.screen.button;
+package io.github.protonmc.proton.base.client.screen.button;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ButtonWidget;

@@ -1,7 +1,7 @@
-package io.github.protonmc.proton.client;
+package io.github.protonmc.proton.base.client;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ModuleManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

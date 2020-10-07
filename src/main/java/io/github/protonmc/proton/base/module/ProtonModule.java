@@ -1,8 +1,8 @@
-package io.github.protonmc.proton.module;
+package io.github.protonmc.proton.base.module;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.client.screen.ConfigScreenProvider;
-import io.github.protonmc.proton.module.annotations.DisabledByDefault;
+import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
+import io.github.protonmc.proton.base.annotation.DisabledByDefault;
 import io.github.protonmc.tiny_config.ConfigManager;
 import io.github.protonmc.tiny_config.Configurable;
 import io.github.protonmc.tiny_config.Saveable;

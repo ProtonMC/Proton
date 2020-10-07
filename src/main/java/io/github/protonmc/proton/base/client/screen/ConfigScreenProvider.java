@@ -1,9 +1,9 @@
-package io.github.protonmc.proton.client.screen;
+package io.github.protonmc.proton.base.client.screen;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ModuleCategory;
-import io.github.protonmc.proton.module.ModuleManager;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ModuleCategory;
+import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.tiny_config.ConfigManager;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;

@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.module.tweaks;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.block.BlockState;

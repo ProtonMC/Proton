@@ -1,6 +1,6 @@
 package io.github.protonmc.proton.base.annotation;
 
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

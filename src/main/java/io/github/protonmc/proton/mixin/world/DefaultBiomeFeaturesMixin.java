@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.world;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.module.ModuleManager;
+import io.github.protonmc.proton.base.module.ModuleManager;
 import io.github.protonmc.proton.module.world.ClayModule;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.gen.GenerationStep;

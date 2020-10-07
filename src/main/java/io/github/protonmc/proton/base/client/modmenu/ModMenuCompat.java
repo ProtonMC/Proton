@@ -1,9 +1,9 @@
-package io.github.protonmc.proton.client.modmenu;
+package io.github.protonmc.proton.base.client.modmenu;
 
 import io.github.protonmc.proton.Proton;
 import io.github.prospector.modmenu.api.ConfigScreenFactory;
 import io.github.prospector.modmenu.api.ModMenuApi;
-import io.github.protonmc.proton.client.screen.ConfigScreenProvider;
+import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 

@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.module.ProtonModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.block.BambooMatBlock;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import net.minecraft.item.Item;

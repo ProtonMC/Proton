@@ -1,7 +1,7 @@
-package io.github.protonmc.proton.client.screen.button;
+package io.github.protonmc.proton.base.client.screen.button;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.protonmc.proton.client.screen.ConfigScreenProvider;
+import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;

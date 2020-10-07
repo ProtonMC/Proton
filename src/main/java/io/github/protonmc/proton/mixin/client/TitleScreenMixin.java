@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.client;
 
 import com.google.common.collect.ImmutableSet;
-import io.github.protonmc.proton.client.screen.button.PButton;
+import io.github.protonmc.proton.base.client.screen.button.PButton;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
