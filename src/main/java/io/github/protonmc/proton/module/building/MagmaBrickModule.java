@@ -26,7 +26,12 @@ public class MagmaBrickModule extends ProtonModule {
 		magmaBrickBlock = new MagmaBrickBlock();
 		ProtonRegisterHandler.block("magma_bricks", magmaBrickBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 		VariantHandler.addSlabStairsWall(magmaBrickBlock);
-		ResourceHandler.addBasicBlocks("magma_bricks");
-		ResourceHandler.addBasicSlabStairsWall("magma_bricks");
+	}
+
+	@Override
+	public void registerResources(ResourceHandler resourceHandler) {
+		resourceHandler.generateSimpleBlock("magma_bricks");
+		resourceHandler.generateSlabsStairs("magma_bricks");
+		resourceHandler.generateWalls("magma_bricks");
 	}
 }

@@ -38,12 +38,14 @@ public class CompressedItemsModule extends ProtonModule {
         Proton.LOGGER.log(Level.INFO, "Initializing Compressed Item module!");
         ModuleBlocks.register();
         ModuleItems.register();
-        ResourceHandler.addBasicBlocks("bluer_ice", "bluest_ice", "compressed_diamond_block");
     }
 
     @Override
     public void registerResources(ResourceHandler resourceHandler) {
         resourceHandler.generateSimpleBlock("compressed_nether_star", new Identifier("item/nether_star"));
+        resourceHandler.generateSimpleBlock("bluer_ice");
+        resourceHandler.generateSimpleBlock("bluest_ice");
+        resourceHandler.generateSimpleBlock("compressed_diamond_block");
     }
 
     public static class ModuleBlocks {

@@ -21,10 +21,6 @@ public class ResourceHandler {
         RESOURCE_PACK = Artifice.registerAssets(identifier("resources"), pack -> {
             pack.setDisplayName("Proton's Resource Pack");
             ResourceHandler r = new ResourceHandler(pack);
-            BASIC_BLOCKS.forEach(r::generateSimpleBlock);
-            BASIC_STAIRS.forEach(r::generateStairs);
-            BASIC_SLABS.forEach(r::generateSlabs);
-            BASIC_WALLS.forEach(r::generateWalls);
             for (ProtonModule m : ModuleManager.getInstance().getModules())
                 m.registerResources(r);
         });
@@ -34,32 +30,6 @@ public class ResourceHandler {
     public ResourceHandler(ClientResourcePackBuilder pack) {
         this.pack = pack;
     }
-
-    //region basic registry
-    public static final List<String> BASIC_BLOCKS = new LinkedList<>();
-    public static final List<String> BASIC_STAIRS = new LinkedList<>();
-    public static final List<String> BASIC_SLABS = new LinkedList<>();
-    public static final List<String> BASIC_WALLS = new LinkedList<>();
-
-    public static void addBasicBlocks(String... bases) {
-        BASIC_BLOCKS.addAll(Arrays.asList(bases));
-    }
-    public static void addBasicStairs(String... bases) {
-        BASIC_STAIRS.addAll(Arrays.asList(bases));
-    }
-    public static void addBasicSlabs(String... bases) {
-        BASIC_SLABS.addAll(Arrays.asList(bases));
-    }
-    public static void addBasicWalls(String... bases) {
-        BASIC_WALLS.addAll(Arrays.asList(bases));
-    }
-    public static void addBasicSlabStairs(String... bases) {
-        addBasicSlabs(bases); addBasicStairs(bases);
-    }
-    public static void addBasicSlabStairsWall(String... bases) {
-        addBasicSlabStairs(bases); addBasicWalls(bases);
-    }
-    //endregion
 
     // region generate
     public void generateBlockItems(Iterable<String> ids) {
