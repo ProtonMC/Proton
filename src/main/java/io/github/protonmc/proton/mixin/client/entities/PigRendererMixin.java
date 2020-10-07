@@ -1,5 +1,6 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
+import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.module.ModuleManager;
 import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import net.fabricmc.api.EnvType;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PigRendererMixin {
 
     @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir){
         if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
             cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(pigEntity, VariantAnimalTexturesModule.VariantTextureType.PIG, VariantAnimalTexturesModule.enablePig));
