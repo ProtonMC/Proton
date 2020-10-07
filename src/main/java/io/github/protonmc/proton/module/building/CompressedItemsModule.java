@@ -1,9 +1,9 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
-import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -16,13 +16,13 @@ import org.apache.logging.log4j.Level;
 
 public class CompressedItemsModule extends ProtonModule {
     @Configurable
-    public static double bluer_ice_slipperiness = 0.9998;
+    public static double bluerIceSlipperiness = 0.9998;
 
     @Configurable
-    public static double bluest_ice_slipperiness = 1.0;
+    public static double bluestIceSlipperiness = 1.0;
 
     @Configurable
-    public static int bluest_ice_luminance = 3;
+    public static int bluestIceLuminance = 3;
 
     public CompressedItemsModule() {
         super(Proton.identifier("compressed_items"));
@@ -52,22 +52,25 @@ public class CompressedItemsModule extends ProtonModule {
                                                  .strength(6.2F, 1200.0F)
                                                  .nonOpaque()
                                                  .blockVision(Blocks::never))
-                                                             );
+                                                                );
 
             BLUER_ICE = ProtonRegisterHandler.block(
                     "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness((float)bluer_ice_slipperiness).breakByTool(FabricToolTags.PICKAXES)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
+                                                 .slipperiness((float) bluerIceSlipperiness)
+                                                 .breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                );
+                                                   );
 
             BLUEST_ICE = ProtonRegisterHandler.block(
                     "bluest_ice",
                     new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                 .slipperiness((float)bluest_ice_slipperiness)
+                                                 .slipperiness((float) bluestIceSlipperiness)
                                                  .breakByTool(FabricToolTags.PICKAXES)
-                                                 .lightLevel(bluest_ice_luminance)),
+                                                 .lightLevel(bluestIceLuminance)
+                                                 .emissiveLighting((state, world, pos) -> state.getLuminance() > 0)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                 );
+                                                    );
 
             COMPRESSED_DIAMOND_BLOCK = ProtonRegisterHandler.block(
                     "compressed_diamond_block",
@@ -76,7 +79,7 @@ public class CompressedItemsModule extends ProtonModule {
                                                  .requiresTool()
                                                  .breakByTool(FabricToolTags.PICKAXES, 2)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                               );
+                                                                  );
         }
     }
 
