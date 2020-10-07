@@ -16,17 +16,23 @@ public class ResourceHandler {
     public static void registerAssets() {
         RESOURCE_PACK = Artifice.registerAssets(identifier("resources"), pack -> {
             pack.setDisplayName("Proton's Resource Pack");
+            ResourceHandler r = new ResourceHandler(pack);
             for (ProtonModule m : ModuleManager.getInstance().getModules())
-                m.registerResources(pack);
+                m.registerResources(r);
         });
     }
 
-    public static void generateBlockItems(ClientResourcePackBuilder pack, Iterable<String> ids) {
+    public ClientResourcePackBuilder pack;
+    public ResourceHandler(ClientResourcePackBuilder pack) {
+        this.pack = pack;
+    }
+
+    public void generateBlockItems(Iterable<String> ids) {
         for (String s : ids)
             pack.addItemModel(identifier(s), model -> model.parent(identifier("block/" + s)));
     }
 
-    public static void generateSimpleBlock(ClientResourcePackBuilder pack, String base) {
+    public void generateSimpleBlock(String base) {
         pack.addBlockModel(identifier(base), model -> model.parent(new Identifier("block/cube_all"))
                                                             .texture("all", identifier("block/" + base)));
 
@@ -34,10 +40,10 @@ public class ResourceHandler {
                 state -> state.variant("", variant -> variant.model(identifier("block/" + base)))
         );
 
-        generateBlockItems(pack, ImmutableSet.of(base));
+        generateBlockItems(ImmutableSet.of(base));
     }
 
-    public static void generateSlabsStairs(ClientResourcePackBuilder pack, String base) {
+    public void generateSlabsStairs(String base) {
         Identifier tex = identifier("block/" + base);
         for (String s : ImmutableSet.of("slab", "slab_top", "stairs", "inner_stairs", "outer_stairs")) {
             pack.addBlockModel(
@@ -60,10 +66,10 @@ public class ResourceHandler {
 
         // todo stair blockstates
 
-        generateBlockItems(pack, ImmutableSet.of(base+"_slab", base+"_stairs"));
+        generateBlockItems(ImmutableSet.of(base+"_slab", base+"_stairs"));
     }
 
-    public static void generateWalls(ClientResourcePackBuilder pack, String base) {
+    public void generateWalls(String base) {
         Identifier tex = identifier("block/" + base);
         for (String s : ImmutableSet.of("wall_post", "wall_side", "wall_side_tall")) {
             pack.addBlockModel(
@@ -77,6 +83,8 @@ public class ResourceHandler {
                 model -> model.parent(new Identifier("block/wall_inventory"))
                         .texture("wall", tex)
         );
+
+        // todo wall blockstates
 
         pack.addItemModel(identifier(base+"_wall"), model -> model.parent(identifier("block/" + base + "_wall_inventory")));
     }

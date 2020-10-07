@@ -1,6 +1,5 @@
 package io.github.protonmc.proton.module.building;
 
-import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
@@ -30,9 +29,9 @@ public class MagmaBrickModule extends ProtonModule {
 	}
 
 	@Override
-	public void registerResources(ArtificeResourcePack.ClientResourcePackBuilder pack) {
-		ResourceHandler.generateSimpleBlock(pack, "magma_bricks");
-		ResourceHandler.generateSlabsStairs(pack, "magma_bricks");
-		ResourceHandler.generateWalls(pack, "magma_bricks");
+	public void registerResources(ResourceHandler resourceHandler) {
+		resourceHandler.generateSimpleBlock("magma_bricks");
+		resourceHandler.generateSlabsStairs("magma_bricks");
+		resourceHandler.generateWalls("magma_bricks");
 	}
 }
