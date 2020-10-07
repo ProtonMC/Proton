@@ -1,13 +1,24 @@
 package io.github.protonmc.proton.base.handler;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.io.Files;
 import com.swordglowsblue.artifice.api.Artifice;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack.ClientResourcePackBuilder;
+import com.swordglowsblue.artifice.api.resource.StringResource;
+import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.module.ModuleManager;
 import io.github.protonmc.proton.base.module.ProtonModule;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.resource.Resource;
 import net.minecraft.util.Identifier;
+import org.apache.commons.io.IOUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -93,7 +104,18 @@ public class ResourceHandler {
             );
         }
 
-        // todo stair blockstates
+        try {
+            File template_stairs_file = FabricLoader.getInstance().getModContainer(Proton.MOD_ID).get()
+                    .getPath("assets/" + Proton.MOD_ID + "/templates/stairs_blockstate_template.json").toFile();
+            String template_stairs_string =  Files.toString(template_stairs_file, StandardCharsets.UTF_8);
+            template_stairs_string = template_stairs_string.replaceAll("model_normal", identifier("block/" + base + "_stairs").toString())
+                    .replaceAll("model_inner", identifier("block/" + base + "_inner_stairs").toString())
+                    .replaceAll("model_outer", identifier("block/" + base + "_outer_stairs").toString());
+
+            pack.add(identifier("blockstates/" + base + "_stairs.json"), new StringResource(template_stairs_string));
+        } catch (Exception exception) {
+            Proton.LOGGER.error("Exception when loading template for stairs", exception);
+        }
 
         generateBlockItems(ImmutableSet.of(base+"_stairs"));
     }
