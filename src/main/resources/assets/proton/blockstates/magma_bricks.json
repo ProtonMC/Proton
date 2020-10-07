@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "proton:block/magma_bricks" }
+    }
+}

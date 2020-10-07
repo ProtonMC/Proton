@@ -10,7 +10,6 @@ repositories {
 		name = "Jitpack"
 		url = "https://jitpack.io/"
 	}
-	jcenter()
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -64,11 +63,6 @@ dependencies {
 	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 
 	modRuntime("com.github.dzwdz:translation_helper:0.1.0")
-
-	dependencies {
-		modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
-		include "com.lettuce.fudge:artifice:${project.artifice_version}"
-	}
 }
 
 processResources {

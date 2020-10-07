@@ -1,7 +1,6 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.tiny_config.Configurable;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.block.ThatchBlock;
@@ -31,11 +30,5 @@ public class ThatchModule extends ProtonModule {
         FlammableBlockRegistry.getDefaultInstance().add(thatchBlock, 300, 20);
         CompostingChanceRegistry.INSTANCE.add(thatchBlock, 0.65F); // Make it compostable
         VariantHandler.addSlabAndStairs(thatchBlock);
-    }
-
-    @Override
-    public void registerResources(ResourceHandler resourceHandler) {
-        resourceHandler.generateSimpleBlock("thatch");
-        resourceHandler.generateSlabsStairs("thatch");
     }
 }
