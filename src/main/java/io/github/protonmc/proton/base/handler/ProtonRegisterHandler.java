@@ -7,6 +7,10 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+/**
+ * Registry utility for Proton
+ * @author kara-b
+ */
 public class ProtonRegisterHandler {
 
     /**
