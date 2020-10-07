@@ -18,35 +18,65 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @FromModule(VariantAnimalTexturesModule.class)
 public class RabbitRendererMixin {
 
-    @Shadow @Final private static Identifier TOAST_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier TOAST_TEXTURE;
 
-    @Shadow @Final private static Identifier BROWN_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier BROWN_TEXTURE;
 
-    @Shadow @Final private static Identifier WHITE_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier WHITE_TEXTURE;
 
-    @Shadow @Final private static Identifier BLACK_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier BLACK_TEXTURE;
 
-    @Shadow @Final private static Identifier WHITE_SPOTTED_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier WHITE_SPOTTED_TEXTURE;
 
-    @Shadow @Final private static Identifier GOLD_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier GOLD_TEXTURE;
 
-    @Shadow @Final private static Identifier SALT_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier SALT_TEXTURE;
 
-    @Shadow @Final private static Identifier CAERBANNOG_TEXTURE;
+    @Shadow
+    @Final
+    @FromModule(VariantAnimalTexturesModule.class)
+    private static Identifier CAERBANNOG_TEXTURE;
 
     @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
-    public void getTypeTexture(RabbitEntity rabbitEntity, CallbackInfoReturnable<Identifier> cir){
-        if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
-            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(rabbitEntity, VariantAnimalTexturesModule.VariantTextureType.RABBIT, () -> getOldTexture(rabbitEntity)));
+    @FromModule(VariantAnimalTexturesModule.class)
+    public void getTypeTexture(RabbitEntity rabbitEntity, CallbackInfoReturnable<Identifier> cir) {
+        if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)) {
+            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(
+                    rabbitEntity,
+                    VariantAnimalTexturesModule.VariantTextureType.RABBIT,
+                    () -> getOldTexture(rabbitEntity)
+                                                                            ));
         }
     }
 
+    @FromModule(VariantAnimalTexturesModule.class)
     public Identifier getOldTexture(RabbitEntity rabbitEntity) {
         String string = Formatting.strip(rabbitEntity.getName().getString());
         if (string != null && "Toast".equals(string)) {
             return TOAST_TEXTURE;
         } else {
-            switch(rabbitEntity.getRabbitType()) {
+            switch (rabbitEntity.getRabbitType()) {
                 case 0:
                 default:
                     return BROWN_TEXTURE;

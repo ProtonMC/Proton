@@ -1,5 +1,6 @@
 package io.github.protonmc.proton.mixin.world;
 
+import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.module.ModuleManager;
 import io.github.protonmc.proton.module.world.ClayModule;
 import net.minecraft.world.biome.GenerationSettings;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DefaultBiomeFeaturesMixin {
 
     @Inject(at = @At("HEAD"), method = "addMineables")
+    @FromModule(ClayModule.class)
     private static void addMineables(GenerationSettings.Builder builder, CallbackInfo ci) {
         if (!ModuleManager.getInstance().isModuleEnabled(ClayModule.class)) { return; }
 

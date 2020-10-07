@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Environment(EnvType.CLIENT)
 @Mixin(ChickenEntityRenderer.class)
 public class ChickenRendererMixin {
-
     @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(ChickenEntity chickenEntity, CallbackInfoReturnable<Identifier> cir){
