@@ -68,8 +68,12 @@ public class ResourceHandler {
     }
 
     public void generateSimpleBlock(String base) {
+        generateSimpleBlock(base, identifier("block/" + base));
+    }
+
+    public void generateSimpleBlock(String base, Identifier texture) {
         pack.addBlockModel(identifier(base), model -> model.parent(new Identifier("block/cube_all"))
-                                                            .texture("all", identifier("block/" + base)));
+                .texture("all", texture));
 
         pack.addBlockState(identifier(base),
                 state -> state.variant("", variant -> variant.model(identifier("block/" + base)))
@@ -77,6 +81,7 @@ public class ResourceHandler {
 
         generateBlockItems(ImmutableSet.of(base));
     }
+
 
     public void generateSlabsStairs(String base) {
         generateSlabs(base); generateStairs(base);

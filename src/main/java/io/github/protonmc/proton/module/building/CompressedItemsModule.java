@@ -2,6 +2,7 @@ package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
+import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.protonmc.tiny_config.Configurable;
@@ -12,7 +13,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
+
+import java.lang.reflect.Field;
 
 public class CompressedItemsModule extends ProtonModule {
     @Configurable
@@ -34,6 +38,17 @@ public class CompressedItemsModule extends ProtonModule {
         Proton.LOGGER.log(Level.INFO, "Initializing Compressed Item module!");
         ModuleBlocks.register();
         ModuleItems.register();
+    }
+
+    @Override
+    public void registerResources(ResourceHandler resourceHandler) {
+        // i'm sorry
+        for (Field f : CompressedItemsModule.ModuleBlocks.class.getFields())
+            if (f.getName().toUpperCase().equals("COMPRESSED_NETHER_STAR")) {
+                resourceHandler.generateSimpleBlock(f.getName().toLowerCase(), new Identifier("item/nether_star"));
+            } else {
+                resourceHandler.generateSimpleBlock(f.getName().toLowerCase());
+            }
     }
 
     public static class ModuleBlocks {
