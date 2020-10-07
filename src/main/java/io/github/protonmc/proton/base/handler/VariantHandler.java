@@ -27,21 +27,15 @@ public class VariantHandler {
     }
 
     public static void addSlab(Block... blocks) {
-        Arrays.stream(blocks).forEach(block -> {
-            SLABS.add(new ProtonSlabBlock(block));
-        });
+        Arrays.stream(blocks).forEach(block -> SLABS.add(new ProtonSlabBlock(block)));
     }
 
     public static void addStairs(Block... blocks) {
-        Arrays.stream(blocks).forEach(block -> {
-            STAIRS.add(new ProtonStairsBlock(block));
-        });
+        Arrays.stream(blocks).forEach(block -> STAIRS.add(new ProtonStairsBlock(block)));
     }
 
     public static void addWall(Block... blocks) {
-        Arrays.stream(blocks).forEach(block -> {
-            WALLS.add(new ProtonWallBlock(block));
-        });
+        Arrays.stream(blocks).forEach(block -> WALLS.add(new ProtonWallBlock(block)));
     }
 
     public static AbstractBlock.Settings realStateCopy(Block parent) {
