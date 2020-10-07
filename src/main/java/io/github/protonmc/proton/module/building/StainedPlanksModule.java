@@ -3,6 +3,7 @@ package io.github.protonmc.proton.module.building;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
+import io.github.protonmc.proton.base.handler.VariantHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -27,8 +28,10 @@ public class StainedPlanksModule extends ProtonModule {
     @Override
     public void registerResources(ResourceHandler resourceHandler) {
         // i'm sorry
-        for (Field f : ModuleBlocks.class.getFields())
+        for (Field f : ModuleBlocks.class.getFields()) {
             resourceHandler.generateSimpleBlock(f.getName().toLowerCase());
+            resourceHandler.generateSlabsStairs(f.getName().toLowerCase());
+        }
     }
 
     public static class ModuleBlocks {
@@ -83,6 +86,9 @@ public class StainedPlanksModule extends ProtonModule {
             BLACK_STAINED_PLANKS = ProtonRegisterHandler.block("black_stained_planks",
                     new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)), new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
+            VariantHandler.addSlabAndStairs(WHITE_STAINED_PLANKS, ORANGE_STAINED_PLANKS, MAGENTA_STAINED_PLANKS, LIGHT_BLUE_STAINED_PLANKS, YELLOW_STAINED_PLANKS,
+                    LIME_STAINED_PLANKS, PINK_STAINED_PLANKS, GRAY_STAINED_PLANKS, LIGHT_GRAY_STAINED_PLANKS, CYAN_STAINED_PLANKS, PURPLE_STAINED_PLANKS,
+                    BLUE_STAINED_PLANKS, BROWN_STAINED_PLANKS, GREEN_STAINED_PLANKS, RED_STAINED_PLANKS, BLACK_STAINED_PLANKS);
         }
     }
 }
