@@ -18,7 +18,8 @@ public enum ModuleCategory {
     MOBS(Proton.identifier("mobs")),
     CLIENT(Proton.identifier("client")),
     ODDITIES(Proton.identifier("oddities")),
-    EXPERIMENTAL(Proton.identifier("experimental"));
+    EXPERIMENTAL(Proton.identifier("experimental")),
+    DECORATION(Proton.identifier("decoration"));
 
     public final Identifier id;
     public final boolean showInGui;
