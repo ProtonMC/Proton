@@ -33,5 +33,6 @@ public class MagmaBrickModule extends ProtonModule {
 	public void registerResources(ArtificeResourcePack.ClientResourcePackBuilder pack) {
 		ResourceHandler.generateSimpleBlock(pack, "magma_bricks");
 		ResourceHandler.generateSlabsStairs(pack, "magma_bricks");
+		ResourceHandler.generateWalls(pack, "magma_bricks");
 	}
 }

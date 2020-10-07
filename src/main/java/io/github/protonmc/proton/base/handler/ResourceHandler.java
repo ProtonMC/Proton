@@ -39,7 +39,7 @@ public class ResourceHandler {
 
     public static void generateSlabsStairs(ClientResourcePackBuilder pack, String base) {
         Identifier tex = identifier("block/" + base);
-        for (String s : ImmutableSet.of("slab", "slab_top", "stairs", "stairs_inner", "stairs_outer")) {
+        for (String s : ImmutableSet.of("slab", "slab_top", "stairs", "inner_stairs", "outer_stairs")) {
             pack.addBlockModel(
                     identifier(base + "_" + s),
                     model -> model.parent(new Identifier("block/" + s))
@@ -61,5 +61,23 @@ public class ResourceHandler {
         // todo stair blockstates
 
         generateBlockItems(pack, ImmutableSet.of(base+"_slab", base+"_stairs"));
+    }
+
+    public static void generateWalls(ClientResourcePackBuilder pack, String base) {
+        Identifier tex = identifier("block/" + base);
+        for (String s : ImmutableSet.of("wall_post", "wall_side", "wall_side_tall")) {
+            pack.addBlockModel(
+                    identifier(base + "_" + s),
+                    model -> model.parent(new Identifier("block/template_" + s))
+                            .texture("wall", tex)
+            );
+        }
+        pack.addBlockModel(
+                identifier(base + "_wall_inventory"),
+                model -> model.parent(new Identifier("block/wall_inventory"))
+                        .texture("wall", tex)
+        );
+
+        pack.addItemModel(identifier(base+"_wall"), model -> model.parent(identifier("block/" + base + "_wall_inventory")));
     }
 }
