@@ -16,13 +16,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Environment(EnvType.CLIENT)
 @Mixin(CowEntityRenderer.class)
 public class CowRendererMixin {
-
-    @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getTexture(Lnet/minecraft/entity/passive/CowEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(CowEntity cowEntity, CallbackInfoReturnable<Identifier> cir){
         if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class) && VariantAnimalTexturesModule.enableCow){
             cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(cowEntity, VariantAnimalTexturesModule.VariantTextureType.COW, VariantAnimalTexturesModule.enableCow));
         }
     }
-
 }

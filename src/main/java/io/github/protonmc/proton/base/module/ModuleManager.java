@@ -11,6 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Manages modules.
+ * @author hydos, kara-b, dzwdz, YTG1234, BoogieMonster101
+ */
 public class ModuleManager {
     private static final ModuleManager INSTANCE = new ModuleManager();
 
@@ -20,6 +24,9 @@ public class ModuleManager {
 
     private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
 
+    /**
+     * Sets up the client-side part of all modules.
+     */
     @Environment(EnvType.CLIENT)
     public void setupClientModules() {
         for (ProtonModule protonModule : modules.values()) {
@@ -27,18 +34,28 @@ public class ModuleManager {
         }
     }
 
+    /**
+     * Sets up the server start init of all modules.
+     * @param server The server the modules are running on.
+     */
     public void setupServerModules(MinecraftServer server) {
         for (ProtonModule protonModule : modules.values()) {
             protonModule.serverInit(server);
         }
     }
 
+    /**
+     * Sets up module parts that are common to the server and the client.
+     */
     public void setupCommonModules() {
         for (ProtonModule protonModule : modules.values()) {
             protonModule.commonInit();
         }
     }
 
+    /**
+     * Scans all class for ProtonModules are registers them.
+     */
     public void scanAndRegisterModules() {
         ScanResult scanResult = new ClassGraph().enableClassInfo().scan();
         List<String> classes = scanResult.getSubclasses(ProtonModule.class.getCanonicalName()).getNames();
@@ -61,14 +78,27 @@ public class ModuleManager {
         }
     }
 
+    /**
+     * Adds a module to the module list.
+     * @param protonModule The module to add.
+     */
     public void addModule(ProtonModule protonModule) {
         modules.put(protonModule.getClass(), protonModule);
     }
 
+    /**
+     * Returns the module list.
+     * @return The module list as an Iterable.
+     */
     public Iterable<ProtonModule> getModules() {
         return modules.values();
     }
-  
+
+    /**
+     * Checks if a module is enabled.
+     * @param moduleClass The module to check.
+     * @return If the module is enabled.
+     */
     public boolean isModuleEnabled(Class<? extends ProtonModule> moduleClass) {
         ProtonModule module = modules.get(moduleClass);
         if (module != null) return module.enabled;

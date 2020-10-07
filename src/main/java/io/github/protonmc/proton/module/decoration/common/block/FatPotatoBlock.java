@@ -17,7 +17,7 @@ public class FatPotatoBlock extends HorizontalFacingBlock {
         super(Settings.of(Material.UNUSED_PLANT)
                 .emissiveLighting((s, v, p) -> true)
                 .breakInstantly()
-                .luminance((state) -> 4));
+                .luminance((state) -> 3));
         setDefaultState(getStateManager().getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 

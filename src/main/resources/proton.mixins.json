@@ -7,7 +7,9 @@
     "client.entities.ChickenRendererMixin",
     "client.entities.LlamaRendererMixin",
     "client.entities.RabbitRendererMixin",
-    "world.DefaultBiomeFeaturesMixin"
+    "world.DefaultBiomeFeaturesMixin",
+    "abstractblock.AbstractBlockSettingsMixin",
+    "abstractblock.AbstractBlockSettingsAccessorMixin"
   ],
   "client": [
     "client.TitleScreenMixin",

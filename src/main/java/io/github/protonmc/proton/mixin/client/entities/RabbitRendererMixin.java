@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RabbitEntityRenderer.class)
 public class RabbitRendererMixin {
-
     @Shadow
     @Final
     @FromModule(VariantAnimalTexturesModule.class)
@@ -57,7 +56,7 @@ public class RabbitRendererMixin {
     @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier CAERBANNOG_TEXTURE;
 
-    @Inject(method = "getTexture", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getTexture(Lnet/minecraft/entity/passive/RabbitEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTypeTexture(RabbitEntity rabbitEntity, CallbackInfoReturnable<Identifier> cir) {
         if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)) {
