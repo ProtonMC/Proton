@@ -15,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RabbitEntityRenderer.class)
-@FromModule(VariantAnimalTexturesModule.class)
 public class RabbitRendererMixin {
 
     @Shadow
