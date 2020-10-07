@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.base.client;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ModuleManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -21,8 +22,8 @@ public class ProtonClient implements ClientModInitializer {
         if(now.getMonth() == Month.DECEMBER && now.getDayOfMonth() >= 16 || now.getMonth() == Month.JANUARY && now.getDayOfMonth() <= 6)
             doWeNeedJingleBells = true;
 
-        Proton.LOGGER.log(Level.INFO, "Setting Up Client-Side Modules...");
+        Proton.LOGGER.log(Level.INFO, "Setting up clientside modules...");
         ModuleManager.getInstance().setupClientModules();
-        Proton.LOGGER.log(Level.INFO, "Finished Setting Up Client-Side Modules.");
+        ResourceHandler.registerAssets();
     }
 }

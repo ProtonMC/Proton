@@ -1,6 +1,8 @@
 package io.github.protonmc.proton.module.building;
 
+import com.google.common.collect.ImmutableSet;
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
@@ -14,6 +16,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import static io.github.protonmc.proton.Proton.identifier;
 
 public class TurfModule extends ProtonModule {
     public TurfModule() {
@@ -41,5 +45,22 @@ public class TurfModule extends ProtonModule {
         ColorProviderRegistry.BLOCK.register((blockState, renderView, blockPos, tintIndex) -> {
             return renderView != null ? BiomeColors.getGrassColor(renderView, blockPos) : GrassColors.getColor(0.5D, 1.0D);
         }, turfBlock, turf_slab, turf_stairs);
+    }
+
+    @Override
+    public void registerResources(ResourceHandler resourceHandler) {
+        resourceHandler.pack.addBlockModel(identifier("turf"), model -> model.parent(identifier("block/cube_all_tinted"))
+                .texture("all", new Identifier("block/grass_block_top")));
+
+        resourceHandler.pack.addBlockState(identifier("turf"),
+                state -> state.variant("", variant -> {
+                    variant.model(identifier("block/turf"));
+                    variant.model(identifier("block/turf")).rotationY(90);
+                    variant.model(identifier("block/turf")).rotationY(180);
+                    variant.model(identifier("block/turf")).rotationY(270);
+                })
+        );
+
+        resourceHandler.generateBlockItems(ImmutableSet.of("turf"));
     }
 }

@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "proton:block/yellow_stained_planks"
-    }
-}
