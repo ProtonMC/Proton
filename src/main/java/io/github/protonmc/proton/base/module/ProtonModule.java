@@ -1,8 +1,9 @@
 package io.github.protonmc.proton.base.module;
 
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
 import io.github.protonmc.proton.base.annotation.DisabledByDefault;
+import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
 import io.github.protonmc.tiny_config.ConfigManager;
 import io.github.protonmc.tiny_config.Configurable;
 import io.github.protonmc.tiny_config.Saveable;
@@ -38,6 +39,8 @@ public abstract class ProtonModule implements Saveable {
     public void serverInit(MinecraftServer server) {};
 
     public void commonInit() {}
+
+    public void registerResources(ArtificeResourcePack.ClientResourcePackBuilder pack) {}
 
     public final String getTranslationKey() {
         return "proton.module." + id.getNamespace() + "." + id.getPath();

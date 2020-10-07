@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "proton:block/magma_bricks_slab" },
-        "type=top": { "model": "proton:block/magma_bricks_slab_top" },
-        "type=double": { "model": "proton:block/magma_bricks" }
-    }
-}
