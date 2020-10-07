@@ -13,6 +13,10 @@ import net.minecraft.util.Identifier;
 
 import java.lang.reflect.Field;
 
+/**
+ * An abstract class representing a proton module.
+ * @author kara-b, dzwdz, YTG1234, hydos, redcreeper14385
+ */
 public abstract class ProtonModule implements Saveable {
     protected final Identifier id;
 
@@ -21,6 +25,10 @@ public abstract class ProtonModule implements Saveable {
     @Configurable
     public boolean enabled = true;
 
+    /**
+     * Reads config, sets up fields and constructs a ProtonModule.
+     * @param id The module ID to be used.
+     */
     public ProtonModule(Identifier id) {
         this.id = id;
         for (Field f : ConfigManager.getConfigurableFields(getClass())) {
@@ -32,17 +40,35 @@ public abstract class ProtonModule implements Saveable {
         Proton.CONFIG.loadObject(this);
     }
 
+    /**
+     * Initializes the module on the client-side.
+     */
     @Environment(EnvType.CLIENT)
     public void clientInit() {};
 
+    /**
+     * Ask boogie what this does :concern:
+     * @param server Ask boogie what this does :concern:
+     */
     public void serverInit(MinecraftServer server) {};
 
+    /**
+     * Initializes the module both on server and client.
+     */
     public void commonInit() {}
 
+    /**
+     * Gets the module translation key. Can be used for translations.
+     * @return The module translation key.
+     */
     public final String getTranslationKey() {
         return "proton.module." + id.getNamespace() + "." + id.getPath();
     }
 
+    /**
+     * Gets the module ID, can be used to do things.
+     * @return The moduleID.
+     */
     public final Identifier getId() {
         return id;
     }
