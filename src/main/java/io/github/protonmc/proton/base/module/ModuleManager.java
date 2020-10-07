@@ -3,6 +3,7 @@ package io.github.protonmc.proton.base.module;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.annotation.ForceNotLoad;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.server.MinecraftServer;
@@ -13,16 +14,16 @@ import java.util.Map;
 
 /**
  * Manages modules.
+ *
  * @author hydos, kara-b, dzwdz, YTG1234, BoogieMonster101
  */
 public class ModuleManager {
     private static final ModuleManager INSTANCE = new ModuleManager();
+    private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
 
     public static ModuleManager getInstance() {
         return INSTANCE;
     }
-
-    private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
 
     /**
      * Sets up the client-side part of all modules.
@@ -36,6 +37,7 @@ public class ModuleManager {
 
     /**
      * Sets up the server start init of all modules.
+     *
      * @param server The server the modules are running on.
      */
     public void setupServerModules(MinecraftServer server) {
@@ -63,6 +65,9 @@ public class ModuleManager {
         for (String classname : classes) {
             try {
                 Class<?> clazz = Class.forName(classname);
+                // Don't load modules with the ForceNotLoad annotation applied.
+                if (clazz.isAnnotationPresent(ForceNotLoad.class)) continue;
+
                 ProtonModule protonModule = (ProtonModule) clazz.getDeclaredConstructor().newInstance();
                 this.addModule(protonModule);
                 String[] packageParts = clazz.getPackage().getName().split("\\.");
@@ -80,6 +85,7 @@ public class ModuleManager {
 
     /**
      * Adds a module to the module list.
+     *
      * @param protonModule The module to add.
      */
     public void addModule(ProtonModule protonModule) {
@@ -88,6 +94,7 @@ public class ModuleManager {
 
     /**
      * Returns the module list.
+     *
      * @return The module list as an Iterable.
      */
     public Iterable<ProtonModule> getModules() {
@@ -96,7 +103,9 @@ public class ModuleManager {
 
     /**
      * Checks if a module is enabled.
+     *
      * @param moduleClass The module to check.
+     *
      * @return If the module is enabled.
      */
     public boolean isModuleEnabled(Class<? extends ProtonModule> moduleClass) {
