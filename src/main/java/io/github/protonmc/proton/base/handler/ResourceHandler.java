@@ -135,7 +135,18 @@ public class ResourceHandler {
                         .texture("wall", tex)
         );
 
-        // todo wall blockstates
+        try {
+            File template_walls_file = FabricLoader.getInstance().getModContainer(Proton.MOD_ID).get()
+                    .getPath("assets/" + Proton.MOD_ID + "/templates/walls_blockstate_template.json").toFile();
+            String template_walls_string =  Files.toString(template_walls_file, StandardCharsets.UTF_8);
+            template_walls_string = template_walls_string.replaceAll("model_post", identifier("block/" + base + "_wall_post").toString())
+                    .replaceAll("model_side", identifier("block/" + base + "_wall_side").toString())
+                    .replaceAll("model_side_tall", identifier("block/" + base + "_wall_side_tall").toString());
+
+            pack.add(identifier("blockstates/" + base + "_wall.json"), new StringResource(template_walls_string));
+        } catch (Exception exception) {
+            Proton.LOGGER.error("Exception when loading template for walls", exception);
+        }
 
         pack.addItemModel(identifier(base+"_wall"), model -> model.parent(identifier("block/" + base + "_wall_inventory")));
     }
