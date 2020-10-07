@@ -14,9 +14,11 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 public class AbstractBlockSettingsMixin {
 
     @Inject(at = @At("RETURN"), method = "copy", locals = LocalCapture.CAPTURE_FAILEXCEPTION)
-    private static void copy(AbstractBlock block, CallbackInfoReturnable ci, AbstractBlock.Settings settings) {
-        AbstractBlockSettingsAccessorMixin blockSettings = (AbstractBlockSettingsAccessorMixin) ((AbstractBlockAccessor)block).getSettings();
-        ((AbstractBlockSettingsAccessorMixin)settings).setEmissiveLightingPredicate(blockSettings.getEmissiveLightingPredicate());
+    private static void copy(AbstractBlock block, CallbackInfoReturnable cir, AbstractBlock.Settings settings) {
+        AbstractBlockSettingsAccessorMixin parentSettings = (AbstractBlockSettingsAccessorMixin) ((AbstractBlockAccessor)block).getSettings();
+        AbstractBlockSettingsAccessorMixin childSettings = (AbstractBlockSettingsAccessorMixin)settings;
+
+        childSettings.setEmissiveLightingPredicate(parentSettings.getEmissiveLightingPredicate());
     }
 
 }
