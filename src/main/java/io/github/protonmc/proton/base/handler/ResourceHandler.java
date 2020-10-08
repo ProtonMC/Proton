@@ -25,6 +25,9 @@ import java.util.List;
 
 import static io.github.protonmc.proton.Proton.identifier;
 
+/**
+ * A class that handles generating resources using Artifice.
+ */
 public class ResourceHandler {
     private static ArtificeResourcePack RESOURCE_PACK;
 

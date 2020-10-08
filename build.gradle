@@ -65,10 +65,8 @@ dependencies {
 
 	modRuntime("com.github.dzwdz:translation_helper:0.1.0")
 
-	dependencies {
-		modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
-		include "com.lettuce.fudge:artifice:${project.artifice_version}"
-	}
+	modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
+	include "com.lettuce.fudge:artifice:${project.artifice_version}"
 }
 
 processResources {
