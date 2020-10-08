@@ -16,8 +16,11 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 
-import java.lang.reflect.Field;
-
+/**
+ * Module that adds compressed blocks for some items.
+ *
+ * @author YTG1234
+ */
 public class CompressedItemsModule extends ProtonModule {
     @Configurable
     public static double bluerIceSlipperiness = 0.9998;
@@ -32,6 +35,9 @@ public class CompressedItemsModule extends ProtonModule {
         super(Proton.identifier("compressed_items"));
     }
 
+    /**
+     * @see ProtonModule#commonInit()
+     */
     @Override
     public void commonInit() {
         if (!enabled) return;
@@ -40,6 +46,9 @@ public class CompressedItemsModule extends ProtonModule {
         ModuleItems.register();
     }
 
+    /**
+     * @see ProtonModule#registerResources(ResourceHandler)
+     */
     @Override
     public void registerResources(ResourceHandler resourceHandler) {
         resourceHandler.generateSimpleBlock("compressed_nether_star", new Identifier("item/nether_star"));
@@ -48,12 +57,19 @@ public class CompressedItemsModule extends ProtonModule {
         resourceHandler.generateSimpleBlock("compressed_diamond_block");
     }
 
+    /**
+     * Static inner-class containing all the blocks in the module.
+     * @author YTG1234
+     */
     public static class ModuleBlocks {
         public static Block COMPRESSED_NETHER_STAR;
         public static Block BLUER_ICE;
         public static Block BLUEST_ICE;
         public static Block COMPRESSED_DIAMOND_BLOCK;
 
+        /**
+         * Registers all the blocks in the module.
+         */
         public static void register() {
             COMPRESSED_NETHER_STAR = ProtonRegisterHandler.block(
                     "compressed_nether_star",
@@ -68,9 +84,7 @@ public class CompressedItemsModule extends ProtonModule {
 
             BLUER_ICE = ProtonRegisterHandler.block(
                     "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                 .slipperiness((float) bluerIceSlipperiness)
-                                                 .breakByTool(FabricToolTags.PICKAXES)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness((float) bluerIceSlipperiness).breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                    );
 
@@ -86,18 +100,22 @@ public class CompressedItemsModule extends ProtonModule {
 
             COMPRESSED_DIAMOND_BLOCK = ProtonRegisterHandler.block(
                     "compressed_diamond_block",
-                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK)
-                                                 .strength(8.0F, 9.0F)
-                                                 .requiresTool()
-                                                 .breakByTool(FabricToolTags.PICKAXES, 2)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK).strength(8.0F, 9.0F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 2)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                                   );
         }
     }
 
+    /**
+     * Static inner-class containing all of the module's items.
+     * @author YTG1234
+     */
     public static class ModuleItems {
         public static CompressedNetherStarItem COMPRESSED_NETHER_STAR;
 
+        /**
+         * Registers all of the module's items.
+         */
         public static void register() {
             COMPRESSED_NETHER_STAR = ProtonRegisterHandler.item("compressed_nether_star", new CompressedNetherStarItem());
         }

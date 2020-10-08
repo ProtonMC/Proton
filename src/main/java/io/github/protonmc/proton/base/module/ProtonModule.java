@@ -58,6 +58,10 @@ public abstract class ProtonModule implements Saveable {
      */
     public void commonInit() {}
 
+    /**
+     * Registers resources for the module.
+     * @param resourceHandler The ResourceHandler that handles the resources.
+     */
     public void registerResources(ResourceHandler resourceHandler) {}
 
     /**
