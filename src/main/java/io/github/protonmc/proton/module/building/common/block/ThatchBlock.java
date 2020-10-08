@@ -11,6 +11,10 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+/**
+ * A class for the Thatch Block.
+ * @author kara-b
+ */
 public class ThatchBlock extends Block {
     public ThatchBlock() {
         super(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).sounds(BlockSoundGroup.CROP)
@@ -18,6 +22,9 @@ public class ThatchBlock extends Block {
                 .breakByTool(FabricToolTags.HOES).materialColor(MaterialColor.YELLOW));
     }
 
+    /**
+     * @see Block#onLandedUpon(World, BlockPos, Entity, float)
+     */
     @Override
     public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
         entity.handleFallDamage(distance, (float) ThatchModule.fallDamageMultiplier);
