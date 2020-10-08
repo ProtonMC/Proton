@@ -9,7 +9,7 @@ import net.minecraft.item.ItemGroup;
 
 /**
  * Module that adds a bamboo mat.
- * @author kata-b
+ * @author kara-b
  */
 public class BambooMatModule extends ProtonModule {
     public BambooMatModule() {
