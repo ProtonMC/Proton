@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
 /**
+ * Module for magma brick block.
  * @author TehcJS
  */
 public class MagmaBrickModule extends ProtonModule {
@@ -19,6 +20,9 @@ public class MagmaBrickModule extends ProtonModule {
 		super(Proton.identifier("magma_bricks"));
 	}
 
+	/**
+	 * @see ProtonModule#commonInit()
+	 */
 	@Override
 	public void commonInit() {
 		if (!this.enabled) { return; }
@@ -28,6 +32,9 @@ public class MagmaBrickModule extends ProtonModule {
 		VariantHandler.addSlabStairsWall(magmaBrickBlock);
 	}
 
+	/**
+	 * @see ProtonModule#registerResources(ResourceHandler)
+	 */
 	@Override
 	public void registerResources(ResourceHandler resourceHandler) {
 		resourceHandler.generateSimpleBlock("magma_bricks");
