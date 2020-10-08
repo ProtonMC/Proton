@@ -15,6 +15,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Adds the "Q" button in the title screen.
+ * @author hYdos, dzwdz
+ */
 @Environment(EnvType.CLIENT)
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
@@ -22,6 +26,10 @@ public class TitleScreenMixin extends Screen {
         super(title);
     }
 
+    /**
+     * Adds the button to the title screen.
+     * @see TitleScreen#init()
+     */
     @Inject(method = "init()V", at = @At("TAIL"))
     public void addPButton(CallbackInfo ci) {
         ImmutableSet<String> targets = ImmutableSet.of(I18n.translate("menu.online"));

@@ -23,6 +23,10 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.CreeperEntity;
 
+/**
+ * Mixin essential for the VariantAnimalTexturesModule.
+ * @author joaoh1
+ */
 @Environment(EnvType.CLIENT)
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements FeatureRendererContext<T, M> {
@@ -34,6 +38,10 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
     @FromModule(AngryCreepersModule.class)
     private float creeperColor = 1.0F;
 
+    /**
+     * Makes creepers go red when explode pt. 1
+     * @see LivingEntityRenderer#render(LivingEntity, float, float, MatrixStack, VertexConsumerProvider, int)
+     */
     @Inject(method = "render(Lnet/minecraft/entity/LivingEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At("HEAD"))
     @FromModule(AngryCreepersModule.class)
     public void getCreeperColor(T livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
@@ -48,6 +56,10 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
         }
     }
 
+    /**
+     * Makes creeper go red when explode pt. 2
+     * @see LivingEntityRenderer#render(LivingEntity, float, float, MatrixStack, VertexConsumerProvider, int)
+     */
     @FromModule(AngryCreepersModule.class)
     @ModifyArgs(method = "render(Lnet/minecraft/entity/LivingEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/model/EntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;IIFFFF)V"))
     private void modifyCreeperColor(Args args) {

@@ -21,9 +21,17 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 // everything about this is horrible
+
+/**
+ * A class for controlling the Proton configuration screen.
+ * @author dzwdz
+ */
 public class ConfigScreenProvider {
     public static Map<Field, Object> DEFAULT_VALUES = new HashMap<>();
 
+    /**
+     * ask dzwdz what this does
+     */
     private static <T> Consumer<T> saveConsumer(Field f, ProtonModule o) {
         return v -> {
             try {
@@ -35,6 +43,9 @@ public class ConfigScreenProvider {
         };
     }
 
+    /**
+     * ask dzwdz what this does
+     */
     protected static AbstractConfigListEntry<?> createEntry(ConfigEntryBuilder builder, Field f, ProtonModule o) { // todo add saveConsumers, handle default values
         try {
             FieldBuilder<?,?> fieldBuilder = null;
@@ -64,6 +75,9 @@ public class ConfigScreenProvider {
         return null;
     }
 
+    /**
+     * ask dzwdz what this does
+     */
     public static Screen getScreen(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)

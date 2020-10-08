@@ -9,10 +9,15 @@ import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Mixin essential for the VariantAnimalTexturesModule.
+ * @author hYdos
+ */
 @Mixin(LlamaEntityRenderer.class)
 public class LlamaRendererMixin {
     @Shadow
@@ -20,6 +25,10 @@ public class LlamaRendererMixin {
     @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier[] TEXTURES;
 
+    /**
+     * Makes llamas have variated textures.
+     * @see LlamaEntityRenderer#getTexture(LlamaEntity)
+     */
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/LlamaEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTypeTexture(LlamaEntity llamaEntity, CallbackInfoReturnable<Identifier> cir) {
@@ -32,7 +41,13 @@ public class LlamaRendererMixin {
         }
     }
 
+    /**
+     * Gets the original texture of a LlamaEntity.
+     * @param llamaEntity The entity.
+     * @return Identifier of the original texture.
+     */
     @FromModule(VariantAnimalTexturesModule.class)
+    @Unique
     private Identifier getOldTexture(LlamaEntity llamaEntity) {
         return TEXTURES[llamaEntity.getVariant()];
     }

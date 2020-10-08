@@ -7,13 +7,23 @@ import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
+/**
+ * Used to add a configuration button to the modmenu screen.
+ * @author YTG1234
+ */
 @Environment(EnvType.CLIENT)
 public class ModMenuCompat implements ModMenuApi {
+    /**
+     * @see ModMenuApi#getModId()
+     */
     @Override
     public String getModId() {
         return Proton.MOD_ID;
     }
 
+    /**
+     * @see ModMenuApi#getModConfigScreenFactory()
+     */
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return ConfigScreenProvider::getScreen;

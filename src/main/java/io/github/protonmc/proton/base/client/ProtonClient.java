@@ -11,11 +11,17 @@ import org.apache.logging.log4j.Level;
 import java.time.LocalDateTime;
 import java.time.Month;
 
+/**
+ * Proton's client side stuff
+ * @author hYdos, YTG1234, kara-b
+ */
 @Environment(EnvType.CLIENT)
 public class ProtonClient implements ClientModInitializer {
-
     public static boolean doWeNeedJingleBells = false;
 
+    /**
+     * @see ClientModInitializer#onInitializeClient()
+     */
     @Override
     public void onInitializeClient() {
         LocalDateTime now = LocalDateTime.now();

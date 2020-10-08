@@ -10,65 +10,75 @@ import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Mixin essential for the VariantAnimalTexturesModule.
+ *
+ * @author hYdos, kara-b
+ */
 @Mixin(RabbitEntityRenderer.class)
 public class RabbitRendererMixin {
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier TOAST_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier BROWN_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier WHITE_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier BLACK_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier WHITE_SPOTTED_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier GOLD_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier SALT_TEXTURE;
 
     @Shadow
     @Final
-    @FromModule(VariantAnimalTexturesModule.class)
     private static Identifier CAERBANNOG_TEXTURE;
 
+    /**
+     * Variated rabbit texturess.
+     *
+     * @see RabbitEntityRenderer#getTexture(RabbitEntity)
+     */
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/RabbitEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTypeTexture(RabbitEntity rabbitEntity, CallbackInfoReturnable<Identifier> cir) {
         if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)) {
-            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(
-                    rabbitEntity,
-                    VariantAnimalTexturesModule.VariantTextureType.RABBIT,
-                    () -> getOldTexture(rabbitEntity)
+            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(rabbitEntity,
+                                                                             VariantAnimalTexturesModule.VariantTextureType.RABBIT,
+                                                                             () -> getOldTexture(rabbitEntity)
                                                                             ));
         }
     }
 
+    /**
+     * Gets the original texture of a RabbitEntity.
+     *
+     * @param rabbitEntity The rabbit to get the texture from.
+     *
+     * @return Original texture in Identifier form.
+     */
     @FromModule(VariantAnimalTexturesModule.class)
+    @Unique
     public Identifier getOldTexture(RabbitEntity rabbitEntity) {
         String string = Formatting.strip(rabbitEntity.getName().getString());
         if (string != null && "Toast".equals(string)) {

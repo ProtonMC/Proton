@@ -76,6 +76,9 @@ public abstract class ProtonModule implements Saveable {
         return id;
     }
 
+    /**
+     * @see Saveable#getSerializedId()
+     */
     @Override
     public String getSerializedId() {
         return id.toString();

@@ -11,6 +11,10 @@ import net.minecraft.util.math.MathHelper;
 import java.awt.*;
 import java.util.Calendar;
 
+/**
+ * A button that takes you to the Proton configuration screen.
+ * @author hYdos, dzwdz
+ */
 public class PButton extends ButtonWidget {
     private final boolean gay;
     private float tick = 0;
@@ -20,6 +24,9 @@ public class PButton extends ButtonWidget {
         gay = Calendar.getInstance().get(Calendar.MONTH) == Calendar.JUNE;
     }
 
+    /**
+     * @see ButtonWidget#renderButton(MatrixStack, int, int, float)
+     */
     @Override
     public void renderButton(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         MinecraftClient client = MinecraftClient.getInstance();
@@ -36,6 +43,10 @@ public class PButton extends ButtonWidget {
         drawCenteredText(matrices, client.textRenderer, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, color | MathHelper.ceil(this.alpha * 255.0F) << 24);
     }
 
+    /**
+     * Opens the config screen when you click the button.
+     * @param _buttonWidget The button being clicked
+     */
     public static void click(ButtonWidget _buttonWidget) {
         MinecraftClient client = MinecraftClient.getInstance();
         client.openScreen(ConfigScreenProvider.getScreen(client.currentScreen));

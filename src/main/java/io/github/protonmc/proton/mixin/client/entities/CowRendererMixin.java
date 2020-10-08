@@ -13,9 +13,17 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Mixin essential for the VariantAnimalTexturesModule.
+ * @author hYdos
+ */
 @Environment(EnvType.CLIENT)
 @Mixin(CowEntityRenderer.class)
 public class CowRendererMixin {
+    /**
+     * Makes cows have a random texture?
+     * @see CowEntityRenderer#getTexture(CowEntity)
+     */
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/CowEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(CowEntity cowEntity, CallbackInfoReturnable<Identifier> cir){
