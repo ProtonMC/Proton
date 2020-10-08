@@ -13,11 +13,18 @@ import net.minecraft.item.ItemGroup;
 
 import java.lang.reflect.Field;
 
+/**
+ * A module that adds stained plank blocks.
+ * @author redcreeper14385
+ */
 public class StainedPlanksModule extends ProtonModule {
     public StainedPlanksModule() {
         super(Proton.identifier("stained_planks"));
     }
 
+    /**
+     * @see ProtonModule#commonInit()
+     */
     @Override
     public void commonInit() {
         if (!this.enabled) { return; }
@@ -25,6 +32,9 @@ public class StainedPlanksModule extends ProtonModule {
         ModuleBlocks.register();
     }
 
+    /**
+     * @see ProtonModule#registerResources(ResourceHandler)
+     */
     @Override
     public void registerResources(ResourceHandler resourceHandler) {
         // i'm sorry
@@ -34,6 +44,10 @@ public class StainedPlanksModule extends ProtonModule {
         }
     }
 
+    /**
+     * A static inner class containing all of the module's blocks.
+     * @author redcreeper14385
+     */
     public static class ModuleBlocks {
         public static Block WHITE_STAINED_PLANKS;
         public static Block ORANGE_STAINED_PLANKS;
@@ -52,6 +66,9 @@ public class StainedPlanksModule extends ProtonModule {
         public static Block RED_STAINED_PLANKS;
         public static Block BLACK_STAINED_PLANKS;
 
+        /**
+         * Registers all of the module's blocks.
+         */
         public static void register() {
             WHITE_STAINED_PLANKS = ProtonRegisterHandler.block("white_stained_planks",
                     new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)), new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
