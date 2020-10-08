@@ -12,6 +12,10 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
+/**
+ * Adds a funni thatch block.
+ * @author kara-b
+ */
 public class ThatchModule extends ProtonModule {
     @Configurable
     public static double fallDamageMultiplier = 0.5;
@@ -22,6 +26,9 @@ public class ThatchModule extends ProtonModule {
         super(Proton.identifier("thatch"));
     }
 
+    /**
+     * @see ProtonModule#commonInit()
+     */
     @Override
     public void commonInit() {
         if (!this.enabled) { return; }
@@ -33,6 +40,9 @@ public class ThatchModule extends ProtonModule {
         VariantHandler.addSlabAndStairs(thatchBlock);
     }
 
+    /**
+     * @see ProtonModule#registerResources(ResourceHandler)
+     */
     @Override
     public void registerResources(ResourceHandler resourceHandler) {
         resourceHandler.generateSimpleBlock("thatch");
