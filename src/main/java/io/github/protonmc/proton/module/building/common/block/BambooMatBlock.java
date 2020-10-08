@@ -16,6 +16,10 @@ import net.minecraft.util.math.Direction;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
+/**
+ * Class for the bamboo mat block.
+ * @author kara-b
+ */
 public class BambooMatBlock extends Block {
     public static final EnumProperty<Direction> FACING = Properties.HOPPER_FACING;
 
@@ -29,6 +33,9 @@ public class BambooMatBlock extends Block {
         setDefaultState(getDefaultState().with(FACING, Direction.NORTH));
     }
 
+    /**
+     * @see Block#getPlacementState(ItemPlacementContext)
+     */
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction dir = ctx.getPlayer().getHorizontalFacing();
@@ -78,6 +85,9 @@ public class BambooMatBlock extends Block {
 //    }
 
 
+    /**
+     * @see Block#appendProperties(StateManager.Builder)
+     */
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
