@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "proton:block/fat_potato_top",
-    "front": "proton:block/fat_potato_front",
-    "side": "proton:block/fat_potato_side"
-  }
-}
