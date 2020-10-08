@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
 /**
+ * A class for the magma brick block.
  * @author TehcJS
  */
 public class MagmaBrickBlock extends Block {
