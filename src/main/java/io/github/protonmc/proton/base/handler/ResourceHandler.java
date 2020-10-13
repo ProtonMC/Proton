@@ -20,7 +20,8 @@ import static io.github.protonmc.proton.Proton.identifier;
 /**
  * A class that handles generating resources using Artifice.
  *
- * @author dwdz, kara-b
+ * @author dwdz
+ * @author kara-b
  */
 public class ResourceHandler {
     private static ArtificeResourcePack RESOURCE_PACK;

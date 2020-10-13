@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * Mixin essential for the VariantAnimalTexturesModule.
+ *
  * @author hYdos
  */
 @Environment(EnvType.CLIENT)
@@ -22,13 +23,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PigRendererMixin {
     /**
      * Makes pig have variated textures.
+     *
      * @see PigEntityRenderer#getTexture(PigEntity)
      */
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/PigEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
-    public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir){
-        if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)){
-            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(pigEntity, VariantAnimalTexturesModule.VariantTextureType.PIG, VariantAnimalTexturesModule.enablePig));
+    public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir) {
+        if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)) {
+            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(
+                    pigEntity,
+                    VariantAnimalTexturesModule.VariantTextureType.PIG,
+                    VariantAnimalTexturesModule.enablePig
+                                                                            ));
         }
     }
 }

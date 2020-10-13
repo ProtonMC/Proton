@@ -8,6 +8,7 @@ import net.minecraft.text.Text;
 
 /**
  * An unused class. Should probably be removed tbh
+ *
  * @author hYdos
  */
 public class IconButton extends ButtonWidget {

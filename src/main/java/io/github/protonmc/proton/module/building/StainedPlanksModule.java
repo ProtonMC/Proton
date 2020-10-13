@@ -15,6 +15,7 @@ import java.lang.reflect.Field;
 
 /**
  * A module that adds stained plank blocks.
+ *
  * @author redcreeper14385
  */
 public class StainedPlanksModule extends ProtonModule {

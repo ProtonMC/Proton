@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * Signifies that a method or a field (usually inside a Mixin) is needed in order for a ProtonModule to function correctly.
+ *
  * @author kara-b
  */
 @Target({ElementType.FIELD, ElementType.METHOD})

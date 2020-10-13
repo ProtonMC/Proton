@@ -13,6 +13,7 @@ import net.minecraft.util.registry.Registry;
 /**
  * A class representing a StairsBlock which is automatically registered using the ProtonRegisterHandler.
  * This class is used to automatically create and register a StairsBlock for an existing block.
+ *
  * @author kara-b
  */
 public class ProtonStairsBlock extends StairsBlock {
@@ -21,8 +22,9 @@ public class ProtonStairsBlock extends StairsBlock {
     /**
      * A constructor that... constructs a ProtonStairsBlock.
      * <p>
-     *     This constructor takes in a Block, registers a stairs block and returns it.
+     * This constructor takes in a Block, registers a stairs block and returns it.
      * </p>
+     *
      * @param parent The block to register the stairs from.
      */
     public ProtonStairsBlock(Block parent) {
@@ -30,6 +32,8 @@ public class ProtonStairsBlock extends StairsBlock {
 
         this.parent = parent;
         ProtonRegisterHandler.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), this);
-        ProtonRegisterHandler.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        ProtonRegisterHandler.item(
+                new Identifier(Registry.BLOCK.getId(parent).toString() + "_stairs"),
+                new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     }
 }

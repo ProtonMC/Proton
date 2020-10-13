@@ -13,6 +13,7 @@ import net.minecraft.util.registry.Registry;
 /**
  * A class representing a SlabBlock which is automatically registered using the ProtonRegisterHandler.
  * This class is used to automatically create and register a SlabBlock for an existing block.
+ *
  * @author kara-b
  */
 public class ProtonSlabBlock extends SlabBlock {
@@ -20,9 +21,11 @@ public class ProtonSlabBlock extends SlabBlock {
 
     /**
      * A constructor that... constructs a ProtonSlabBlock.
+     *
      * <p>
-     *     This constructor takes in a Block, registers a slab block and returns it.
+     * This constructor takes in a Block, registers a slab block and returns it.
      * </p>
+     *
      * @param parent The block to register the slab from.
      */
     public ProtonSlabBlock(Block parent) {
@@ -30,6 +33,8 @@ public class ProtonSlabBlock extends SlabBlock {
 
         this.parent = parent;
         ProtonRegisterHandler.block(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), this);
-        ProtonRegisterHandler.item(new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"), new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        ProtonRegisterHandler.item(
+                new Identifier(Registry.BLOCK.getId(parent).toString() + "_slab"),
+                new BlockItem(this, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     }
 }

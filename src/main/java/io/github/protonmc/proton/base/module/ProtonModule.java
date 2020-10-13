@@ -16,7 +16,12 @@ import java.lang.reflect.Field;
 
 /**
  * An abstract class representing a proton module.
- * @author kara-b, dzwdz, YTG1234, hydos, redcreeper14385
+ *
+ * @author kara-b
+ * @author dzwdz
+ * @author YTG1234
+ * @author hydos
+ * @author redcreeper14385
  */
 public abstract class ProtonModule implements Saveable {
     protected final Identifier id;
@@ -28,6 +33,7 @@ public abstract class ProtonModule implements Saveable {
 
     /**
      * Reads config, sets up fields and constructs a ProtonModule.
+     *
      * @param id The module ID to be used.
      */
     public ProtonModule(Identifier id) {
@@ -35,7 +41,8 @@ public abstract class ProtonModule implements Saveable {
         for (Field f : ConfigManager.getConfigurableFields(getClass())) {
             try {
                 ConfigScreenProvider.DEFAULT_VALUES.put(f, f.get(this));
-            } catch (Throwable ignored) {}
+            } catch (Throwable ignored) {
+            }
         }
         enabled = !getClass().isAnnotationPresent(DisabledByDefault.class);
         Proton.CONFIG.loadObject(this);
@@ -45,27 +52,38 @@ public abstract class ProtonModule implements Saveable {
      * Initializes the module on the client-side.
      */
     @Environment(EnvType.CLIENT)
-    public void clientInit() {};
+    public void clientInit() {
+    }
+
+    ;
 
     /**
      * Ask boogie what this does :concern:
+     *
      * @param server Ask boogie what this does :concern:
      */
-    public void serverInit(MinecraftServer server) {};
+    public void serverInit(MinecraftServer server) {
+    }
+
+    ;
 
     /**
      * Initializes the module both on server and client.
      */
-    public void commonInit() {}
+    public void commonInit() {
+    }
 
     /**
      * Registers resources for the module.
+     *
      * @param resourceHandler The ResourceHandler that handles the resources.
      */
-    public void registerResources(ResourceHandler resourceHandler) {}
+    public void registerResources(ResourceHandler resourceHandler) {
+    }
 
     /**
      * Gets the module translation key. Can be used for translations.
+     *
      * @return The module translation key.
      */
     public final String getTranslationKey() {
@@ -74,6 +92,7 @@ public abstract class ProtonModule implements Saveable {
 
     /**
      * Gets the module ID, can be used to do things.
+     *
      * @return The moduleID.
      */
     public final Identifier getId() {

@@ -18,7 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /**
  * Mixin essential for the VariantAnimalTexturesModule.
  *
- * @author hYdos, kara-b
+ * @author hYdos
+ * @author kara-b
  */
 @Mixin(RabbitEntityRenderer.class)
 public class RabbitRendererMixin {

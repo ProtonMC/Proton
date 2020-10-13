@@ -36,6 +36,8 @@ public class CompressedItemsModule extends ProtonModule {
     }
 
     /**
+     * Initializes the mod both on the server and the client.
+     *
      * @see ProtonModule#commonInit()
      */
     @Override
@@ -47,6 +49,8 @@ public class CompressedItemsModule extends ProtonModule {
     }
 
     /**
+     * Registers all models for blocks and items.
+     *
      * @see ProtonModule#registerResources(ResourceHandler)
      */
     @Override
@@ -59,6 +63,7 @@ public class CompressedItemsModule extends ProtonModule {
 
     /**
      * Static inner-class containing all the blocks in the module.
+     *
      * @author YTG1234
      */
     public static class ModuleBlocks {
@@ -84,7 +89,9 @@ public class CompressedItemsModule extends ProtonModule {
 
             BLUER_ICE = ProtonRegisterHandler.block(
                     "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness((float) bluerIceSlipperiness).breakByTool(FabricToolTags.PICKAXES)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
+                                                 .slipperiness((float) bluerIceSlipperiness)
+                                                 .breakByTool(FabricToolTags.PICKAXES)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                    );
 
@@ -100,7 +107,10 @@ public class CompressedItemsModule extends ProtonModule {
 
             COMPRESSED_DIAMOND_BLOCK = ProtonRegisterHandler.block(
                     "compressed_diamond_block",
-                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK).strength(8.0F, 9.0F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 2)),
+                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK)
+                                                 .strength(8.0F, 9.0F)
+                                                 .requiresTool()
+                                                 .breakByTool(FabricToolTags.PICKAXES, 2)),
                     new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
                                                                   );
         }
@@ -108,6 +118,7 @@ public class CompressedItemsModule extends ProtonModule {
 
     /**
      * Static inner-class containing all of the module's items.
+     *
      * @author YTG1234
      */
     public static class ModuleItems {

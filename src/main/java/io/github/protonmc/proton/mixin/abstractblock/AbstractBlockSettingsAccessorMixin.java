@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 /**
  * A Mixin essential for the VariantHandler.
+ *
  * @author kara-b
  */
 @Mixin(AbstractBlock.Settings.class)
@@ -18,6 +19,7 @@ public interface AbstractBlockSettingsAccessorMixin {
 
     /**
      * Sets the emissiveLightingPredicate of the Settings object.
+     *
      * @param value The new emissiveLightingPredicate.
      */
     @Accessor("emissiveLightingPredicate")

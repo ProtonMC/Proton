@@ -8,7 +8,10 @@ import java.util.List;
 
 /**
  * An enum representing categories of ProtonModules.
- * @author hYdos, dzwdz, TechJS
+ *
+ * @author hYdos
+ * @author dzwdz
+ * @author TechJS
  */
 public enum ModuleCategory {
 
@@ -27,13 +30,12 @@ public enum ModuleCategory {
 
     public final Identifier id;
     public final boolean showInGui;
-
-    public boolean enabled;
-
     private final List<ProtonModule> ownedProtonModules = new ArrayList<>();
+    public boolean enabled;
 
     /**
      * Responsible for construction of a ModuleCategory.
+     *
      * @param id A unique Identifier for the category.
      */
     ModuleCategory(Identifier id) {
@@ -44,6 +46,7 @@ public enum ModuleCategory {
 
     /**
      * Adds a ProtonModule to a category.
+     *
      * @param protonModule The ProtonModule being added.
      */
     public void addModule(ProtonModule protonModule) {
@@ -52,6 +55,7 @@ public enum ModuleCategory {
 
     /**
      * Gets the translation key of the category. Used in the proton config screen.
+     *
      * @return The translation key as a String.
      */
     public String getTranslationKey() {
@@ -60,6 +64,7 @@ public enum ModuleCategory {
 
     /**
      * Checks if the category is empty.
+     *
      * @return Is the category empty?
      */
     public boolean isEmpty() {
@@ -68,6 +73,7 @@ public enum ModuleCategory {
 
     /**
      * Gets a list of modules in the category.
+     *
      * @return A list of modules in the category.
      */
     public List<ProtonModule> getOwnedModules() {

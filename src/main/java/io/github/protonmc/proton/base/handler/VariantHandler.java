@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Utility for registering walls, slabs and stairs for existing blocks.
+ *
  * @author kara-b
  */
 public class VariantHandler {
@@ -22,6 +23,7 @@ public class VariantHandler {
 
     /**
      * Adds slab, stair and wall variants to multiple blocks.
+     *
      * @param blocks The blocks to add the variants to.
      */
     public static void addSlabStairsWall(Block... blocks) {
@@ -31,6 +33,7 @@ public class VariantHandler {
 
     /**
      * Adds slab and stair variants to multiple blocks.
+     *
      * @param blocks The blocks to add the variants to.
      */
     public static void addSlabAndStairs(Block... blocks) {
@@ -39,7 +42,17 @@ public class VariantHandler {
     }
 
     /**
+     * Adds a wall variant to multiple blocks.
+     *
+     * @param blocks The blocks to add the variant to.
+     */
+    public static void addWall(Block... blocks) {
+        Arrays.stream(blocks).forEach(block -> WALLS.add(new ProtonWallBlock(block)));
+    }
+
+    /**
      * Adds a slab variants to multiple blocks.
+     *
      * @param blocks The blocks to add the variant to.
      */
     public static void addSlab(Block... blocks) {
@@ -48,6 +61,7 @@ public class VariantHandler {
 
     /**
      * Adds a stair variant to multiple blocks.
+     *
      * @param blocks The blocks to add the variant to.
      */
     public static void addStairs(Block... blocks) {
@@ -55,16 +69,10 @@ public class VariantHandler {
     }
 
     /**
-     * Adds a wall variant to multiple blocks.
-     * @param blocks The blocks to add the variant to.
-     */
-    public static void addWall(Block... blocks) {
-        Arrays.stream(blocks).forEach(block -> WALLS.add(new ProtonWallBlock(block)));
-    }
-
-    /**
      * Copies the settings of a block.
+     *
      * @param parent The block to copy the settings from.
+     *
      * @return The copied settings.
      */
     public static AbstractBlock.Settings realStateCopy(Block parent) {
