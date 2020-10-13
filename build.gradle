@@ -47,7 +47,7 @@ dependencies {
 	// You may need to force-disable transitiveness on them.
 
 	modApi("io.github.prospector:modmenu:${project.modmenu_version}") {
-		exclude module: "fabric-biomes-v1"
+		exclude(group: "net.fabricmc.fabric-api")
 	}
 
 	implementation "io.github.classgraph:classgraph:${project.classgraph_version}"
