@@ -24,6 +24,9 @@ import java.lang.reflect.Field;
  * @author redcreeper14385
  */
 public abstract class ProtonModule implements Saveable {
+    /**
+     * The {@linkplain Identifier ID} of this module used in translation keys and similar.
+     */
     protected final Identifier id;
 
     // note: @Configurable fields in normal modules MUST be static
@@ -55,8 +58,6 @@ public abstract class ProtonModule implements Saveable {
     public void clientInit() {
     }
 
-    ;
-
     /**
      * Ask boogie what this does :concern:
      *
@@ -64,8 +65,6 @@ public abstract class ProtonModule implements Saveable {
      */
     public void serverInit(MinecraftServer server) {
     }
-
-    ;
 
     /**
      * Initializes the module both on server and client.
@@ -91,15 +90,19 @@ public abstract class ProtonModule implements Saveable {
     }
 
     /**
-     * Gets the module ID, can be used to do things.
+     * Gets the {@linkplain Identifier module ID}, can be used in translation keys.
      *
-     * @return The moduleID.
+     * @return The module's {@link Identifier}.
      */
     public final Identifier getId() {
         return id;
     }
 
     /**
+     * Gets the config entry that this module is stored in.
+     *
+     * @return The config entry as a {@link String}
+     *
      * @see Saveable#getSerializedId()
      */
     @Override

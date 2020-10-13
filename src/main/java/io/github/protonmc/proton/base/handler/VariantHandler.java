@@ -17,8 +17,18 @@ import java.util.List;
  */
 public class VariantHandler {
 
+    /**
+     * A {@link List} of all slabs registered using this class.
+     */
     public static final List<ProtonSlabBlock> SLABS = new LinkedList<>();
+
+    /**
+     * A {@link List} of all stair blocks registered using this class.
+     */
     public static final List<ProtonStairsBlock> STAIRS = new LinkedList<>();
+    /**
+     * A {@link List} of all walls registered using this class.
+     */
     public static final List<ProtonWallBlock> WALLS = new LinkedList<>();
 
     /**

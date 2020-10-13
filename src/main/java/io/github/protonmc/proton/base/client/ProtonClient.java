@@ -23,6 +23,8 @@ public class ProtonClient implements ClientModInitializer {
     public static boolean doWeNeedJingleBells = false;
 
     /**
+     * Sets up client side modules, registers the Artifice resource pack and populates {@link ProtonClient#doWeNeedJingleBells}.
+     *
      * @see ClientModInitializer#onInitializeClient()
      */
     @Override

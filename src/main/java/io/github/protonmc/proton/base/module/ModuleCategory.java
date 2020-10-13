@@ -28,8 +28,17 @@ public enum ModuleCategory {
     EXPERIMENTAL(Proton.identifier("experimental")),
     DECORATION(Proton.identifier("decoration"));
 
+    /**
+     * Category ID, used in translation.
+     */
     public final Identifier id;
+    /**
+     * Whether to show this category in the {@linkplain io.github.protonmc.proton.base.client.screen.ConfigScreenProvider Proton Config Screen}.
+     */
     public final boolean showInGui;
+    /**
+     * A {@link List} of all modules owned by the category.
+     */
     private final List<ProtonModule> ownedProtonModules = new ArrayList<>();
     public boolean enabled;
 

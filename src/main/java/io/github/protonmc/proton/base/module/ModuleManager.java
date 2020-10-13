@@ -21,15 +21,28 @@ import java.util.Map;
  * @author BoogieMonster101
  */
 public class ModuleManager {
+    /**
+     * The one and only instance of this class.
+     */
     private static final ModuleManager INSTANCE = new ModuleManager();
+    /**
+     * All modules stored in the manager.
+     */
     private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
 
+    /**
+     * Public instance of the class.
+     *
+     * @return The public instance of this class, for use by everyone.
+     */
     public static ModuleManager getInstance() {
         return INSTANCE;
     }
 
     /**
      * Sets up the client-side part of all modules.
+     *
+     * @see ProtonModule#clientInit()
      */
     @Environment(EnvType.CLIENT)
     public void setupClientModules() {
@@ -42,6 +55,8 @@ public class ModuleManager {
      * Sets up the server start init of all modules.
      *
      * @param server The server the modules are running on.
+     *
+     * @see ProtonModule#serverInit(MinecraftServer)
      */
     public void setupServerModules(MinecraftServer server) {
         for (ProtonModule protonModule : modules.values()) {
@@ -51,6 +66,8 @@ public class ModuleManager {
 
     /**
      * Sets up module parts that are common to the server and the client.
+     *
+     * @see ProtonModule#commonInit()
      */
     public void setupCommonModules() {
         for (ProtonModule protonModule : modules.values()) {
