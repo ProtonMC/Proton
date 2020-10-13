@@ -26,7 +26,7 @@ public class CompressedItemsModule extends ProtonModule {
     public static double bluerIceSlipperiness = 0.9998;
 
     @Configurable
-    public static double bluestIceSlipperiness = 1.01;
+    public static double bluestIceSlipperiness = 1.1;
 
     @Configurable
     public static int bluestIceLuminance = 3;
