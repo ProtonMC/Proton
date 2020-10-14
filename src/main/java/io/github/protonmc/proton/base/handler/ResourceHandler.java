@@ -25,7 +25,7 @@ import static io.github.protonmc.proton.Proton.identifier;
  */
 public class ResourceHandler {
     /**
-     * Current active Proton {@link ArtificeResourcePack}.
+     * Current active Proton {@linkplain ArtificeResourcePack resource pack}.
      */
     private static ArtificeResourcePack RESOURCE_PACK;
     /**
@@ -34,7 +34,7 @@ public class ResourceHandler {
     public ClientResourcePackBuilder pack;
 
     /**
-     * A simple constructor which sets {@link ResourceHandler#RESOURCE_PACK}.
+     * A simple constructor which sets {@link ResourceHandler#pack}.
      *
      * @param pack The resource pack builder to use for this instance.
      */
