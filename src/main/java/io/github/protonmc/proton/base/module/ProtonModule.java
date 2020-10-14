@@ -3,6 +3,7 @@ package io.github.protonmc.proton.base.module;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.annotation.DisabledByDefault;
 import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.tiny_config.ConfigManager;
 import io.github.protonmc.tiny_config.Configurable;
@@ -78,6 +79,9 @@ public abstract class ProtonModule implements Saveable {
      * @param resourceHandler The ResourceHandler that handles the resources.
      */
     public void registerResources(ResourceHandler resourceHandler) {
+    }
+
+    public void registerData(DataHandler dataHandler) {
     }
 
     /**
