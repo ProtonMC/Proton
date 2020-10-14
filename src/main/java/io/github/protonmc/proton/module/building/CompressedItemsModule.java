@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
@@ -74,6 +75,14 @@ public class CompressedItemsModule extends ProtonModule {
         resourceHandler.generateSimpleBlock("bluer_ice");
         resourceHandler.generateSimpleBlock("bluest_ice");
         resourceHandler.generateSimpleBlock("compressed_diamond_block");
+    }
+
+    @Override
+    public void registerData(DataHandler dataHandler) {
+        dataHandler.generateSimpleBlockLoot("compressed_nether_star");
+        dataHandler.generateSimpleBlockLoot("compressed_diamond_block");
+        dataHandler.generateSimpleBlockLoot("bluer_ice", true);
+        dataHandler.generateSimpleBlockLoot("bluest_ice", true);
     }
 
     /**
