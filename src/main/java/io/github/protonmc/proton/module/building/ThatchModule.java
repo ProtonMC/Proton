@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
@@ -50,5 +51,11 @@ public class ThatchModule extends ProtonModule {
     public void registerResources(ResourceHandler resourceHandler) {
         resourceHandler.generateSimpleBlock("thatch");
         resourceHandler.generateSlabsStairs("thatch");
+    }
+
+    @Override
+    public void registerData(DataHandler dataHandler) {
+        dataHandler.generateSimpleBlockLoot("thatch");
+        dataHandler.generateSimpleBlockLoot("thatch_stairs");
     }
 }
