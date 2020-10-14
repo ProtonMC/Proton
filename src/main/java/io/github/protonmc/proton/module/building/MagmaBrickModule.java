@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
@@ -43,5 +44,12 @@ public class MagmaBrickModule extends ProtonModule {
         resourceHandler.generateSimpleBlock("magma_bricks");
         resourceHandler.generateSlabsStairs("magma_bricks");
         resourceHandler.generateWalls("magma_bricks");
+    }
+
+    @Override
+    public void registerData(DataHandler dataHandler) {
+        dataHandler.generateSimpleBlockLoot("magma_bricks");
+        dataHandler.generateSimpleBlockLoot("magma_bricks_stairs");
+        dataHandler.generateSimpleBlockLoot("magma_bricks_wall");
     }
 }
