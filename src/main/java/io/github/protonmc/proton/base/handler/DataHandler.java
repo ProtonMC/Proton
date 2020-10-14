@@ -36,7 +36,7 @@ public class DataHandler {
     /**
      * Registers data as a data pack.
      */
-    public static void registerAssets() {
+    public static void registerData() {
         DATA_PACK = Artifice.registerData(identifier("data"), pack -> {
             pack.setDisplayName("Proton's Data Pack");
             DataHandler dataHandler = new DataHandler(pack);

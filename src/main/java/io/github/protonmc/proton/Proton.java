@@ -33,7 +33,7 @@ public class Proton implements ModInitializer {
     public void onInitialize() {
         LOGGER.log(Level.INFO, "Setting up modules...");
         ModuleManager.getInstance().setupCommonModules();
-        DataHandler.registerAssets();
+        DataHandler.registerData();
         LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
 
         ServerLifecycleEvents.SERVER_STARTING.register(new ProtonServer());
