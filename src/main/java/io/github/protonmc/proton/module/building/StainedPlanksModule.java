@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
@@ -42,6 +43,15 @@ public class StainedPlanksModule extends ProtonModule {
         for (Field f : ModuleBlocks.class.getFields()) {
             resourceHandler.generateSimpleBlock(f.getName().toLowerCase());
             resourceHandler.generateSlabsStairs(f.getName().toLowerCase());
+        }
+    }
+
+    @Override
+    public void registerData(DataHandler dataHandler) {
+        // i'm sorry x2
+        for (Field f : ModuleBlocks.class.getFields()) {
+            dataHandler.generateSimpleBlockLoot(f.getName().toLowerCase());
+            dataHandler.generateSimpleBlockLoot(f.getName().toLowerCase() + "_stairs");
         }
     }
 
