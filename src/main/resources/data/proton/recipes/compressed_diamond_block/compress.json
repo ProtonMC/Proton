@@ -1,36 +1,36 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        },
-        {
-            "item": "minecraft:diamond_block"
-        }
-    ],
-    "result": {
-        "item": "proton:compressed_diamond_block",
-        "count": 1
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    },
+    {
+      "item": "minecraft:diamond_block"
     }
+  ],
+  "result": {
+    "item": "proton:compressed_diamond_block",
+    "count": 1
+  }
 }
