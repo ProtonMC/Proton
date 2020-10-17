@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "proton",
   "version": "${version}",
-
   "name": "Proton",
   "description": "A rewrite of Quark for fabric.",
   "authors": [
@@ -15,11 +14,10 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/hydos/Proton"
   },
-
   "license": "Attribution-NonCommercial-ShareAlike 3.0 Unported",
   "icon": "assets/proton/icon.png",
-
   "environment": "*",
+
   "entrypoints": {
     "main": [
       "io.github.protonmc.proton.Proton"
@@ -43,14 +41,12 @@
     "fabric": "*",
     "minecraft": "1.16.x"
   },
-
   "suggests": {
     "karam": "*",
     "song-sounds": "*",
     "moundertweaks": "*",
     "chat_heads": "*"
   },
-
   "recommends": {
     "modmenu": "*"
   },

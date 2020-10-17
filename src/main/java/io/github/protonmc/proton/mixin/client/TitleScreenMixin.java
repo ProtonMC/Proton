@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  * Adds the "Q" button in the title screen.
+ *
  * @author hYdos, dzwdz
  */
 @Environment(EnvType.CLIENT)
@@ -28,6 +29,7 @@ public class TitleScreenMixin extends Screen {
 
     /**
      * Adds the button to the title screen.
+     *
      * @see TitleScreen#init()
      */
     @Inject(method = "init()V", at = @At("TAIL"))

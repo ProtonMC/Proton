@@ -13,7 +13,9 @@ import java.util.Calendar;
 
 /**
  * A button that takes you to the Proton configuration screen.
- * @author hYdos, dzwdz
+ *
+ * @author hYdos
+ * @author dzwdz
  */
 public class PButton extends ButtonWidget {
     private final boolean gay;
@@ -22,6 +24,16 @@ public class PButton extends ButtonWidget {
     public PButton(int x, int y) {
         super(x, y, 20, 20, new LiteralText("p"), PButton::click);
         gay = Calendar.getInstance().get(Calendar.MONTH) == Calendar.JUNE;
+    }
+
+    /**
+     * Opens the config screen when you click the button.
+     *
+     * @param _buttonWidget The button being clicked
+     */
+    public static void click(ButtonWidget _buttonWidget) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        client.openScreen(ConfigScreenProvider.getScreen(client.currentScreen));
     }
 
     /**
@@ -39,16 +51,14 @@ public class PButton extends ButtonWidget {
         this.drawTexture(matrices, this.x, this.y, 0, 46 + i * 20, this.width / 2, this.height);
         this.drawTexture(matrices, this.x + this.width / 2, this.y, 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
         this.renderBg(matrices, client, mouseX, mouseY);
-        int color = gay ? Color.HSBtoRGB((tick+=delta / 200F), 1F, 1F) : 0x9400d3;
-        drawCenteredText(matrices, client.textRenderer, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, color | MathHelper.ceil(this.alpha * 255.0F) << 24);
-    }
-
-    /**
-     * Opens the config screen when you click the button.
-     * @param _buttonWidget The button being clicked
-     */
-    public static void click(ButtonWidget _buttonWidget) {
-        MinecraftClient client = MinecraftClient.getInstance();
-        client.openScreen(ConfigScreenProvider.getScreen(client.currentScreen));
+        int color = gay ? Color.HSBtoRGB((tick += delta / 200F), 1F, 1F) : 0x9400d3;
+        drawCenteredText(
+                matrices,
+                client.textRenderer,
+                this.getMessage(),
+                this.x + this.width / 2,
+                this.y + (this.height - 8) / 2,
+                color | MathHelper.ceil(this.alpha * 255.0F) << 24
+                        );
     }
 }

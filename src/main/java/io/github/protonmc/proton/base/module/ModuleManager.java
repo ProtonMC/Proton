@@ -12,20 +12,37 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Manages modules.
- * @author hydos, kara-b, dzwdz, YTG1234, BoogieMonster101
+ * Manages {@link ProtonModule}s.
+ *
+ * @author hydos
+ * @author kara-b
+ * @author dzwdz
+ * @author YTG1234
+ * @author BoogieMonster101
  */
 public class ModuleManager {
+    /**
+     * The one and only instance of this class.
+     */
     private static final ModuleManager INSTANCE = new ModuleManager();
+    /**
+     * All modules stored in the manager.
+     */
+    private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
 
+    /**
+     * Public instance of the class.
+     *
+     * @return The public instance of this class, for use by everyone.
+     */
     public static ModuleManager getInstance() {
         return INSTANCE;
     }
 
-    private final Map<Class<? extends ProtonModule>, ProtonModule> modules = new HashMap<>();
-
     /**
      * Sets up the client-side part of all modules.
+     *
+     * @see ProtonModule#clientInit()
      */
     @Environment(EnvType.CLIENT)
     public void setupClientModules() {
@@ -36,7 +53,10 @@ public class ModuleManager {
 
     /**
      * Sets up the server start init of all modules.
+     *
      * @param server The server the modules are running on.
+     *
+     * @see ProtonModule#serverInit(MinecraftServer)
      */
     public void setupServerModules(MinecraftServer server) {
         for (ProtonModule protonModule : modules.values()) {
@@ -46,6 +66,8 @@ public class ModuleManager {
 
     /**
      * Sets up module parts that are common to the server and the client.
+     *
+     * @see ProtonModule#commonInit()
      */
     public void setupCommonModules() {
         for (ProtonModule protonModule : modules.values()) {
@@ -80,6 +102,7 @@ public class ModuleManager {
 
     /**
      * Adds a module to the module list.
+     *
      * @param protonModule The module to add.
      */
     public void addModule(ProtonModule protonModule) {
@@ -88,6 +111,7 @@ public class ModuleManager {
 
     /**
      * Returns the module list.
+     *
      * @return The module list as an Iterable.
      */
     public Iterable<ProtonModule> getModules() {
@@ -96,7 +120,9 @@ public class ModuleManager {
 
     /**
      * Checks if a module is enabled.
+     *
      * @param moduleClass The module to check.
+     *
      * @return If the module is enabled.
      */
     public boolean isModuleEnabled(Class<? extends ProtonModule> moduleClass) {

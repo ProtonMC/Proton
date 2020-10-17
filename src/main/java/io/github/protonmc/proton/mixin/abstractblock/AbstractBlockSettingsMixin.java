@@ -12,15 +12,19 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 /**
  * A Mixin essential for VariantHandler.
+ *
  * @author kara-b
  */
 @Mixin(AbstractBlock.Settings.class)
 public class AbstractBlockSettingsMixin {
     /**
      * Makes the copy method also copy the emissiveLightingPredicate.
+     *
      * @see AbstractBlock.Settings#copy(AbstractBlock)
      */
-    @Inject(at = @At("RETURN"), method = "copy(Lnet/minecraft/block/AbstractBlock;)Lnet/minecraft/block/AbstractBlock$Settings;", locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @Inject(at = @At("RETURN"),
+            method = "copy(Lnet/minecraft/block/AbstractBlock;)Lnet/minecraft/block/AbstractBlock$Settings;",
+            locals = LocalCapture.CAPTURE_FAILEXCEPTION)
     private static void copy(AbstractBlock block, CallbackInfoReturnable<AbstractBlock.Settings> cir, AbstractBlock.Settings settings) {
         AbstractBlockSettingsAccessorMixin parentSettings = (AbstractBlockSettingsAccessorMixin) ((AbstractBlockAccessor) block).getSettings();
         AbstractBlockSettingsAccessorMixin childSettings = (AbstractBlockSettingsAccessorMixin) settings;

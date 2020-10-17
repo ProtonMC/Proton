@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * Mixin essential for the VariantAnimalTexturesModule.
+ *
  * @author hYdos
  */
 @Environment(EnvType.CLIENT)
@@ -22,13 +23,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class CowRendererMixin {
     /**
      * Makes cows have a random texture?
+     *
      * @see CowEntityRenderer#getTexture(CowEntity)
      */
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/CowEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
-    public void getTexture(CowEntity cowEntity, CallbackInfoReturnable<Identifier> cir){
-        if(ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class) && VariantAnimalTexturesModule.enableCow){
-            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(cowEntity, VariantAnimalTexturesModule.VariantTextureType.COW, VariantAnimalTexturesModule.enableCow));
+    public void getTexture(CowEntity cowEntity, CallbackInfoReturnable<Identifier> cir) {
+        if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class) && VariantAnimalTexturesModule.enableCow) {
+            cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(
+                    cowEntity,
+                    VariantAnimalTexturesModule.VariantTextureType.COW,
+                    VariantAnimalTexturesModule.enableCow
+                                                                            ));
         }
     }
 }

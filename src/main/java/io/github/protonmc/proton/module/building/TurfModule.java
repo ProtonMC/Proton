@@ -2,6 +2,7 @@ package io.github.protonmc.proton.module.building;
 
 import com.google.common.collect.ImmutableSet;
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
@@ -62,5 +63,11 @@ public class TurfModule extends ProtonModule {
         );
 
         resourceHandler.generateBlockItems(ImmutableSet.of("turf"));
+    }
+
+    @Override
+    public void registerData(DataHandler dataHandler) {
+        dataHandler.generateSimpleBlockLoot("turf");
+        dataHandler.generateSimpleBlockLoot("turf_stairs");
     }
 }

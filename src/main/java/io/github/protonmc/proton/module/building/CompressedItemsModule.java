@@ -1,19 +1,21 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
+import io.github.protonmc.proton.module.building.common.block.compressed_items.BluerIceBlock;
+import io.github.protonmc.proton.module.building.common.block.compressed_items.BluestIceBlock;
+import io.github.protonmc.proton.module.building.common.block.compressed_items.CompressedDiamondBlock;
+import io.github.protonmc.proton.module.building.common.block.compressed_items.CompressedNetherStarBlock;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
 
 /**
@@ -22,20 +24,36 @@ import org.apache.logging.log4j.Level;
  * @author YTG1234
  */
 public class CompressedItemsModule extends ProtonModule {
+    /**
+     * Determines the slipperiness value of the bluer ice block.
+     */
     @Configurable
     public static double bluerIceSlipperiness = 0.9998;
 
+    /**
+     * Determines the slipperiness value of the bluest ice block.
+     */
     @Configurable
-    public static double bluestIceSlipperiness = 1.0;
+    public static double bluestIceSlipperiness = 1.1;
 
+    /**
+     * Determines the luminance amount of the bluest ice block.
+     */
     @Configurable
     public static int bluestIceLuminance = 3;
 
+    /**
+     * Constructs a {@link CompressedItemsModule} object with the {@code "proton:compressed_items"} identifier.
+     *
+     * @see ProtonModule#ProtonModule(Identifier)
+     */
     public CompressedItemsModule() {
         super(Proton.identifier("compressed_items"));
     }
 
     /**
+     * Initializes the mod both on the server and the client.
+     *
      * @see ProtonModule#commonInit()
      */
     @Override
@@ -47,6 +65,8 @@ public class CompressedItemsModule extends ProtonModule {
     }
 
     /**
+     * Registers all models for blocks and items.
+     *
      * @see ProtonModule#registerResources(ResourceHandler)
      */
     @Override
@@ -57,60 +77,74 @@ public class CompressedItemsModule extends ProtonModule {
         resourceHandler.generateSimpleBlock("compressed_diamond_block");
     }
 
+    @Override
+    public void registerData(DataHandler dataHandler) {
+        dataHandler.generateSimpleBlockLoot("compressed_nether_star");
+        dataHandler.generateSimpleBlockLoot("compressed_diamond_block");
+        dataHandler.generateSimpleBlockLoot("bluer_ice", true);
+        dataHandler.generateSimpleBlockLoot("bluest_ice", true);
+    }
+
     /**
      * Static inner-class containing all the blocks in the module.
+     *
      * @author YTG1234
      */
     public static class ModuleBlocks {
+        /**
+         * A field for the registered instance of {@link CompressedNetherStarBlock}.
+         * Isn't initialized until the {@linkplain ModuleBlocks#register()} method is called.
+         */
         public static Block COMPRESSED_NETHER_STAR;
+
+        /**
+         * A field for the registered instance of {@link BluerIceBlock}.
+         * Isn't initialized until the {@linkplain ModuleBlocks#register()} method is called.
+         */
         public static Block BLUER_ICE;
+
+        /**
+         * A field for the registered instance of {@link BluestIceBlock}.
+         * Isn't initialized until the {@linkplain ModuleBlocks#register()} method is called.
+         */
         public static Block BLUEST_ICE;
+
+        /**
+         * A field for the registered instance of {@link CompressedDiamondBlock}.
+         * Isn't initialized until the {@linkplain ModuleBlocks#register()} method is called.
+         */
         public static Block COMPRESSED_DIAMOND_BLOCK;
 
         /**
          * Registers all the blocks in the module.
+         *
+         * @see net.minecraft.util.registry.Registry#register(Registry, Identifier, Object)
          */
         public static void register() {
-            COMPRESSED_NETHER_STAR = ProtonRegisterHandler.block(
-                    "compressed_nether_star",
-                    new Block(FabricBlockSettings.of(Material.STONE)
-                                                 .breakByHand(false)
-                                                 .requiresTool()
-                                                 .breakByTool(FabricToolTags.PICKAXES, 2)
-                                                 .strength(6.2F, 1200.0F)
-                                                 .nonOpaque()
-                                                 .blockVision(Blocks::never))
-                                                                );
+            COMPRESSED_NETHER_STAR = ProtonRegisterHandler.block("compressed_nether_star", new CompressedNetherStarBlock());
 
-            BLUER_ICE = ProtonRegisterHandler.block(
-                    "bluer_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE).slipperiness((float) bluerIceSlipperiness).breakByTool(FabricToolTags.PICKAXES)),
-                    new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                   );
+            BLUER_ICE = ProtonRegisterHandler.block("bluer_ice", new BluerIceBlock(), new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
-            BLUEST_ICE = ProtonRegisterHandler.block(
-                    "bluest_ice",
-                    new Block(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
-                                                 .slipperiness((float) bluestIceSlipperiness)
-                                                 .breakByTool(FabricToolTags.PICKAXES)
-                                                 .lightLevel(bluestIceLuminance)
-                                                 .emissiveLighting((state, world, pos) -> state.getLuminance() > 0)),
-                    new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                    );
+            BLUEST_ICE = ProtonRegisterHandler.block("bluest_ice", new BluestIceBlock(), new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
-            COMPRESSED_DIAMOND_BLOCK = ProtonRegisterHandler.block(
-                    "compressed_diamond_block",
-                    new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK).strength(8.0F, 9.0F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 2)),
-                    new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
-                                                                  );
+            COMPRESSED_DIAMOND_BLOCK =
+                    ProtonRegisterHandler.block("compressed_diamond_block",
+                                                new CompressedDiamondBlock(),
+                                                new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)
+                                               );
         }
     }
 
     /**
      * Static inner-class containing all of the module's items.
+     *
      * @author YTG1234
      */
     public static class ModuleItems {
+        /**
+         * A field for the registered instance of {@link CompressedNetherStarItem}.
+         * Isn't initialized until the {@linkplain ModuleItems#register()} method is called.
+         */
         public static CompressedNetherStarItem COMPRESSED_NETHER_STAR;
 
         /**

@@ -1,12 +1,12 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "proton:bluer_ice"
-        }
-    ],
-    "result": {
-        "item": "minecraft:blue_ice",
-        "count": 9
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "proton:bluer_ice"
     }
+  ],
+  "result": {
+    "item": "minecraft:blue_ice",
+    "count": 9
+  }
 }

@@ -3,6 +3,7 @@ package io.github.protonmc.proton.base.module;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.annotation.DisabledByDefault;
 import io.github.protonmc.proton.base.client.screen.ConfigScreenProvider;
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.tiny_config.ConfigManager;
 import io.github.protonmc.tiny_config.Configurable;
@@ -16,9 +17,17 @@ import java.lang.reflect.Field;
 
 /**
  * An abstract class representing a proton module.
- * @author kara-b, dzwdz, YTG1234, hydos, redcreeper14385
+ *
+ * @author kara-b
+ * @author dzwdz
+ * @author YTG1234
+ * @author hydos
+ * @author redcreeper14385
  */
 public abstract class ProtonModule implements Saveable {
+    /**
+     * The {@linkplain Identifier ID} of this module used in translation keys and similar.
+     */
     protected final Identifier id;
 
     // note: @Configurable fields in normal modules MUST be static
@@ -28,6 +37,7 @@ public abstract class ProtonModule implements Saveable {
 
     /**
      * Reads config, sets up fields and constructs a ProtonModule.
+     *
      * @param id The module ID to be used.
      */
     public ProtonModule(Identifier id) {
@@ -35,7 +45,8 @@ public abstract class ProtonModule implements Saveable {
         for (Field f : ConfigManager.getConfigurableFields(getClass())) {
             try {
                 ConfigScreenProvider.DEFAULT_VALUES.put(f, f.get(this));
-            } catch (Throwable ignored) {}
+            } catch (Throwable ignored) {
+            }
         }
         enabled = !getClass().isAnnotationPresent(DisabledByDefault.class);
         Proton.CONFIG.loadObject(this);
@@ -45,27 +56,37 @@ public abstract class ProtonModule implements Saveable {
      * Initializes the module on the client-side.
      */
     @Environment(EnvType.CLIENT)
-    public void clientInit() {};
+    public void clientInit() {
+    }
 
     /**
      * Ask boogie what this does :concern:
+     *
      * @param server Ask boogie what this does :concern:
      */
-    public void serverInit(MinecraftServer server) {};
+    public void serverInit(MinecraftServer server) {
+    }
 
     /**
      * Initializes the module both on server and client.
      */
-    public void commonInit() {}
+    public void commonInit() {
+    }
 
     /**
      * Registers resources for the module.
+     *
      * @param resourceHandler The ResourceHandler that handles the resources.
      */
-    public void registerResources(ResourceHandler resourceHandler) {}
+    public void registerResources(ResourceHandler resourceHandler) {
+    }
+
+    public void registerData(DataHandler dataHandler) {
+    }
 
     /**
      * Gets the module translation key. Can be used for translations.
+     *
      * @return The module translation key.
      */
     public final String getTranslationKey() {
@@ -73,14 +94,19 @@ public abstract class ProtonModule implements Saveable {
     }
 
     /**
-     * Gets the module ID, can be used to do things.
-     * @return The moduleID.
+     * Gets the {@linkplain Identifier module ID}, can be used in translation keys.
+     *
+     * @return The module's {@link Identifier}.
      */
     public final Identifier getId() {
         return id;
     }
 
     /**
+     * Gets the config entry that this module is stored in.
+     *
+     * @return The config entry as a {@link String}
+     *
      * @see Saveable#getSerializedId()
      */
     @Override

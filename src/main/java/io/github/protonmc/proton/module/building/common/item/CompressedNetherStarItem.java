@@ -8,7 +8,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Rarity;
 
 /**
- * Class for the compressed nether star item.
+ * Class for the {@link CompressedItemsModule.ModuleItems#COMPRESSED_NETHER_STAR} item.
+ *
  * @author YTG1234
  */
 public class CompressedNetherStarItem extends BlockItem {
@@ -17,7 +18,9 @@ public class CompressedNetherStarItem extends BlockItem {
     }
 
     /**
-     * @see BlockItem#damage(DamageSource)
+     * Calculates whether a {@link DamageSource} should damage the item.
+     *
+     * @param source The {@link DamageSource} for checking.
      */
     @Override
     public boolean damage(DamageSource source) {

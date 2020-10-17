@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * Signifies that a ProtonModule is disabled by default.
+ *
  * @author dzwdz
  */
 @Retention(RetentionPolicy.RUNTIME)

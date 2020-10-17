@@ -13,20 +13,26 @@ import java.time.Month;
 
 /**
  * Proton's client side stuff
- * @author hYdos, YTG1234, kara-b
+ *
+ * @author hYdos
+ * @author YTG1234
+ * @author kara-b
  */
 @Environment(EnvType.CLIENT)
 public class ProtonClient implements ClientModInitializer {
     public static boolean doWeNeedJingleBells = false;
 
     /**
+     * Sets up client side modules, registers the Artifice resource pack and populates {@link ProtonClient#doWeNeedJingleBells}.
+     *
      * @see ClientModInitializer#onInitializeClient()
      */
     @Override
     public void onInitializeClient() {
         LocalDateTime now = LocalDateTime.now();
-        if(now.getMonth() == Month.DECEMBER && now.getDayOfMonth() >= 16 || now.getMonth() == Month.JANUARY && now.getDayOfMonth() <= 6)
+        if (now.getMonth() == Month.DECEMBER && now.getDayOfMonth() >= 16 || now.getMonth() == Month.JANUARY && now.getDayOfMonth() <= 6) {
             doWeNeedJingleBells = true;
+        }
 
         Proton.LOGGER.log(Level.INFO, "Setting up clientside modules...");
         ModuleManager.getInstance().setupClientModules();

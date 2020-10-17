@@ -1,5 +1,6 @@
 package io.github.protonmc.proton;
 
+import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.module.ModuleManager;
 import io.github.protonmc.proton.base.server.ProtonServer;
 import io.github.protonmc.tiny_config.ConfigManager;
@@ -32,6 +33,7 @@ public class Proton implements ModInitializer {
     public void onInitialize() {
         LOGGER.log(Level.INFO, "Setting up modules...");
         ModuleManager.getInstance().setupCommonModules();
+        DataHandler.registerData();
         LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
 
         ServerLifecycleEvents.SERVER_STARTING.register(new ProtonServer());
