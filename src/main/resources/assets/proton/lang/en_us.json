@@ -95,5 +95,12 @@
     "proton.module.proton.tater": "Tater",
     "block.proton.blue_stained_planks": "Blue Stained Planks",
     "block.proton.turf_stairs": "Turf Stairs",
-    "proton.module.proton.clay": "Clay"
+    "proton.module.proton.clay": "Clay",
+    "block.proton.cobblestone_bricks": "Cobblestone Bricks",
+    "block.proton.mossy_cobblestone_bricks": "Mossy Cobblestone Bricks",
+    "block.proton.cobblestone_bricks_slab": "Cobblestone Brick Slab",
+    "block.proton.cobblestone_bricks_stairs": "Cobblestone Brick Stairs",
+    "block.proton.mossy_cobblestone_bricks_slab": "Mossy Cobblestone Brick Slab",
+    "block.proton.mossy_cobblestone_bricks_stairs": "Mossy Cobblestone Brick Stairs",
+    "proton.module.proton.cobblestone_bricks": "Cobblestone Bricks"
 }
