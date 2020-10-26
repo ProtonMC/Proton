@@ -99,6 +99,7 @@
   "proton.module.proton.clay.vein_size": "Vein Size",
   "proton.module.proton.clay.veins_per_chunk": "Veins Per Chunk",
   "proton.module.proton.cobblestone_bricks": "Cobblestone Bricks",
+  "proton.module.proton.cobblestone_bricks.enabled": "Enabled",
   "proton.module.proton.compressed_items": "Compressed Items",
   "proton.module.proton.compressed_items.bluerIceSlipperiness": "Bluer Ice Slipperiness",
   "proton.module.proton.compressed_items.bluestIceLuminance": "Bluest Ice Luminance",
