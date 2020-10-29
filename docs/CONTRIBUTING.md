@@ -53,3 +53,6 @@ public class BlackGrassModule extends ProtonModule {
 }
 ```
 * Don't override any of the other methods.
+* Inside Proton, there are two common conventions for registering items and blocks.
+    * Having your blocks and items as `static final` fields inside your module class.
+    * Having a separate `ModuleItems` and `ModuleBlocks` inner class with the `static final` fields.    
