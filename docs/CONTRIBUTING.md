@@ -37,7 +37,7 @@ public class BlackGrassModule extends ProtonModule {
         super(Proton.identifier("black_grass")); // Proton.identifier constructs an identifier object with the namepsace "proton".
     }
   
-      // This method is called in onInitialize.
+    // This method is called in onInitialize.
     @Override
     public void commonInit() {
         if (!this.enabled) return; // This cancels the module's initialization if it's disabled - "enabled" is inherited from "ProtonModule".
@@ -57,7 +57,7 @@ public class BlackGrassModule extends ProtonModule {
         // Register rendering and client side thingies here
     }
   
-  // This method is called when it's time to register the Proton resource pack.
+    // This method is called when it's time to register the Proton resource pack.
     @Override
     public void registerResources(ResourceHandler resourceHandler) {
         // Register block models and stuff using "resourceHandler" here.
