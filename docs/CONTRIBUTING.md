@@ -7,6 +7,8 @@ So you want to contribute to Proton? No problem! This guide will tell you how!
 * Register models and loot tables using `ResourceHandler` and `DataHandler`.
 * It's recommended to add translation keys to everything you create (Although YTG1234 will do it for you if you don't).
 * When creating a new module, make sure to use the `proton` namespace in the constructor argument.
+* Annotate all methods inside Mixin classes (no need to annotate fields) with the `@FromModule` annotation to specify which module the method belongs to. For example: `@FromModule(MyModule.class)`.
+    * In the future, Proton will have a linter that will enforce this rule.
 
 ### Naming Conventions
 * For `static final` fields (constants) - use `SCREAMING_SNAKE_CASE`.
