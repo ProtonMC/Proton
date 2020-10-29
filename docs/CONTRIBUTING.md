@@ -6,6 +6,7 @@ So you want to contribute to Proton? No problem! This guide will tell you how!
 * When using IntelliJ, ***Don't format `ResourceHandler`***!
 * Register models and loot tables using `ResourceHandler` and `DataHandler`.
 * It's recommended to add translation keys to everything you create (Although YTG1234 will do it for you if you don't).
+* When creating a new module, make sure to use the `proton` namespace in the constructor argument.
 
 ## Creating a new module
 So you want to create a new module? Good for you.
@@ -13,7 +14,6 @@ First, fork the Proton repository.
 
 * *When creating modules, create them under the correct package - We have a weird system that detects modules' categories based on package names*.
 * Add a translation key for your module. `proton.module.<namespace>.<path>`.
-* When creating the module class, make sure to use the `proton` namespace in the constructor argument.
 * Proton uses `tiny_config`, a configuration API meant for modular projects.
     * If you want some values inside your module to be configurable, you can add the `@Configurable` annotation to them.
     * You do need to have a default value for configurable fields.
