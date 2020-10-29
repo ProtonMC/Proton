@@ -18,9 +18,11 @@ First, fork the Proton repository.
     * If you want some values inside your module to be configurable, you can add the `@Configurable` annotation to them.
     * You do need to have a default value for configurable fields.
     * All `@Configurable` fields must also be static.
+    * If a method requires a `float` value and you want to make it configurable, make it a `double` and cast it to `float` later.
 
 Example:
 If I want to create a black grass module, first I'll have to choose the category. As an example I've chosen `building`. (This example won't contain imports - your IDE should figure that out for you)
+I also want the black grass block to damage me, and I want the damage amount to be configurable.
 
 Keep in mind - You don't have to override every `ProtonModule` method if you don't need to.
 ```java
