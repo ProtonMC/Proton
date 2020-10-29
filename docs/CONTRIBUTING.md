@@ -3,6 +3,9 @@ So you want to contribute to Proton? No problem! This guide will tell you how!
 
 ## Recommendations
 * Use IntelliJ IDEA as your IDE, because we have an `.editorconfig` file that can tell IDEA how to format the code.
+* When using IntelliJ, ***Don't format `ResourceHandler`***!
+* Register models and loot tables using `ResourceHandler` and `DataHandler`.
+* It's recommended to add translation keys to everything you create (Although YTG1234 will do it for you if you don't).
 
 ## Creating a new module
 So you want to create a new module? Good for you.
@@ -13,7 +16,7 @@ First, fork the Proton repository.
 * When creating the module class, make sure to use the `proton` namespace in the constructor argument.
 
 Example:
-If I want to create a black grass module, first I'll have to choose the category. As an example I've chosen `building`. (This example won't contain imports - you IDE should figure that out for you)
+If I want to create a black grass module, first I'll have to choose the category. As an example I've chosen `building`. (This example won't contain imports - your IDE should figure that out for you)
 
 Keep in mind - You don't have to override every `ProtonModule` method if you don't need to.
 ```java
@@ -55,4 +58,8 @@ public class BlackGrassModule extends ProtonModule {
 * Don't override any of the other methods.
 * Inside Proton, there are two common conventions for registering items and blocks.
     * Having your blocks and items as `static final` fields inside your module class.
-    * Having a separate `ModuleItems` and `ModuleBlocks` inner class with the `static final` fields.    
+    * Having a separate `ModuleItems` and `ModuleBlocks` inner class with the `static final` fields.
+
+## Contributing to existing modules
+* When adding new items/blocks, follow that module's convention.
+    * For example, `CompressedItemsModule` has the `ModuleBlocks` and `ModuleItems` classes.
