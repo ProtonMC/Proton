@@ -10,7 +10,9 @@ First, fork the Proton repository.
 
 * *When creating modules, create them under the correct package - We have a weird system that detects modules' categories based on package names*.
 * Add a translation key for your module. `proton.module.<namespace>.<path>`.
-* When creating the module class, make sure to use the `proton` namespace in the constructor argument. Example:
+* When creating the module class, make sure to use the `proton` namespace in the constructor argument.
+
+Example:
 If I want to create a black grass module, first I'll have to choose the category. As an example I've chosen `building`. (This example won't contain imports - you IDE should figure that out for you)
 
 Keep in mind - You don't have to override every `ProtonModule` method if you don't need to.
