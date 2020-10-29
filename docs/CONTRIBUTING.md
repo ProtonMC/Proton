@@ -11,7 +11,8 @@ So you want to contribute to Proton? No problem! This guide will tell you how!
 ### Naming Conventions
 * For `static final` fields (constants) - use `SCREAMING_SNAKE_CASE`.
 * For classes, use `PascalCase` (aka `UpperCamelCase`).
-* For anything else, use `camelCase` and not `snake_case`.
+* Use `snake_case` in `Identifier`s because that's what Minecraft does.
+* For anything else, use `camelCase`.
 
 ## Creating a new module
 So you want to create a new module? Good for you.
