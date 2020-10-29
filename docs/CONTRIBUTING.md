@@ -8,6 +8,11 @@ So you want to contribute to Proton? No problem! This guide will tell you how!
 * It's recommended to add translation keys to everything you create (Although YTG1234 will do it for you if you don't).
 * When creating a new module, make sure to use the `proton` namespace in the constructor argument.
 
+### Naming Conventions
+* For `static final` fields (constants) - use `SCREAMING_SNAKE_CASE`.
+* For classes, use `PascalCase` (aka `UpperCamelCase`).
+* For anything else, use `camelCase` and not `snake_case`.
+
 ## Creating a new module
 So you want to create a new module? Good for you.
 First, fork the Proton repository.
