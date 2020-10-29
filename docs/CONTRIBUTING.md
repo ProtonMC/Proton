@@ -19,6 +19,7 @@ First, fork the Proton repository.
 
 * *When creating modules, create them under the correct package - We have a weird system that detects modules' categories based on package names*.
 * Add a translation key for your module. `proton.module.<namespace>.<path>`.
+* In Proton, modules are loaded automatically. You don't need to register your module or add it to any list.
 * Proton uses `tiny_config`, a configuration API meant for modular projects.
     * If you want some values inside your module to be configurable, you can add the `@Configurable` annotation to them.
     * You do need to have a default value for configurable fields.
