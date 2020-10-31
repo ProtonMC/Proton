@@ -46,25 +46,31 @@ dependencies {
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
 
+    // Mod menu for config screen and stuff
 	modApi("io.github.prospector:modmenu:${project.modmenu_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
+    // For scanning modules
 	implementation "io.github.classgraph:classgraph:${project.classgraph_version}"
 
+    // For de/serializing Json5
 	modApi "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
 	include "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
 
+    // Configuration API
 	implementation("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
 	include("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
 
+    // Config screen
 	modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 
-	modRuntime("com.github.dzwdz:translation_helper:0.1.0")
+	// modRuntime("com.github.dzwdz:translation_helper:0.1.0")
 
+    // Generating Json at runtime
 	modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
 	include "com.lettuce.fudge:artifice:${project.artifice_version}"
 }
