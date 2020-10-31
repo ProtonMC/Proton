@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:mossy_cobblestone"
+    }
+  },
+  "result": {
+    "item": "proton:mossy_cobblestone_bricks",
+    "count": 4
+  },
+  "conditions": [
+    {
+      "type": "proton:flag",
+      "flag": "cobblestone_bricks"
+    }
+  ]
+}

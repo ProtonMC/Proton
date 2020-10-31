@@ -28,6 +28,8 @@ public class CobblestoneBricksModule extends ProtonModule {
         resourceHandler.generateSimpleBlock("mossy_cobblestone_bricks");
         resourceHandler.generateSlabsStairs("cobblestone_bricks");
         resourceHandler.generateSlabsStairs("mossy_cobblestone_bricks");
+        resourceHandler.generateWalls("cobblestone_bricks");
+        resourceHandler.generateWalls("mossy_cobblestone_bricks");
     }
 
     public static class ModuleBlocks {
@@ -40,7 +42,7 @@ public class CobblestoneBricksModule extends ProtonModule {
             MOSSY_COBBLESTONE_BRICKS = ProtonRegisterHandler.block("mossy_cobblestone_bricks",
                     new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)), new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
-            VariantHandler.addSlabAndStairs(COBBLESTONE_BRICKS, MOSSY_COBBLESTONE_BRICKS);
+            VariantHandler.addSlabStairsWall(COBBLESTONE_BRICKS, MOSSY_COBBLESTONE_BRICKS);
         }
     }
 }

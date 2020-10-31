@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "proton:cyan_stained_planks"
+    }
+  },
+  "result": {
+    "item": "proton:cyan_stained_planks_slab",
+    "count": 6
+  },
+  "conditions": [
+    {
+      "type": "proton:flag",
+      "flag": "stained_planks"
+    }
+  ]
+} 

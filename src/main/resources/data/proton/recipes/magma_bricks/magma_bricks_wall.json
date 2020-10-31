@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "proton:magma_bricks"
+    }
+  },
+  "result": {
+    "item": "proton:magma_bricks_wall",
+    "count": 6
+  },
+  "conditions": [
+    {
+      "type": "proton:flag",
+      "flag": "magma_bricks"
+    }
+  ]
+} 

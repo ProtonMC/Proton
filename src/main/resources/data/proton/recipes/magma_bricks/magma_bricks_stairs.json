@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "proton:magma_bricks"
+    }
+  },
+  "result": {
+    "item": "proton:magma_bricks_stairs",
+    "count": 4
+  },
+  "conditions": [
+    {
+      "type": "proton:flag",
+      "flag": "magma_bricks"
+    }
+  ]
+} 

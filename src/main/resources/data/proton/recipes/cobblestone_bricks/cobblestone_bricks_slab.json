@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "proton:cobblestone_bricks"
+    }
+  },
+  "result": {
+    "item": "proton:cobblestone_bricks_slab",
+    "count": 6
+  },
+  "conditions": [
+    {
+      "type": "proton:flag",
+      "flag": "cobblestone_bricks"
+    }
+  ]
+} 
