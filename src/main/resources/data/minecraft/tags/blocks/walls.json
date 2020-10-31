@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "proton:magma_bricks_wall",
+      "required": false
+    },
+    {
+      "id": "proton:fat_potato_wall",
+      "required": false
+    }
+  ]
+}
