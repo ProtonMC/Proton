@@ -1,7 +1,9 @@
 package io.github.protonmc.proton.mixin.client;
 
 import com.google.common.collect.ImmutableSet;
+import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.base.client.screen.button.PButton;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
@@ -33,6 +35,7 @@ public class TitleScreenMixin extends Screen {
      * @see TitleScreen#init()
      */
     @Inject(method = "init()V", at = @At("TAIL"))
+    @FromModule(ProtonModule.class)
     public void addPButton(CallbackInfo ci) {
         ImmutableSet<String> targets = ImmutableSet.of(I18n.translate("menu.online"));
 
