@@ -7,6 +7,9 @@ import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.block.BambooMatBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
+
+import static io.github.protonmc.proton.Proton.identifier;
 
 /**
  * Module that adds a bamboo mat.
@@ -33,5 +36,13 @@ public class BambooMatModule extends ProtonModule {
     @Override
     public void registerData(DataHandler dataHandler) {
         dataHandler.generateSimpleBlockLoot("bamboo_mat", false);
+
+        // Generate recipes
+        dataHandler.pack.addShapedRecipe(identifier("bamboo_mat"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("SBS", "BBB", "SBS");
+            shapedRecipeBuilder.ingredientItem('B', new Identifier("minecraft:bamboo"));
+            shapedRecipeBuilder.ingredientItem('S', new Identifier("minecraft:stick"));
+            shapedRecipeBuilder.result(identifier("bamboo_mat"), 2);
+        });
     }
 }
