@@ -52,6 +52,9 @@ public class StainedPlanksModule extends ProtonModule {
         for (Field f : ModuleBlocks.class.getFields()) {
             dataHandler.generateSimpleBlockLoot(f.getName().toLowerCase());
             dataHandler.generateSimpleBlockLoot(f.getName().toLowerCase() + "_stairs");
+
+            dataHandler.generateSimpleSlabRecipe(f.getName().toLowerCase(), true);
+            dataHandler.generateSimpleStairsRecipe(f.getName().toLowerCase(), true);
         }
     }
 

@@ -12,6 +12,9 @@ import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
+
+import static io.github.protonmc.proton.Proton.identifier;
 
 /**
  * Adds a funni thatch block.
@@ -57,5 +60,19 @@ public class ThatchModule extends ProtonModule {
     public void registerData(DataHandler dataHandler) {
         dataHandler.generateSimpleBlockLoot("thatch");
         dataHandler.generateSimpleBlockLoot("thatch_stairs");
+
+        // Generate recipes
+        dataHandler.pack.addShapedRecipe(identifier("thatch"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("##", "##");
+            shapedRecipeBuilder.ingredientItem('#', new Identifier("minecraft:wheat"));
+            shapedRecipeBuilder.result(identifier("thatch"), 4);
+        });
+        dataHandler.pack.addShapedRecipe(identifier("thatch_revert"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("#");
+            shapedRecipeBuilder.ingredientItem('#', identifier("thatch"));
+            shapedRecipeBuilder.result(new Identifier("minecraft:wheat"), 1);
+        });
+        dataHandler.generateSimpleStairsRecipe("thatch", true);
+        dataHandler.generateSimpleSlabRecipe("thatch", true);
     }
 }
