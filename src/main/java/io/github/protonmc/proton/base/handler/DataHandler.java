@@ -45,6 +45,23 @@ public class DataHandler {
         });
     }
 
+    public void generateSimpleStairsRecipe(String base) {
+        pack.addShapedRecipe(identifier(base + "_stairs"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("#  ", "## ", "###");
+            shapedRecipeBuilder.ingredientItem("#".charAt(0), identifier(base));
+            // 6 because why the hell would 6 of base turn into 4 stairs
+            shapedRecipeBuilder.result(identifier(base + "_stairs"), 6);
+        });
+    }
+
+    public void generateSimpleSlabRecipe(String base) {
+        pack.addShapedRecipe(identifier(base + "_slab"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("###");
+            shapedRecipeBuilder.ingredientItem("#".charAt(0), identifier(base));
+            shapedRecipeBuilder.result(identifier(base + "_slab"), 6);
+        });
+    }
+
     /**
      * Generates a simple block loot table for a given block path.
      *
