@@ -97,3 +97,19 @@ public class BlackGrassModule extends ProtonModule {
 * Add your Mixin(s) to the Mixin configuration file `proton.mixins.json`.
 * Run the Gradle `check` task to check if you forgot any `@FromModule` annotations.
     * If you forgot some, add them in. If two modules need an injection is the same place - make two separate injection methods and have a different `@FromModule` on each.
+* If your Mixin isn't specific to one module, pass `ProtonModule.class` to the `@FromModule` annotation.
+    * Another solution will be worked on later.
+    
+*Here is an example Mixin which targets `PlayerEntity` and injects into `tick`*:
+```java
+package io.github.protonmc.proton.mixin.building;
+
+@Mixin(PlayerEntity.class)
+public abstract class PlayerEntityMixin extends LivingEntity {
+    @Inject(method = "tick()V", at = @At("RETURN"))
+    @FromModule(MyExampleModule.class)
+    private void aDescriptiveName(CallbackInfo info) {
+        // do stuff
+    }
+}
+```
