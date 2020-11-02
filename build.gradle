@@ -76,11 +76,11 @@ dependencies {
 	include "com.lettuce.fudge:artifice:${project.artifice_version}"
 
     // Jitpack is temporary
-    checkstyle("com.github.ProtonMC:proton-checkstyle-checks:v1.0")
+    checkstyle("com.github.ProtonMC:proton-checkstyle-checks:v${project.proton_checkstyle_checks_version}")
 }
 
 checkstyle {
-    toolVersion = "8.37"
+    toolVersion = "${project.checkstyle_version}"
     config = rootProject.resources.text.fromFile("config/checkstyle/checkstyle.xml")
 }
 
