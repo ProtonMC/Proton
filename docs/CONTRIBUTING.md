@@ -42,6 +42,8 @@ public class BlackGrassModule extends ProtonModule {
     @Configurable
     public static double blackGrassDamage = 0.0; // Example configurable field. This field will appear in the config screen, and will require a translation key.
 
+    public static final Block BLACK_GRASS = new Block(/* ... */);
+
     public BlackGrassModule() {
         super(Proton.identifier("black_grass")); // Proton.identifier constructs an identifier object with the namepsace "proton".
     }
@@ -50,13 +52,16 @@ public class BlackGrassModule extends ProtonModule {
     @Override
     public void commonInit() {
         if (!this.enabled) return; // This cancels the module's initialization if it's disabled - "enabled" is inherited from "ProtonModule".
-        // This is where you'll register your items and blocks, ideally using "ProtonRegisterHandler".
+        // This is where you'll register your items and blocks, using "ProtonRegisterHandler".
+        /*
+        * ProtonRegisterHandler.block(...);
+        */
     }
   
     // This is called when it's time to register the Proton data pack.
     @Override
     public void registerData(DataHandler dataHandler) {
-        // Register block loot, and recipes in the future *here*. Use "dataHandler" for this.
+        // Register block loot and recipes here. Use "dataHandler" for this.
     }
   
     // This method is called in onInitializeClient.
@@ -81,3 +86,14 @@ public class BlackGrassModule extends ProtonModule {
 ## Contributing to existing modules
 * When adding new items/blocks, follow that module's convention.
     * For example, `CompressedItemsModule` has the `ModuleBlocks` and `ModuleItems` classes.
+
+## Using Mixins in Proton
+* Mixins in Proton are inside `io.github.protonmc.proton.mixin`.
+* If your Mixin(s) is global across Proton and doesn't belong to any `ProtonModule` place it in that package.
+* If your Mixin(s) does belong to a specific module, place your Mixin classes in a sub-package, which has the same name as the module's category.
+    * If there are multiple Mixins that belong to one module you can place them in a sub-package with the name of the module.
+* If there is already a Mixin class which targets the class you want to target, move it to the appropriate package (category if the two modules share the same category, or just in the mixin package).
+* Create your Mixin and add whatever you want to it.
+* Add your Mixin(s) to the Mixin configuration file `proton.mixins.json`.
+* Run the Gradle `check` task to check if you forgot any `@FromModule` annotations.
+    * If you forgot some, add them in. If two modules need an injection is the same place - make two separate injection methods and have a different `@FromModule` on each.
