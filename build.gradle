@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 	id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id "checkstyle"
 }
 
 repositories {
@@ -73,6 +74,14 @@ dependencies {
     // Generating Json at runtime
 	modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
 	include "com.lettuce.fudge:artifice:${project.artifice_version}"
+
+    // Jitpack is temporary
+    checkstyle("com.github.ProtonMC:proton-checkstyle-checks:v1.0")
+}
+
+checkstyle {
+    toolVersion = "8.37"
+    config = rootProject.resources.text.fromFile("config/checkstyle/checkstyle.xml")
 }
 
 processResources {
