@@ -13,18 +13,18 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Proton implements ModInitializer {
+    public static Proton INSTANCE;
     public static final Logger LOGGER = LogManager.getLogger("Proton");
     public static final String MOD_ID = "proton";
-    public static final ConfigManager CONFIG = new ConfigManager(FabricLoader.getInstance().getConfigDir().resolve("proton.json5"));
+    
+    public static final ConfigManager CONFIG = new ConfigManager(
+            FabricLoader.getInstance().getConfigDir().resolve("proton.json5")
+    );
+
     public static final boolean DEBUG = true;
-    public static Proton INSTANCE;
 
     public Proton() {
         INSTANCE = this;
-    }
-
-    public static Identifier identifier(String path) {
-        return new Identifier(MOD_ID, path);
     }
 
     @Override
@@ -41,5 +41,9 @@ public class Proton implements ModInitializer {
         } catch (Throwable t) {
             LOGGER.error("Couldn't save the config", t);
         }
+    }
+
+    public static Identifier identifier(String path) {
+        return new Identifier(MOD_ID, path);
     }
 }
