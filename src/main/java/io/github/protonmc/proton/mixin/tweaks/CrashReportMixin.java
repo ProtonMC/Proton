@@ -16,10 +16,13 @@ public abstract class CrashReportMixin {
     @FromModule(MoreWittyMessages.class)
     private static String[] addWittyComments(String[] orig) {
         if (ModuleManager.getInstance().isModuleEnabled(MoreWittyMessages.class)) {
-            String[] newStrings = new String[orig.length + wittyMessages.length];
-            System.arraycopy(orig, 0, newStrings, 0, orig.length);
-            System.arraycopy(wittyMessages, 0, newStrings, orig.length - 1, wittyMessages.length);
-            return newStrings;
+            if (!MoreWittyMessages.replace) {
+                String[] newStrings = new String[orig.length + wittyMessages.length];
+                System.arraycopy(orig, 0, newStrings, 0, orig.length);
+                System.arraycopy(wittyMessages, 0, newStrings, orig.length - 1, wittyMessages.length);
+                return newStrings;
+            }
+            return wittyMessages;
         } else {
             return orig;
         }

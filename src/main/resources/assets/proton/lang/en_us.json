@@ -128,5 +128,6 @@
   "proton.module.temp.tempid": "Tempid",
   "proton.module.temp.tempid.enabled": "Enabled",
   "proton.module.proton.more_witty_messages":  "More Witty Messages",
-  "proton.module.proton.more_witty_messages.enabled":  "Enabled"
+  "proton.module.proton.more_witty_messages.enabled":  "Enabled",
+  "proton.module.proton.more_witty_messages.replace":  "Replace Existing Messages"
 }
