@@ -127,7 +127,7 @@
   "proton.module.proton.variantanimaltextures.shinyAnimalChance": "Shiny Animal Chance",
   "proton.module.temp.tempid": "Tempid",
   "proton.module.temp.tempid.enabled": "Enabled",
-  "proton.module.proton.more_witty_messages":  "More Witty Messages",
-  "proton.module.proton.more_witty_messages.enabled":  "Enabled",
-  "proton.module.proton.more_witty_messages.replace":  "Replace Existing Messages"
+  "proton.module.proton.custom_crash_comments": "Custom Crash Comments",
+  "proton.module.proton.custom_crash_comments.enabled": "Enabled",
+  "proton.module.proton.custom_crash_comments.replace": "Replace Existing Messages"
 }
