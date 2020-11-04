@@ -16,7 +16,7 @@ public class Proton implements ModInitializer {
     public static Proton INSTANCE;
     public static final Logger LOGGER = LogManager.getLogger("Proton");
     public static final String MOD_ID = "proton";
-    
+
     public static final ConfigManager CONFIG = new ConfigManager(
             FabricLoader.getInstance().getConfigDir().resolve("proton.json5")
     );
