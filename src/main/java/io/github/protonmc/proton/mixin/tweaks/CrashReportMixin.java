@@ -14,7 +14,7 @@ import static io.github.protonmc.proton.module.tweaks.MoreWittyMessages.wittyMes
 public abstract class CrashReportMixin {
     @ModifyVariable(method = "generateWittyComment()Ljava/lang/String;", at = @At(value = "STORE", ordinal = 0), ordinal = 0)
     @FromModule(MoreWittyMessages.class)
-    private static String[] stuff(String[] orig) {
+    private static String[] addWittyComments(String[] orig) {
         if (ModuleManager.getInstance().isModuleEnabled(MoreWittyMessages.class)) {
             String[] newStrings = new String[orig.length + wittyMessages.length];
             System.arraycopy(orig, 0, newStrings, 0, orig.length);
