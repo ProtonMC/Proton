@@ -9,6 +9,7 @@
     "client.entities.ChickenRendererMixin",
     "client.entities.LlamaRendererMixin",
     "client.entities.RabbitRendererMixin",
+    "tweaks.CrashReportMixin",
     "tweaks.FarmlandMixin",
     "world.DefaultBiomeFeaturesMixin"
   ],
