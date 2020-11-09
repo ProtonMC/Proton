@@ -4,7 +4,6 @@
   "package": "io.github.protonmc.proton.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "LivingEntityMixin",
     "abstractblock.AbstractBlockSettingsAccessorMixin",
     "abstractblock.AbstractBlockSettingsMixin",
     "client.entities.ChickenRendererMixin",
