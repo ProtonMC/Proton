@@ -10,7 +10,8 @@
     "client.entities.LlamaRendererMixin",
     "client.entities.RabbitRendererMixin",
     "tweaks.FarmlandMixin",
-    "world.DefaultBiomeFeaturesMixin"
+    "world.DefaultBiomeFeaturesMixin",
+    "tweaks.LivingEntityMixin"
   ],
   "client": [
     "client.TitleScreenMixin",

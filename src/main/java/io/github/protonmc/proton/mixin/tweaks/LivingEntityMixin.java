@@ -1,8 +1,7 @@
-package io.github.protonmc.proton.mixin;
+package io.github.protonmc.proton.mixin.tweaks;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.base.module.ModuleManager;
-import io.github.protonmc.proton.module.tweaks.FeatherFallingFarmland;
 import io.github.protonmc.proton.module.tweaks.TiltToDamage;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
