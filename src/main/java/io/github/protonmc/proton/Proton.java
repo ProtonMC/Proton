@@ -13,9 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Proton implements ModInitializer {
-
     public static Proton INSTANCE;
-
     public static final Logger LOGGER = LogManager.getLogger("Proton");
     public static final String MOD_ID = "proton";
 

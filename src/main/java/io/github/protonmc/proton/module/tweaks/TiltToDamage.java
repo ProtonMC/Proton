@@ -23,8 +23,9 @@ public class TiltToDamage extends ProtonModule {
     }
 
     public static void handlePacket(PacketContext context, PacketByteBuf buf) {
+        float newKnockbackVelocity = buf.readFloat();
         context.getTaskQueue().execute(() -> {
-            context.getPlayer().knockbackVelocity = buf.readFloat();
+            context.getPlayer().knockbackVelocity = newKnockbackVelocity;
         });
     }
 

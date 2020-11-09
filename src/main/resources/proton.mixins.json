@@ -4,11 +4,13 @@
   "package": "io.github.protonmc.proton.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "LivingEntityMixin",
     "abstractblock.AbstractBlockSettingsAccessorMixin",
     "abstractblock.AbstractBlockSettingsMixin",
     "client.entities.ChickenRendererMixin",
     "client.entities.LlamaRendererMixin",
     "client.entities.RabbitRendererMixin",
+    "tweaks.CrashReportMixin",
     "tweaks.FarmlandMixin",
     "world.DefaultBiomeFeaturesMixin",
     "tweaks.LivingEntityMixin"
