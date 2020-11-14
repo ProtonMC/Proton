@@ -11,7 +11,8 @@
     "client.entities.RabbitRendererMixin",
     "tweaks.CrashReportMixin",
     "tweaks.FarmlandMixin",
-    "world.DefaultBiomeFeaturesMixin"
+    "world.DefaultBiomeFeaturesMixin",
+    "tweaks.LivingEntityMixin"
   ],
   "client": [
     "client.TitleScreenMixin",
