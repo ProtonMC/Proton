@@ -1,5 +1,6 @@
 package io.github.protonmc.proton.mixin.client;
 
+import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.annotation.FromModule;
 import io.github.protonmc.proton.base.module.ModuleManager;
 import io.github.protonmc.proton.module.client.AdvancementScreenshot;
@@ -30,6 +31,7 @@ public abstract class PlayerAdvancementTrackerMixin {
                     text -> {
                     }
                                           );
+            Proton.LOGGER.debug("Screenshot taken");
         }
     }
 }
