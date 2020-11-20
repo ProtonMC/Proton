@@ -5,6 +5,14 @@ import io.github.protonmc.proton.base.annotation.DisabledByDefault;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.tiny_config.Configurable;
 
+/**
+ * <p>
+ * This module allows you to choose custom crash comments (the comments that start with {@code //} in crash reports)
+ * </p>
+ *
+ * @author YTG123
+ * @see io.github.protonmc.proton.mixin.tweaks.CrashReportMixin
+ */
 @DisabledByDefault
 public class CustomCrashComments extends ProtonModule {
     @Configurable
@@ -15,9 +23,6 @@ public class CustomCrashComments extends ProtonModule {
     @Configurable
     public static boolean replace = true;
 
-    /**
-     * Reads config, sets up fields and constructs a ProtonModule.
-     */
     public CustomCrashComments() {
         super(Proton.identifier("custom_crash_comments"));
     }
