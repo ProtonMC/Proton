@@ -18,7 +18,8 @@
     "client.TitleScreenMixin",
     "client.entities.CowRendererMixin",
     "client.entities.LivingEntityRendererMixin",
-    "client.entities.PigRendererMixin"
+    "client.entities.PigRendererMixin",
+    "client.PlayerAdvancementTrackerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
