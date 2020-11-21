@@ -50,7 +50,7 @@ jobs:
       - name: Build
         run: ./gradlew build
       - name: Upload artifacts
-        uses: actions/upload-artifct@v2
+        uses: actions/upload-artifact@v2
         with:
           name: Artifacts
           path: build/libs
