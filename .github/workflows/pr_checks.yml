@@ -22,12 +22,6 @@ jobs:
           path: ./.gradle/loom-cache
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }} # I do this because I don't want each check to take too much time
           restore-keys: ${{ runner.os }}-gradle
-      - name: Cache Other Packages
-          uses: actions/cache@v2
-          with:
-            path: ~/.gradle
-            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }} # I do this because I don't want each check to take too much time
-            restore-keys: ${{ runner.os }}-gradle
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Run checkstyle
@@ -49,12 +43,6 @@ jobs:
           uses: actions/cache@v2
           with:
             path: ./.gradle/loom-cache
-            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }} # I do this because I don't want each check to take too much time
-            restore-keys: ${{ runner.os }}-gradle
-      - name: Cache Other Packages
-          uses: actions/cache@v2
-          with:
-            path: ~/.gradle
             key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }} # I do this because I don't want each check to take too much time
             restore-keys: ${{ runner.os }}-gradle
       - name: Grant execute permission for gradlew
