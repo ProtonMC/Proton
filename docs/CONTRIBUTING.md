@@ -13,7 +13,8 @@ So you want to contribute to Proton? No problem! This guide will tell you how!
 ### Naming Conventions
 * For `static final` fields (constants) - use `SCREAMING_SNAKE_CASE`.
 * For classes, use `PascalCase` (aka `UpperCamelCase`).
-* Use `snake_case` in `Identifier`s because that's what Minecraft does.
+* Use `snake_case` in `Identifier`s because Minecraft will crash otherwise.
+* Use `allowercase` in package names. For example: `io.github.protonmc.proton.mixin.building.mymodulename`.
 * For anything else, use `camelCase`.
 
 ## Creating a new module
