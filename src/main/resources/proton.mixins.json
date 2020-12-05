@@ -6,20 +6,28 @@
   "mixins": [
     "abstractblock.AbstractBlockSettingsAccessorMixin",
     "abstractblock.AbstractBlockSettingsMixin",
-    "client.entities.ChickenRendererMixin",
-    "client.entities.LlamaRendererMixin",
-    "client.entities.RabbitRendererMixin",
     "tweaks.CrashReportMixin",
     "tweaks.FarmlandMixin",
+    "tweaks.LivingEntityMixin",
     "world.DefaultBiomeFeaturesMixin",
-    "tweaks.LivingEntityMixin"
+    "world.access.SimpleRegistryAccess"
   ],
   "client": [
+    "client.MinecraftClientMixin",
     "client.TitleScreenMixin",
+    "client.access.MinecraftClientAccess",
+    "client.entities.ChickenRendererMixin",
     "client.entities.CowRendererMixin",
     "client.entities.LivingEntityRendererMixin",
     "client.entities.PigRendererMixin",
     "client.PlayerAdvancementTrackerMixin"
+    "client.entities.LlamaRendererMixin",
+    "client.entities.PigRendererMixin",
+    "client.entities.RabbitRendererMixin"
+  ],
+  "server": [
+    "dedicatedserver.MinecraftServerMixin",
+    "dedicatedserver.access.MinecraftServerAccess"
   ],
   "injectors": {
     "defaultRequire": 1
