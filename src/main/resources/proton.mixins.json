@@ -19,6 +19,8 @@
     "client.entities.ChickenRendererMixin",
     "client.entities.CowRendererMixin",
     "client.entities.LivingEntityRendererMixin",
+    "client.entities.PigRendererMixin",
+    "client.PlayerAdvancementTrackerMixin"
     "client.entities.LlamaRendererMixin",
     "client.entities.PigRendererMixin",
     "client.entities.RabbitRendererMixin"
