@@ -30,6 +30,9 @@
     ],
     "preLaunch": [
       "io.github.protonmc.proton.ProtonPreLaunch"
+    ],
+    "server": [
+      "io.github.protonmc.proton.base.dedicatedserver.ProtonDedicatedServer"
     ]
   },
   "mixins": [
