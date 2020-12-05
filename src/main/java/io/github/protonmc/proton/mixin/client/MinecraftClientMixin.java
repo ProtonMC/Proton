@@ -20,7 +20,7 @@ public abstract class MinecraftClientMixin {
     @FromModule(ProtonModule.class)
     @Inject(method = "stop()V", at = @At("HEAD"))
     private void printEndLine(CallbackInfo ci) {
-        LOGGER.info("\n" +
+        LOGGER.trace("\n" +
                     " __  __ _        _    _      __                                    _   \n" +
                     "|  \\/  (_)___ __| |_ (_)___ / _|  _ __  __ _ _ _  __ _ __ _ ___ __| |  \n" +
                     "| |\\/| | (_-</ _| ' \\| / -_)  _| | '  \\/ _` | ' \\/ _` / _` / -_) _` |_ \n" +

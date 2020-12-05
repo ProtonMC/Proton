@@ -9,7 +9,7 @@ import net.fabricmc.api.Environment;
 public class ProtonDedicatedServer implements DedicatedServerModInitializer {
     static {
         MinecraftServerAccess.getLogger()
-                             .info("\n" +
+                             .trace("\n" +
                                    " ___            _                _                                 _   _         _     ___ \n" +
                                    "|_ _|   ___ ___| |___ _ __  _ _ | |_  _   ____ __ _____ __ _ _ _  | |_| |_  __ _| |_  |_ _|\n" +
                                    " | |   (_-</ _ \\ / -_) '  \\| ' \\| | || | (_-< V  V / -_) _` | '_| |  _| ' \\/ _` |  _|  | | \n" +

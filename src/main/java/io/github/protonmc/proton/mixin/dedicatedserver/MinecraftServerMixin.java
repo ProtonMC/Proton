@@ -27,7 +27,7 @@ public abstract class MinecraftServerMixin {
     @Inject(method = "stop(Z)V", at = @At("HEAD"))
     @FromModule(ProtonModule.class)
     private void printEndLine(boolean bl, CallbackInfo ci) {
-        LOGGER.info("\n" +
+        LOGGER.trace("\n" +
                     " __  __ _        _    _      __                                    _   \n" +
                     "|  \\/  (_)___ __| |_ (_)___ / _|  _ __  __ _ _ _  __ _ __ _ ___ __| |  \n" +
                     "| |\\/| | (_-</ _| ' \\| / -_)  _| | '  \\/ _` | ' \\/ _` / _` / -_) _` |_ \n" +
