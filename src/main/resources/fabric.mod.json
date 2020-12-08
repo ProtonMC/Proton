@@ -52,7 +52,5 @@
   },
   "recommends": {
     "modmenu": "*"
-  },
-
-  "accessWidener": "proton.accessWidener"
+  }
 }

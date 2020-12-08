@@ -50,7 +50,7 @@ public class ProtonClient implements ClientModInitializer {
             doWeNeedJingleBells = true;
         }
 
-        Proton.LOGGER.log(Level.INFO, "Setting up clientside modules...");
+        Proton.LOGGER.info("Setting up clientside modules...");
         ModuleManager.getInstance().setupClientModules();
         ResourceHandler.registerAssets();
     }

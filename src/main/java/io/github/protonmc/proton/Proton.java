@@ -29,10 +29,10 @@ public class Proton implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.log(Level.INFO, "Setting up modules...");
+        LOGGER.info("Setting up modules...");
         ModuleManager.getInstance().setupCommonModules();
         DataHandler.registerData();
-        LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
+        LOGGER.info("Finished Setting Up Modules.");
 
         ServerLifecycleEvents.SERVER_STARTING.register(new ProtonServer());
 
