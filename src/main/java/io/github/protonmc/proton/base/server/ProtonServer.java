@@ -18,8 +18,8 @@ public class ProtonServer implements ServerLifecycleEvents.ServerStarting {
      */
     @Override
     public void onServerStarting(MinecraftServer server) {
-        Proton.LOGGER.log(Level.INFO, "Setting Up Server-Side Modules...");
+        Proton.LOGGER.info("Setting Up Server-Side Modules...");
         ModuleManager.getInstance().setupServerModules(server);
-        Proton.LOGGER.log(Level.INFO, "Finished Setting Up Server-Side Modules.");
+        Proton.LOGGER.info("Finished Setting Up Server-Side Modules.");
     }
 }

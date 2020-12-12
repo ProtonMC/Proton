@@ -1,5 +1,6 @@
 package io.github.protonmc.proton.module.building.common.block.compressed_items;
 
+import io.github.protonmc.proton.mixin.building.access.BlocksAccessor;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -17,6 +18,6 @@ public class CompressedNetherStarBlock extends Block {
                                  .breakByTool(FabricToolTags.PICKAXES, 2)
                                  .strength(6.2F, 1200.0F)
                                  .nonOpaque()
-                                 .blockVision(Blocks::never));
+                                 .blockVision(BlocksAccessor::invokeNever));
     }
 }

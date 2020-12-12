@@ -14,7 +14,7 @@ public class BluestIceBlock extends Block {
         super(FabricBlockSettings.copyOf(Blocks.BLUE_ICE)
                                  .slipperiness((float) CompressedItemsModule.bluestIceSlipperiness)
                                  .breakByTool(FabricToolTags.PICKAXES)
-                                 .lightLevel(CompressedItemsModule.bluestIceLuminance)
+                                 .luminance(CompressedItemsModule.bluestIceLuminance)
                                  .emissiveLighting((state, world, pos) -> state.getLuminance() > 0));
     }
 
