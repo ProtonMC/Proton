@@ -59,7 +59,7 @@ public class CompressedItemsModule extends ProtonModule {
     @Override
     public void commonInit() {
         if (!enabled) return;
-        Proton.LOGGER.log(Level.INFO, "Initializing Compressed Item module!");
+        Proton.LOGGER.info("Initializing Compressed Item module!");
         ModuleBlocks.register();
         ModuleItems.register();
     }

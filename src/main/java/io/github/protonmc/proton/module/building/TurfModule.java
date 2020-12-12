@@ -69,5 +69,14 @@ public class TurfModule extends ProtonModule {
     public void registerData(DataHandler dataHandler) {
         dataHandler.generateSimpleBlockLoot("turf");
         dataHandler.generateSimpleBlockLoot("turf_stairs");
+
+        // Generate recipes
+        dataHandler.pack.addShapedRecipe(identifier("turf"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("##", "##");
+            shapedRecipeBuilder.ingredientItem("#".charAt(0), new Identifier("minecraft:grass_block"));
+            shapedRecipeBuilder.result(identifier("turf"), 4);
+        });
+        dataHandler.generateSimpleStairsRecipe("turf", true);
+        dataHandler.generateSimpleSlabRecipe("turf", true);
     }
 }

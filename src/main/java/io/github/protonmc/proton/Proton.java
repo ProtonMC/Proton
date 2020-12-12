@@ -13,9 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Proton implements ModInitializer {
-
     public static Proton INSTANCE;
-
     public static final Logger LOGGER = LogManager.getLogger("Proton");
     public static final String MOD_ID = "proton";
 
@@ -31,10 +29,10 @@ public class Proton implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.log(Level.INFO, "Setting up modules...");
+        LOGGER.info("Setting up modules...");
         ModuleManager.getInstance().setupCommonModules();
         DataHandler.registerData();
-        LOGGER.log(Level.INFO, "Finished Setting Up Modules.");
+        LOGGER.info("Finished Setting Up Modules.");
 
         ServerLifecycleEvents.SERVER_STARTING.register(new ProtonServer());
 

@@ -26,6 +26,7 @@ bin/
 
 # fabric
 run/
+runServer/
 
 # macOS crap
 .*_*

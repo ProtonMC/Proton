@@ -40,6 +40,7 @@ public class PButton extends ButtonWidget {
      * @see ButtonWidget#renderButton(MatrixStack, int, int, float)
      */
     @Override
+    @SuppressWarnings("deprecation")
     public void renderButton(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         MinecraftClient client = MinecraftClient.getInstance();
         client.getTextureManager().bindTexture(WIDGETS_LOCATION);

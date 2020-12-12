@@ -45,6 +45,40 @@ public class DataHandler {
         });
     }
 
+    public void generateSimpleStairsRecipe(String base, boolean revert_recipe) {
+        pack.addShapedRecipe(identifier(base + "_stairs"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("#  ", "## ", "###");
+            shapedRecipeBuilder.ingredientItem("#".charAt(0), identifier(base));
+            // 6 because why the hell would 6 of base turn into 4 stairs
+            shapedRecipeBuilder.result(identifier(base + "_stairs"), 6);
+        });
+
+        // One stair turns back into one normal block
+        if (revert_recipe) {
+            pack.addShapedRecipe(identifier(base + "_stairs_revert"), shapedRecipeBuilder -> {
+                shapedRecipeBuilder.pattern("#");
+                shapedRecipeBuilder.ingredientItem('#', identifier(base + "_stairs"));
+                shapedRecipeBuilder.result(identifier(base), 1);
+            });
+        }
+    }
+
+    public void generateSimpleSlabRecipe(String base, boolean revert_recipe) {
+        pack.addShapedRecipe(identifier(base + "_slab"), shapedRecipeBuilder -> {
+            shapedRecipeBuilder.pattern("###");
+            shapedRecipeBuilder.ingredientItem("#".charAt(0), identifier(base));
+            shapedRecipeBuilder.result(identifier(base + "_slab"), 6);
+        });
+
+        if (revert_recipe) {
+            pack.addShapedRecipe(identifier(base + "_slab_revert"), shapedRecipeBuilder -> {
+                shapedRecipeBuilder.pattern("#", "#");
+                shapedRecipeBuilder.ingredientItem('#', identifier(base + "_slab"));
+                shapedRecipeBuilder.result(identifier(base), 1);
+            });
+        }
+    }
+
     /**
      * Generates a simple block loot table for a given block path.
      *

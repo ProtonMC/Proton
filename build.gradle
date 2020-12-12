@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 	id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id "checkstyle"
 }
 
 repositories {
@@ -13,23 +14,23 @@ repositories {
 	jcenter()
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+// Not needed, see line 114
+/*
+* sourceCompatibility = JavaVersion.VERSION_1_8
+* targetCompatibility = JavaVersion.VERSION_1_8
+*/
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
 tasks.remapJar.dependsOn(shadowJar)
+// /* tasks.jar.dependsOn(check) */ Reserved for future use
 (tasks.remapJar.input as FileSystemLocationProperty<? extends FileSystemLocation>).set(shadowJar.archivePath)
 
 shadowJar {
 	relocate 'io.github.classgraph', 'proton.shaded.io.github.classgraph'
 	relocate 'nonapi.io.github.classgraph', 'proton.shaded.nonapi.io.github.classgraph'
-}
-
-minecraft {
-	accessWidener "src/main/resources/proton.accessWidener"
 }
 
 dependencies {
@@ -73,6 +74,14 @@ dependencies {
     // Generating Json at runtime
 	modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
 	include "com.lettuce.fudge:artifice:${project.artifice_version}"
+
+    // Jitpack is temporary
+    checkstyle("com.github.ProtonMC:proton-checkstyle-checks:v${project.proton_checkstyle_checks_version}")
+}
+
+checkstyle {
+    toolVersion = "${project.checkstyle_version}"
+    config = rootProject.resources.text.fromFile("config/checkstyle/checkstyle.xml")
 }
 
 processResources {
@@ -93,6 +102,19 @@ processResources {
 // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
 tasks.withType(JavaCompile) {
 	options.encoding = "UTF-8"
+}
+
+// Ensure that compiling with newer Java versions still warns/fails when using classes
+// or methods only present in versions newer than 8, so we can safely compile with Java 11
+// or 15
+tasks.withType(JavaCompile).configureEach {
+    def targetVersion = 8
+    if (JavaVersion.current().isJava9Compatible()) {
+        it.options.release = targetVersion
+    } else {
+        sourceCompatibility = JavaVersion.toVersion(targetVersion)
+        targetCompatibility = JavaVersion.toVersion(targetVersion)
+    }
 }
 
 // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task

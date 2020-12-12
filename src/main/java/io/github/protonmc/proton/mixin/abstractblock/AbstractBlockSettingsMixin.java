@@ -1,5 +1,7 @@
 package io.github.protonmc.proton.mixin.abstractblock;
 
+import io.github.protonmc.proton.base.annotation.FromModule;
+import io.github.protonmc.proton.base.module.ProtonModule;
 import net.fabricmc.fabric.mixin.object.builder.AbstractBlockAccessor;
 import net.minecraft.block.AbstractBlock;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,6 +27,7 @@ public class AbstractBlockSettingsMixin {
     @Inject(at = @At("RETURN"),
             method = "copy(Lnet/minecraft/block/AbstractBlock;)Lnet/minecraft/block/AbstractBlock$Settings;",
             locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @FromModule(ProtonModule.class)
     private static void copy(AbstractBlock block, CallbackInfoReturnable<AbstractBlock.Settings> cir, AbstractBlock.Settings settings) {
         AbstractBlockSettingsAccessorMixin parentSettings = (AbstractBlockSettingsAccessorMixin) ((AbstractBlockAccessor) block).getSettings();
         AbstractBlockSettingsAccessorMixin childSettings = (AbstractBlockSettingsAccessorMixin) settings;

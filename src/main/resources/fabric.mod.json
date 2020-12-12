@@ -30,6 +30,9 @@
     ],
     "preLaunch": [
       "io.github.protonmc.proton.ProtonPreLaunch"
+    ],
+    "server": [
+      "io.github.protonmc.proton.base.dedicatedserver.ProtonDedicatedServer"
     ]
   },
   "mixins": [
@@ -38,7 +41,7 @@
 
   "depends": {
     "fabricloader": ">=0.7.4",
-    "fabric": "*",
+    "fabric": ">=0.28.0",
     "minecraft": "1.16.x"
   },
   "suggests": {
@@ -49,7 +52,5 @@
   },
   "recommends": {
     "modmenu": "*"
-  },
-
-  "accessWidener": "proton.accessWidener"
+  }
 }

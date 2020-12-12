@@ -8,7 +8,7 @@ public class ProtonPreLaunch implements PreLaunchEntrypoint {
 
     @Override
     public void onPreLaunch() {
-        Proton.LOGGER.log(Level.INFO, "Loading the config...");
+        Proton.LOGGER.info("Loading the config...");
         try {
             Proton.CONFIG.load();
         } catch (Throwable t) {

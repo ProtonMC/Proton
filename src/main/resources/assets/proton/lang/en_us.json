@@ -126,5 +126,8 @@
   "proton.module.proton.variantanimaltextures.prideBeeChance": "Pride Bee Chance",
   "proton.module.proton.variantanimaltextures.shinyAnimalChance": "Shiny Animal Chance",
   "proton.module.temp.tempid": "Tempid",
-  "proton.module.temp.tempid.enabled": "Enabled"
+  "proton.module.temp.tempid.enabled": "Enabled",
+  "proton.module.proton.custom_crash_comments": "Custom Crash Comments",
+  "proton.module.proton.custom_crash_comments.enabled": "Enabled",
+  "proton.module.proton.custom_crash_comments.replace": "Replace Existing Messages"
 }
