@@ -11,8 +11,12 @@ import io.github.protonmc.proton.module.building.common.block.compressed_items.C
 import io.github.protonmc.proton.module.building.common.block.compressed_items.CompressedNetherStarBlock;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
 import io.github.protonmc.tiny_config.Configurable;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -62,6 +66,12 @@ public class CompressedItemsModule extends ProtonModule {
         Proton.LOGGER.info("Initializing Compressed Item module!");
         ModuleBlocks.register();
         ModuleItems.register();
+    }
+
+    @Override
+    @Environment(EnvType.CLIENT)
+    public void clientInit() {
+        BlockRenderLayerMap.INSTANCE.putBlock(ModuleBlocks.COMPRESSED_NETHER_STAR, RenderLayer.getCutout());
     }
 
     /**
