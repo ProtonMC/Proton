@@ -6,6 +6,9 @@ plugins {
 }
 
 repositories {
+    maven {
+        setUrl("https://nexus.dyonb.nl/repository/proton")
+    }
 	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 	maven {
 		name = "Jitpack"
@@ -60,8 +63,9 @@ dependencies {
 	include "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
 
     // Configuration API
-	implementation("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
-	include("com.github.ProtonMC:tiny_config:master-SNAPSHOT")
+	implementation("io.github.protonmc:tiny-config:1.0.1")
+	include("io.github.protonmc:tiny-config:1.0.1") // irritater
+    // https://nexus.dyonb.nl/repository/proton/io/github/protonmc/tiny-config/1.0.1/tiny-config-1.0.1.pom
 
     // Config screen
 	modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
@@ -108,7 +112,7 @@ tasks.withType(JavaCompile) {
 // or methods only present in versions newer than 8, so we can safely compile with Java 11
 // or 15
 tasks.withType(JavaCompile).configureEach {
-    def targetVersion = 8
+    def targetVersion = 11
     if (JavaVersion.current().isJava9Compatible()) {
         it.options.release = targetVersion
     } else {
