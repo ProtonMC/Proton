@@ -56,6 +56,7 @@ public class ProtonConfig implements ConfigData {
     }
 
     public static class Building {
+
         public static boolean bambooMat = true;
 
         public static boolean cobblestoneBricks = true;
@@ -64,10 +65,12 @@ public class ProtonConfig implements ConfigData {
         CompressedItems compressedItems = new CompressedItems();
 
         public static class CompressedItems {
+
             public static boolean enabled = true;
             public static double bluerIceSlipperiness = 0.9998;
             public static double bluestIceSlipperiness = 1.1;
             public static int bluestIceLuminance = 3;
+
         }
 
         public static boolean magmaBrick = true;
@@ -81,9 +84,11 @@ public class ProtonConfig implements ConfigData {
 
             public static boolean enabled = true;
             public static double fallDamageMultiplier = 0.5;
+
         }
 
         public static boolean turf = true;
+
     }
 
     public static class Client {
@@ -94,6 +99,7 @@ public class ProtonConfig implements ConfigData {
         VariantAnimalTextures variantAnimalTextures = new VariantAnimalTextures();
 
         public static class VariantAnimalTextures {
+
             public static boolean enabled = true;
             public static boolean enableCow = true;
             public static boolean enablePig = true;
@@ -102,17 +108,20 @@ public class ProtonConfig implements ConfigData {
             public static boolean enableShinyLlama = true;
             public static double prideBeeChance = .1;
             public static int shinyAnimalChance = 2048;
+
         }
     }
 
     public static class Decoration {
 
         public static boolean tater = false;
+
     }
 
     public static class Experimental {
 
         public static boolean testModule = true;
+
     }
 
     public static class Management {
@@ -156,6 +165,7 @@ public class ProtonConfig implements ConfigData {
 
         public static boolean featherFallingFarmland = true;
         public static boolean tiltToDamage = true;
+
     }
 
     public static class World {
