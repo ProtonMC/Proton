@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
@@ -27,7 +28,7 @@ public class MagmaBrickModule extends ProtonModule {
      */
     @Override
     public void commonInit() {
-        if (!this.enabled) {
+        if (!ProtonConfig.Building.magmaBrick) {
             return;
         }
 

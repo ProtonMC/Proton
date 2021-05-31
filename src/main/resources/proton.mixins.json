@@ -15,7 +15,6 @@
     ],
     "client": [
         "client.MinecraftClientMixin",
-        "client.TitleScreenMixin",
         "client.access.MinecraftClientAccess",
         "client.entities.ChickenRendererMixin",
         "client.entities.CowRendererMixin",

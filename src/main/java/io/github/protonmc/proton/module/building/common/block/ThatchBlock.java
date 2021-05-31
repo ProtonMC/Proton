@@ -1,6 +1,6 @@
 package io.github.protonmc.proton.module.building.common.block;
 
-import io.github.protonmc.proton.module.building.ThatchModule;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -27,6 +27,6 @@ public class ThatchBlock extends Block {
      */
     @Override
     public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
-        entity.handleFallDamage(distance, (float) ThatchModule.fallDamageMultiplier);
+        entity.handleFallDamage(distance, (float) ProtonConfig.Building.Thatch.fallDamageMultiplier);
     }
 }

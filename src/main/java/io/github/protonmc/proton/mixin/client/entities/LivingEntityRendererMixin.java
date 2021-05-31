@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.module.client.AngryCreepersModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -56,7 +56,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
             int i,
             CallbackInfo ci
                                ) {
-        if (ModuleManager.getInstance().isModuleEnabled(AngryCreepersModule.class)) {
+        if (ProtonConfig.Client.angryCreepers) {
             if (livingEntity instanceof CreeperEntity) {
                 creeperColor = 1.0F - (((CreeperEntity) livingEntity).getClientFuseTime(g) / 1.0714285F);
             } else {

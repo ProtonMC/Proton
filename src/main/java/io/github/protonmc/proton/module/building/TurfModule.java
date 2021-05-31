@@ -2,6 +2,7 @@ package io.github.protonmc.proton.module.building;
 
 import com.google.common.collect.ImmutableSet;
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
@@ -29,7 +30,7 @@ public class TurfModule extends ProtonModule {
 
     @Override
     public void commonInit() {
-        if (!this.enabled) { return; }
+        if (!ProtonConfig.Building.turf) { return; }
 
         turfBlock = new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK));
         ProtonRegisterHandler.block("turf", turfBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
@@ -38,7 +39,7 @@ public class TurfModule extends ProtonModule {
 
     @Override
     public void clientInit() {
-        if (!this.enabled) { return; }
+        if (!ProtonConfig.Building.turf) { return; }
 
         Block turf_slab = Registry.BLOCK.get(new Identifier(Registry.BLOCK.getId(turfBlock).toString() + "_slab"));
         Block turf_stairs = Registry.BLOCK.get(new Identifier(Registry.BLOCK.getId(turfBlock).toString() + "_stairs"));

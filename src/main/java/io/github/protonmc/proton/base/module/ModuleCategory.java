@@ -32,10 +32,7 @@ public enum ModuleCategory {
      * Category ID, used in translation.
      */
     public final Identifier id;
-    /**
-     * Whether to show this category in the {@linkplain io.github.protonmc.proton.base.client.screen.ConfigScreenProvider Proton Config Screen}.
-     */
-    public final boolean showInGui;
+
     /**
      * A {@link List} of all modules owned by the category.
      */
@@ -49,7 +46,6 @@ public enum ModuleCategory {
      */
     ModuleCategory(Identifier id) {
         this.id = id;
-        this.showInGui = true;
         this.enabled = true;
     }
 

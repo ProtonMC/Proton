@@ -1,8 +1,8 @@
 package io.github.protonmc.proton.module.tweaks;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.module.ProtonModule;
-import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,11 +11,10 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
+import static io.github.protonmc.proton.base.config.ProtonConfig.Tweaks.CampfiresBoostElytra.boostStrength;
+import static io.github.protonmc.proton.base.config.ProtonConfig.Tweaks.CampfiresBoostElytra.maxSpeed;
+
 public class CampfiresBoostElytra extends ProtonModule {
-    @Configurable
-    public static double boostStrength = 0.5;
-    @Configurable
-    public static double maxSpeed = 1;
 
     public CampfiresBoostElytra() {
         super(Proton.identifier("campfires_boost_elytra"));
@@ -24,7 +23,7 @@ public class CampfiresBoostElytra extends ProtonModule {
     @Override
     public void clientInit() {
         ClientTickEvents.END_WORLD_TICK.register((t) -> {
-            if (!enabled) return;
+            if (!ProtonConfig.Tweaks.CampfiresBoostElytra.enabled) return;
             for (AbstractClientPlayerEntity ply : t.getPlayers()) {
                 if (ply.isFallFlying()) {
                     Vec3d vel = ply.getVelocity();

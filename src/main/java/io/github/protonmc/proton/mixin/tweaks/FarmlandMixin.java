@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.tweaks;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.module.tweaks.FeatherFallingFarmland;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -22,7 +22,7 @@ public class FarmlandMixin {
     @FromModule(FeatherFallingFarmland.class)
     @Inject(method = "onLandedUpon", at = @At("HEAD"), cancellable = true)
     public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance, CallbackInfo ci) {
-        if (ModuleManager.getInstance().isModuleEnabled(FeatherFallingFarmland.class)) {
+        if (ProtonConfig.Tweaks.featherFallingFarmland) {
             AtomicBoolean hasFeatherFalling = new AtomicBoolean(false);
             entity.getArmorItems().forEach(itemStack -> {
                 if (!hasFeatherFalling.get()) {

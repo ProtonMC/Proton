@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.experimental;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import net.minecraft.util.Identifier;
 
@@ -24,7 +25,7 @@ public class TempTestModule extends ProtonModule {
     @Override
     public void commonInit() {
         Proton.LOGGER.info("Hello from Test ProtonModule common init!");
-        if (enabled)
+        if (ProtonConfig.Experimental.testModule)
             Proton.LOGGER.info("im enable");
         else
             Proton.LOGGER.info("im disable");

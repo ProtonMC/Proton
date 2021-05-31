@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -29,11 +29,11 @@ public class PigRendererMixin {
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/PigEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(PigEntity pigEntity, CallbackInfoReturnable<Identifier> cir) {
-        if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)) {
+        if (ProtonConfig.Client.VariantAnimalTextures.enabled) {
             cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(
                     pigEntity,
                     VariantAnimalTexturesModule.VariantTextureType.PIG,
-                    VariantAnimalTexturesModule.enablePig
+                    ProtonConfig.Client.VariantAnimalTextures.enablePig
                                                                             ));
         }
     }

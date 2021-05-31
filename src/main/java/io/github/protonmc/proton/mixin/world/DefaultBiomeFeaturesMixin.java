@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.world;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.module.world.ClayModule;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.gen.GenerationStep;
@@ -26,7 +26,7 @@ public class DefaultBiomeFeaturesMixin {
     @Inject(method = "addMineables(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V", at = @At("HEAD"))
     @FromModule(ClayModule.class)
     private static void addMineables(GenerationSettings.Builder builder, CallbackInfo ci) {
-        if (!ModuleManager.getInstance().isModuleEnabled(ClayModule.class)) {
+        if (!ProtonConfig.World.ClayInOverworld.enabled) {
             return;
         }
 

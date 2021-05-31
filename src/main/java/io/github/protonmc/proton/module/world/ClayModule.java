@@ -1,10 +1,9 @@
 package io.github.protonmc.proton.module.world;
 
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.mixin.world.access.SimpleRegistryAccess;
-import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
@@ -19,18 +18,15 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class ClayModule extends ProtonModule {
 
-    @Configurable public static int vein_size = 15;
-    @Configurable public static int veins_per_chunk = 10;
-    @Configurable public static int max_y_level = 256;
-
     public ClayModule() {
         super(Proton.identifier("clay"));
     }
 
     public static ConfiguredFeature<?, ?> ORE_CLAY_OVERWORLD;
 
+    @SuppressWarnings("unchecked")
     public static void mixinInit() {
-        boolean enabled = ModuleManager.getInstance().isModuleEnabled(ClayModule.class);
+        boolean enabled = ProtonConfig.World.ClayInOverworld.enabled;
         if (!FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) {
             if (BuiltinRegistries.CONFIGURED_FEATURE instanceof SimpleRegistry) {
                 // Used because containsId is client-only, if you have a better solution do it.
@@ -44,13 +40,13 @@ public class ClayModule extends ProtonModule {
                 .configure(new OreFeatureConfig(
                         OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                         Blocks.CLAY.getDefaultState(),
-                        vein_size)) // vein size
+                        ProtonConfig.World.ClayInOverworld.vein_size)) // vein size
                 .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
                         0, // bottom offset
                         0, // min y level
-                        max_y_level))) // max y level
+                        ProtonConfig.World.ClayInOverworld.max_y_level))) // max y level
                 .spreadHorizontally()
-                .repeat(veins_per_chunk); // number of veins per chunk
+                .repeat(ProtonConfig.World.ClayInOverworld.veins_per_chunk); // number of veins per chunk
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, Proton.identifier("ore_clay_overworld"), ORE_CLAY_OVERWORLD);
     }

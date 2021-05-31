@@ -3,7 +3,7 @@ package io.github.protonmc.proton.module.client;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;
 import io.github.protonmc.proton.Proton;
-import io.github.protonmc.tiny_config.Configurable;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
@@ -16,22 +16,6 @@ public class VariantAnimalTexturesModule extends ProtonModule {
     private static final int COW_COUNT = 4;
     private static final int PIG_COUNT = 3;
     private static final int CHICKEN_COUNT = 6;
-
-    @Configurable
-    public static boolean enableCow = true;
-    @Configurable
-    public static boolean enablePig = true;
-    @Configurable
-    public static boolean enableChicken = true;
-    @Configurable
-    public static boolean enableShinyRabbit = true;
-    @Configurable
-    public static boolean enableShinyLlama = true;
-    @Configurable
-    public static double prideBeeChance = .1;
-
-    @Configurable
-    public static int shinyAnimalChance = 2048;
 
     private static final ListMultimap<VariantTextureType, Identifier> textures = Multimaps.newListMultimap(new EnumMap<>(VariantTextureType.class), ArrayList::new);
 
@@ -68,7 +52,7 @@ public class VariantAnimalTexturesModule extends ProtonModule {
     public static Identifier getTextureOrShiny(Entity e, VariantTextureType type, Supplier<Identifier> nonShiny) {
         UUID id = e.getUuid();
         long most = id.getMostSignificantBits();
-        if(shinyAnimalChance > 0 && (most % shinyAnimalChance) == 0)
+        if(ProtonConfig.Client.VariantAnimalTextures.shinyAnimalChance > 0 && (most % ProtonConfig.Client.VariantAnimalTextures.shinyAnimalChance) == 0)
             return shinyTextures.get(type);
 
         return nonShiny.get();

@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
@@ -10,7 +11,6 @@ import io.github.protonmc.proton.module.building.common.block.compressed_items.B
 import io.github.protonmc.proton.module.building.common.block.compressed_items.CompressedDiamondBlock;
 import io.github.protonmc.proton.module.building.common.block.compressed_items.CompressedNetherStarBlock;
 import io.github.protonmc.proton.module.building.common.item.CompressedNetherStarItem;
-import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -20,7 +20,6 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.apache.logging.log4j.Level;
 
 /**
  * Module that adds compressed blocks for some items.
@@ -28,24 +27,6 @@ import org.apache.logging.log4j.Level;
  * @author YTG1234
  */
 public class CompressedItemsModule extends ProtonModule {
-    /**
-     * Determines the slipperiness value of the bluer ice block.
-     */
-    @Configurable
-    public static double bluerIceSlipperiness = 0.9998;
-
-    /**
-     * Determines the slipperiness value of the bluest ice block.
-     */
-    @Configurable
-    public static double bluestIceSlipperiness = 1.1;
-
-    /**
-     * Determines the luminance amount of the bluest ice block.
-     */
-    @Configurable
-    public static int bluestIceLuminance = 3;
-
     /**
      * Constructs a {@link CompressedItemsModule} object with the {@code "proton:compressed_items"} identifier.
      *
@@ -62,7 +43,7 @@ public class CompressedItemsModule extends ProtonModule {
      */
     @Override
     public void commonInit() {
-        if (!enabled) return;
+        if (!ProtonConfig.Building.CompressedItems.enabled) return;
         Proton.LOGGER.info("Initializing Compressed Item module!");
         ModuleBlocks.register();
         ModuleItems.register();

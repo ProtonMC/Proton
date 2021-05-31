@@ -1,13 +1,13 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.handler.DataHandler;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
 import io.github.protonmc.proton.base.module.ProtonModule;
 import io.github.protonmc.proton.module.building.common.block.ThatchBlock;
-import io.github.protonmc.tiny_config.Configurable;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.item.Item;
@@ -22,8 +22,6 @@ import static io.github.protonmc.proton.Proton.identifier;
  * @author kara-b
  */
 public class ThatchModule extends ProtonModule {
-    @Configurable
-    public static double fallDamageMultiplier = 0.5;
 
     public static ThatchBlock thatchBlock;
 
@@ -36,7 +34,7 @@ public class ThatchModule extends ProtonModule {
      */
     @Override
     public void commonInit() {
-        if (!this.enabled) {
+        if (!ProtonConfig.Building.Thatch.enabled) {
             return;
         }
 

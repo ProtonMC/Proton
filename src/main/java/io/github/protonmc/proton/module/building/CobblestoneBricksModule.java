@@ -1,6 +1,7 @@
 package io.github.protonmc.proton.module.building;
 
 import io.github.protonmc.proton.Proton;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
@@ -18,7 +19,7 @@ public class CobblestoneBricksModule extends ProtonModule {
 
     @Override
     public void commonInit() {
-        if (!this.enabled) {return;}
+        if (!ProtonConfig.Building.cobblestoneBricks) {return;}
         ModuleBlocks.register();
     }
 

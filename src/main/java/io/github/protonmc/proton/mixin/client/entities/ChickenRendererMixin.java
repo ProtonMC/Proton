@@ -1,7 +1,7 @@
 package io.github.protonmc.proton.mixin.client.entities;
 
 import io.github.protonmc.proton.base.annotation.FromModule;
-import io.github.protonmc.proton.base.module.ModuleManager;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.module.client.VariantAnimalTexturesModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -29,11 +29,11 @@ public class ChickenRendererMixin {
     @Inject(method = "getTexture(Lnet/minecraft/entity/passive/ChickenEntity;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
     @FromModule(VariantAnimalTexturesModule.class)
     public void getTexture(ChickenEntity chickenEntity, CallbackInfoReturnable<Identifier> cir) {
-        if (ModuleManager.getInstance().isModuleEnabled(VariantAnimalTexturesModule.class)) {
+        if (ProtonConfig.Client.VariantAnimalTextures.enabled) {
             cir.setReturnValue(VariantAnimalTexturesModule.getTextureOrShiny(
                     chickenEntity,
                     VariantAnimalTexturesModule.VariantTextureType.CHICKEN,
-                    VariantAnimalTexturesModule.enableChicken
+                    ProtonConfig.Client.VariantAnimalTextures.enableChicken
                                                                             ));
         }
     }

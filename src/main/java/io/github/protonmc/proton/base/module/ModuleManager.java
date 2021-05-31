@@ -117,17 +117,4 @@ public class ModuleManager {
     public Iterable<ProtonModule> getModules() {
         return modules.values();
     }
-
-    /**
-     * Checks if a module is enabled.
-     *
-     * @param moduleClass The module to check.
-     *
-     * @return If the module is enabled.
-     */
-    public boolean isModuleEnabled(Class<? extends ProtonModule> moduleClass) {
-        ProtonModule module = modules.get(moduleClass);
-        if (module != null) return module.enabled;
-        return false;
-    }
 }

@@ -3,6 +3,7 @@ package io.github.protonmc.proton.module.decoration;
 import com.google.common.collect.ImmutableSet;
 import io.github.protonmc.proton.Proton;
 import io.github.protonmc.proton.base.annotation.DisabledByDefault;
+import io.github.protonmc.proton.base.config.ProtonConfig;
 import io.github.protonmc.proton.base.handler.ProtonRegisterHandler;
 import io.github.protonmc.proton.base.handler.ResourceHandler;
 import io.github.protonmc.proton.base.handler.VariantHandler;
@@ -30,7 +31,7 @@ public class TaterModule extends ProtonModule {
 
     @Override
     public void commonInit() {
-        if (!this.enabled) {
+        if (!ProtonConfig.Decoration.tater) {
             return;
         }
 
